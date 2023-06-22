@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 1368105227}
   - component: {fileID: 1368105228}
   - component: {fileID: 1368105229}
+  - component: {fileID: 1368105230}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -324,6 +325,8 @@ MonoBehaviour:
   _decceleration: 16
   _velocityPower: 0.96
   _groundCheckerTransform: {fileID: 1705183868}
+  _playerCollider: {fileID: 1368105229}
+  dashPower: 40
 --- !u!50 &1368105228
 Rigidbody2D:
   serializedVersion: 4
@@ -386,6 +389,96 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &1368105230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368105222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f20177e725c6f6343ac64e6ed2f87644, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1368105227}
+        m_TargetAssemblyTypeName: CharacterController2D, Assembly-CSharp
+        m_MethodName: DashInvoker
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 750e0a55-5f3a-4b0f-a28f-1f107b5d5acb
+    m_ActionName: Player/Dash[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1368105227}
+        m_TargetAssemblyTypeName: CharacterController2D, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b77d57d0-8791-4378-9666-2f4c8b0bbc8f
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6262a48b-3322-4595-8332-87718882f6fa
+    m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0bdb51e-4f54-47ab-80d6-f3fb1bca3bdf
+    m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c6c9b9cc-ba32-4124-b852-c5f7f3f9f2d8
+    m_ActionName: Player/Active ability[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 64fc02f4-a159-44f2-bdd3-eb9fd7435988
+    m_ActionName: Player/Heal[/Keyboard/v]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e7c821f1-0f2b-4b6f-a6af-8f1b480e90bd
+    m_ActionName: Player/Watch Future[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ce5fee0e-e36d-4c66-960c-497d58d5d16b
+    m_ActionName: Canvas/Inventory[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a8352acc-a7af-4c06-b3d1-3c19a48838d0
+    m_ActionName: Canvas/Open/Close map[/Keyboard/tab]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1705183867
 GameObject:
   m_ObjectHideFlags: 0
