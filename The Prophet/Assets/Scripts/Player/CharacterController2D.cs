@@ -41,11 +41,18 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
+        if (IsWallNear() && !IsGrounded()) 
+            rigidBody.gravityScale = 1f;
+        else 
+            rigidBody.gravityScale = 4f;
+
+
         if (IsWallNear())
         {
             print("wall is near!");
             _playerCollider.enabled = true;
         }
+
 
         if (isDashing || isAttacking) return;
 
@@ -62,15 +69,15 @@ public class CharacterController2D : MonoBehaviour
 
         _attackPoint.localPosition = new Vector2(direction * 0.63f, _attackPoint.localPosition.y);
 
-        _wallChecker.localPosition = new Vector2(direction * 0.36f, _wallChecker.localPosition.y);
+        _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y);
     }
 
     public void Jump()
     {
-        if (IsGrounded() || upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.3f)
+        if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.35f))
         {
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
             lastJumpTime = Time.time;
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 8f);
         }
     }
 
@@ -173,7 +180,8 @@ public class CharacterController2D : MonoBehaviour
 
     private bool IsWallNear()
     {
-        return Physics2D.OverlapCircle(_wallChecker.position, 0.2f, _groundLayer);
+        if (!Input.GetButtonDown("Jump") && rigidBody.velocity.y > 0f) return false;
+        else return Physics2D.OverlapCircle(_wallChecker.position, 0.2f, _groundLayer);
     }
 
     private void OnDrawGizmosSelected()
