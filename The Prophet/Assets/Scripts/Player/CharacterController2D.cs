@@ -26,6 +26,7 @@ public class CharacterController2D : MonoBehaviour
     private short currentNumberOfAttacks = 0;
     private short damage = 1;
     private float lastJumpTime;
+    private float fallSpeedYDampingChangeTreshold;
 
     public float dashPower;
     public short upgradeLevel;
@@ -37,13 +38,15 @@ public class CharacterController2D : MonoBehaviour
 
         direction = 1;
         _spriteRenderer.flipX = false;
+
+        fallSpeedYDampingChangeTreshold = CameraManager.instance._fallSpeedYDampingChangeTreshold;
     }
 
     private void Update()
     {
         if (IsWallNear() && !IsGrounded()) 
             rigidBody.gravityScale = 1f;
-        else 
+        else if (!isDashing)
             rigidBody.gravityScale = 4f;
 
 
@@ -70,6 +73,18 @@ public class CharacterController2D : MonoBehaviour
         _attackPoint.localPosition = new Vector2(direction * 0.63f, _attackPoint.localPosition.y);
 
         _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y);
+
+        if (rigidBody.velocity.y < fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
+
+        if (rigidBody.velocity.y >= 0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpedFromPlayerFalling = false;
+
+            CameraManager.instance.LerpYDamping(false);
+        }
     }
 
     public void Jump()
@@ -99,7 +114,7 @@ public class CharacterController2D : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        gameObject.layer = LayerMask.NameToLayer("Dash"); // Changes player's layer to avoid contact with enemies
+        gameObject.layer = LayerMask.NameToLayer("Invincible"); // Changes player's layer to avoid contact with enemies
         canDash = false;
         isDashing = true;
         float origGravity = rigidBody.gravityScale; // keeps default gravity scale
