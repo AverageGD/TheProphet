@@ -44,35 +44,39 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
-        if (IsWallNear() && !IsGrounded()) 
+        if (IsWallNear() && !IsGrounded()) //if the player is near to wall but is not grounded, that means he is wallsliding
             rigidBody.gravityScale = 1f;
-        else if (!isDashing)
+        else if (!isDashing) //if the player is not dashing(because there is conflict between dash and this part), then we set gravity as normal
             rigidBody.gravityScale = 4f;
 
 
-        if (IsWallNear())
+        if (IsWallNear()) //checks if player is near to the wall, to turn on the collider in case of dashing near the walls
         {
             print("wall is near!");
             _playerCollider.enabled = true;
         }
 
 
-        if (isDashing || isAttacking) return;
+        if (isDashing || isAttacking) return; //when player dashes or attacks he should not do anything else
 
         horizontalAxis = Input.GetAxisRaw("Horizontal");
 
         if (horizontalAxis > 0)
-
+        {
             direction = 1;
-
+            _spriteRenderer.flipX = false;
+        }
         else if (horizontalAxis < 0)
-
+        {
             direction = -1;
+            _spriteRenderer.flipX = true;
+        }
 
 
-        _attackPoint.localPosition = new Vector2(direction * 0.63f, _attackPoint.localPosition.y);
 
-        _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y);
+        _attackPoint.localPosition = new Vector2(direction * 0.63f, _attackPoint.localPosition.y); //determines the local position of attack point by depending on direction
+
+        _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y); //determines the local position of wallchecker point by depending on direction
 
         if (rigidBody.velocity.y < fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
         {
@@ -89,26 +93,26 @@ public class CharacterController2D : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.35f))
+        if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.35f)) //checks if player is grounded, or is near to the wall to jump
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
             lastJumpTime = Time.time;
         }
     }
 
-    public void AttackInvoker()
+    public void AttackInvoker() //is called by new input manager
     {
         if (canAttack)
         {
-            StartCoroutine(Attack());
+            StartCoroutine(Attack()); //starts atack coroutine
         }
     }
 
-    public void DashInvoker()
+    public void DashInvoker() //is called by new input manager
     {
         if (horizontalAxis != 0 && canDash)
         {
-            StartCoroutine(Dash());
+            StartCoroutine(Dash()); //starts dash coroutine
         }
     }
 
