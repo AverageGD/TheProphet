@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory Instance;
-
     public List <AbstractAmulet> amulets = new List <AbstractAmulet>();
     public List<AbstractRibbon> ribbons = new List <AbstractRibbon>();
     public List<AbstractKeyItem> keyItems = new List <AbstractKeyItem>();
