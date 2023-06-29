@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class SporeRibbon : MonoBehaviour
+public class SporeRibbon : Interactable
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void Interact()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<Inventory>().AddRibbon(new SporeRibbonLogics("spore_ribbon"));
-            Destroy(gameObject);
-        }
+        base.Interact();
+
+        print("Spore Ribbon has been taken");
+        _player.GetComponent<Inventory>().AddRibbon(new SporeRibbonLogics("spore_ribbon"));
+        Destroy(gameObject);
     }
 }
 

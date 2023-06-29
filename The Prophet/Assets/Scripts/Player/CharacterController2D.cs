@@ -7,6 +7,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private LayerMask _interactableLayer;
     [SerializeField] private float _acceleration;
     [SerializeField] private float _decceleration;
     [SerializeField] private float _velocityPower;
@@ -15,6 +16,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Collider2D _playerCollider;
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private float _interactionRadius;
 
     private float horizontalAxis;
     private Rigidbody2D rigidBody;
@@ -35,7 +37,7 @@ public class CharacterController2D : MonoBehaviour
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-
+    
         direction = 1;
         _spriteRenderer.flipX = false;
 
@@ -176,6 +178,14 @@ public class CharacterController2D : MonoBehaviour
         canAttack = true;
         isAttacking = false;
     }
+
+    public void InteractionInvoker() // Calls when player Interacts with enviroment
+    {
+        Collider2D[] interactionalObjects = Physics2D.OverlapCircleAll(transform.position, _interactionRadius, _interactableLayer); // Finds each interactable object in area
+        if (interactionalObjects.Length > 0)
+            interactionalObjects[0].gameObject.GetComponent<Interactable>().Interact(); //Calls an override interaction function from the first interactable object
+    }
+
     private void FixedUpdate()
     {
         //basic movement logic
