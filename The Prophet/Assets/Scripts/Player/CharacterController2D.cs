@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
+    [Header("Movement")]
+
     [SerializeField] private float _speed;
-    [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private LayerMask _enemyLayer;
-    [SerializeField] private LayerMask _interactableLayer;
-    [SerializeField] private float _acceleration;
     [SerializeField] private float _decceleration;
+    [SerializeField] private float _acceleration;
     [SerializeField] private float _velocityPower;
+    [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private Transform _wallChecker;
-    [SerializeField] private Collider2D _playerCollider;
+    [SerializeField] private float _ladderClimbingSpeed;
+    [SerializeField] private float _dashPower;
+
+    [Header("Attack")]
+
+    [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private Transform _attackPoint;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+
+    [Header("Interaction")]
+
+    [SerializeField] private LayerMask _interactableLayer;
     [SerializeField] private float _interactionRadius;
 
+    [Header("Animation")]
+
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+
+
+    private float verticalAxis;
+    private bool isLadder;
+    private bool isClimbingLadder;
     private float horizontalAxis;
     private Rigidbody2D rigidBody;
     private bool canDash = true;
@@ -29,8 +45,10 @@ public class CharacterController2D : MonoBehaviour
     private short damage = 1;
     private float lastJumpTime;
     private float fallSpeedYDampingChangeTreshold;
+    private Transform currentLadder;
 
-    public float dashPower;
+    [Header("Upgrade")]
+
     public short upgradeLevel;
 
 
@@ -47,21 +65,23 @@ public class CharacterController2D : MonoBehaviour
     private void Update()
     {
         if (IsWallNear() && !IsGrounded()) //if the player is near to wall but is not grounded, that means he is wallsliding
+
             rigidBody.gravityScale = 1f;
         else if (!isDashing) //if the player is not dashing(because there is conflict between dash and this part), then we set gravity as normal
+
             rigidBody.gravityScale = 4f;
 
+        verticalAxis = Input.GetAxis("Vertical");
+        horizontalAxis = Input.GetAxisRaw("Horizontal");
 
-        if (IsWallNear()) //checks if player is near to the wall, to turn on the collider in case of dashing near the walls
+        if (Mathf.Abs(verticalAxis) > Mathf.Abs(horizontalAxis) && isLadder) //if the player is near to the ladder and vertical axis isn't equal to 0, then he starts to climb
         {
-            print("wall is near!");
-            _playerCollider.enabled = true;
+            isClimbingLadder = true;
         }
 
+        if (isClimbingLadder) return; //When player uses a ladder he should not do anything else
 
         if (isDashing || isAttacking) return; //when player dashes or attacks he should not do anything else
-
-        horizontalAxis = Input.GetAxisRaw("Horizontal");
 
         if (horizontalAxis > 0)
         {
@@ -73,8 +93,6 @@ public class CharacterController2D : MonoBehaviour
             direction = -1;
             _spriteRenderer.flipX = true;
         }
-
-
 
         _attackPoint.localPosition = new Vector2(direction * 0.63f, _attackPoint.localPosition.y); //determines the local position of attack point by depending on direction
 
@@ -93,8 +111,42 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        //movement on ladder
+
+        float aligningToCenterOfLadderVelocity = 0;
+
+        if (isClimbingLadder)
+        {
+            // aligns player to the center of the current ladder
+            transform.position = new Vector2(Mathf.SmoothDamp(transform.position.x, currentLadder.position.x, ref aligningToCenterOfLadderVelocity, 0.05f), transform.position.y); 
+            rigidBody.gravityScale = 0f; //turning gravity scale on 0 for climbing
+            rigidBody.velocity = new Vector2(0, verticalAxis * _ladderClimbingSpeed);
+
+            return;
+        }
+        else if (!isDashing && !IsWallNear())
+        {
+            rigidBody.gravityScale = 4f;
+        }
+
+        //basic movement logic
+
+        float targetSpeed = horizontalAxis * _speed; // The speed we need to reach
+
+        float speedDif = targetSpeed - rigidBody.velocity.x; // The difference between targetSpeed and current speed 
+
+        float accelRate = (Mathf.Abs(speedDif) > 0.01f) ? _acceleration : _decceleration; // if player stops/starts movement
+
+        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, _velocityPower) * Mathf.Sign(speedDif); // final value of movement speed
+
+        rigidBody.AddForce(movement * Vector2.right); // giving speed force to player
+
+    }
     public void Jump()
     {
+        isClimbingLadder = false;
         if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.35f)) //checks if player is grounded, or is near to the wall to jump
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
@@ -102,50 +154,15 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    #region AttackLogics
     public void AttackInvoker() //is called by new input manager
     {
         if (canAttack)
         {
+            isClimbingLadder = false;
             StartCoroutine(Attack()); //starts atack coroutine
         }
     }
-
-    public void DashInvoker() //is called by new input manager
-    {
-        if (horizontalAxis != 0 && canDash)
-        {
-            StartCoroutine(Dash()); //starts dash coroutine
-        }
-    }
-
-    private IEnumerator Dash()
-    {
-        gameObject.layer = LayerMask.NameToLayer("Invincible"); // Changes player's layer to avoid contact with enemies
-        canDash = false;
-        isDashing = true;
-        float origGravity = rigidBody.gravityScale; // keeps default gravity scale
-
-        if (upgradeLevel >= 5)
-        {
-            //strikes damage to enemies
-        }
-
-        rigidBody.gravityScale = 0;
-        rigidBody.velocity = Vector2.zero;
-        rigidBody.velocity = new Vector2(direction * dashPower, 0f); // adds speed with player's current direction
-        _playerCollider.enabled = false;
-
-        yield return new WaitForSeconds(0.2f);
-
-        rigidBody.gravityScale = origGravity; //returns default gravity scale
-        gameObject.layer = LayerMask.NameToLayer("Player"); //returns player's default layer
-        _playerCollider.enabled = true;
-        isDashing = false;
-
-        yield return new WaitForSeconds(1.5f);
-        canDash = true;
-    }
-
     private IEnumerator Attack()
     {
         canAttack = false;
@@ -178,6 +195,42 @@ public class CharacterController2D : MonoBehaviour
         canAttack = true;
         isAttacking = false;
     }
+    #endregion 
+
+    #region DashLogics
+    public void DashInvoker() //is called by new input manager
+    {
+        if (horizontalAxis != 0 && canDash)
+        {
+            StartCoroutine(Dash()); //starts dash coroutine
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Invincible"); // Changes player's layer to avoid contact with enemies
+        canDash = false;
+        isDashing = true;
+        float origGravity = rigidBody.gravityScale; // keeps default gravity scale
+
+        if (upgradeLevel >= 5)
+        {
+            //strikes damage to enemies
+        }
+
+        rigidBody.gravityScale = 0;
+        rigidBody.velocity = Vector2.zero;
+        rigidBody.velocity = new Vector2(direction * _dashPower, 0f); // adds speed with player's current direction
+        yield return new WaitForSeconds(0.2f);
+
+        rigidBody.gravityScale = origGravity; //returns default gravity scale
+        gameObject.layer = LayerMask.NameToLayer("Player"); //returns player's default layer
+        isDashing = false;
+
+        yield return new WaitForSeconds(1.5f);
+        canDash = true;
+    }
+    #endregion
 
     public void InteractionInvoker() // Calls when player Interacts with enviroment
     {
@@ -186,20 +239,6 @@ public class CharacterController2D : MonoBehaviour
             interactionalObjects[0].gameObject.GetComponent<Interactable>().Interact(); //Calls an override interaction function from the first interactable object
     }
 
-    private void FixedUpdate()
-    {
-        //basic movement logic
-
-        float targetSpeed = horizontalAxis * _speed; // The speed we need to reach
-
-        float speedDif = targetSpeed - rigidBody.velocity.x; // The difference between targetSpeed and current speed 
-
-        float accelRate = (Mathf.Abs(speedDif) > 0.01f) ? _acceleration : _decceleration; // if player stops/starts movement
-
-        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, _velocityPower) * Mathf.Sign(speedDif); // final value of movement speed
-
-        rigidBody.AddForce(movement * Vector2.right); // giving speed force to player
-    }
 
     //Checks if player is grounded
     private bool IsGrounded()
@@ -212,6 +251,27 @@ public class CharacterController2D : MonoBehaviour
         if (!Input.GetButtonDown("Jump") && rigidBody.velocity.y > 0f) return false;
         else return Physics2D.OverlapCircle(_wallChecker.position, 0.2f, _groundLayer);
     }
+
+    #region LadderDetectingLogics
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            currentLadder = collision.gameObject.GetComponent<Transform>();
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            currentLadder = null;
+            isClimbingLadder = false;
+            isLadder = false;
+        }
+    }
+    #endregion
 
     private void OnDrawGizmosSelected()
     {
