@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,7 +13,11 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private float _velocityPower;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundChecker;
+    [SerializeField] private float _groundCheckDistance;
     [SerializeField] private Transform _wallChecker;
+    [SerializeField] private float _wallCheckDistance;
+    [SerializeField] private Transform _safePositionChecker;
+    [SerializeField] private float _safePositionCheckDistance;
     [SerializeField] private float _ladderClimbingSpeed;
     [SerializeField] private float _dashPower;
 
@@ -20,6 +25,7 @@ public class CharacterController2D : MonoBehaviour
 
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private Transform _attackPoint;
+    [SerializeField] private float _attackDistance;
 
     [Header("Interaction")]
 
@@ -51,6 +57,9 @@ public class CharacterController2D : MonoBehaviour
 
     public short upgradeLevel;
 
+    [Header("Other")]
+
+    public Vector2 lastSafePosition;
 
     private void Start()
     {
@@ -96,7 +105,9 @@ public class CharacterController2D : MonoBehaviour
 
         _attackPoint.localPosition = new Vector2(direction * 0.63f, _attackPoint.localPosition.y); //determines the local position of attack point by depending on direction
 
-        _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y); //determines the local position of wallchecker point by depending on direction
+        _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y); //determines the local position of wallChecker point by depending on direction
+
+        _safePositionChecker.localPosition = new Vector2(direction, _safePositionChecker.localPosition.y); //determines the local position of safePositionChecker point by depending on direction
 
         if (rigidBody.velocity.y < fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
         {
@@ -113,15 +124,20 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //movement on ladder
+        //movement on ladder logic
+
+        #region Movement On Ladder
 
         float aligningToCenterOfLadderVelocity = 0;
 
         if (isClimbingLadder)
         {
             // aligns player to the center of the current ladder
+
             transform.position = new Vector2(Mathf.SmoothDamp(transform.position.x, currentLadder.position.x, ref aligningToCenterOfLadderVelocity, 0.05f), transform.position.y); 
+
             rigidBody.gravityScale = 0f; //turning gravity scale on 0 for climbing
+
             rigidBody.velocity = new Vector2(0, verticalAxis * _ladderClimbingSpeed);
 
             return;
@@ -130,8 +146,13 @@ public class CharacterController2D : MonoBehaviour
         {
             rigidBody.gravityScale = 4f;
         }
+        #endregion
 
         //basic movement logic
+
+        #region Basic Movement
+
+        LastSafePositionDeterminer();
 
         float targetSpeed = horizontalAxis * _speed; // The speed we need to reach
 
@@ -143,15 +164,7 @@ public class CharacterController2D : MonoBehaviour
 
         rigidBody.AddForce(movement * Vector2.right); // giving speed force to player
 
-    }
-    public void Jump()
-    {
-        isClimbingLadder = false;
-        if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.35f)) //checks if player is grounded, or is near to the wall to jump
-        {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
-            lastJumpTime = Time.time;
-        }
+        #endregion
     }
 
     #region AttackLogics
@@ -178,7 +191,7 @@ public class CharacterController2D : MonoBehaviour
             currentNumberOfAttacks = 1;
         }
 
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(_attackPoint.position, 0.2f, _enemyLayer);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackDistance, _enemyLayer);
 
         foreach (Collider2D enemy in enemies)
         {
@@ -239,17 +252,35 @@ public class CharacterController2D : MonoBehaviour
             interactionalObjects[0].gameObject.GetComponent<Interactable>().Interact(); //Calls an override interaction function from the first interactable object
     }
 
+    public void Jump()
+    {
+        isClimbingLadder = false;
+        if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.35f)) //checks if player is grounded, or is near to the wall to jump
+        {
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
+            lastJumpTime = Time.time;
+        }
+    }
 
     //Checks if player is grounded
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(_groundChecker.position, 0.3f, _groundLayer);
+        return Physics2D.OverlapCircle(_groundChecker.position, _groundCheckDistance, _groundLayer);
     }
 
     private bool IsWallNear()
     {
         if (!Input.GetButtonDown("Jump") && rigidBody.velocity.y > 0f) return false;
-        else return Physics2D.OverlapCircle(_wallChecker.position, 0.2f, _groundLayer);
+        else return Physics2D.OverlapCircle(_wallChecker.position, _wallCheckDistance, _groundLayer);
+    }
+
+    //Checks if the player's current position is safe to keep in the lastSafePosition
+    private void LastSafePositionDeterminer()
+    {
+        if (Physics2D.OverlapCircle(_safePositionChecker.position, _safePositionCheckDistance, _groundLayer) && rigidBody.velocity.y == 0)
+        {
+            lastSafePosition = transform.position;
+        }
     }
 
     #region LadderDetectingLogics
@@ -275,9 +306,17 @@ public class CharacterController2D : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(_groundChecker.position, 0.3f);
-        Gizmos.DrawWireSphere(_wallChecker.position, 0.2f);
-        Gizmos.DrawWireSphere(_attackPoint.position, 0.2f);
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(_groundChecker.position, _groundCheckDistance);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(_wallChecker.position, _wallCheckDistance);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_attackPoint.position, _attackDistance);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(_safePositionChecker.position, _safePositionCheckDistance);
     }
 
 }

@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+
+    public static Inventory instance;
+
     public List <AbstractAmulet> amulets = new List <AbstractAmulet>();
     public List<AbstractRibbon> ribbons = new List <AbstractRibbon>();
     public List<AbstractKeyItem> keyItems = new List <AbstractKeyItem>();
 
-
+    public void Start()
+    {
+        instance = this;
+    }
     public void AddAmulet(AbstractAmulet amulet)
     {
         amulets.Add(amulet);
