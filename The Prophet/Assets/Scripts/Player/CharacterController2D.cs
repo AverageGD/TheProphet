@@ -35,6 +35,7 @@ public class CharacterController2D : MonoBehaviour
     [Header("Animation")]
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Animator _animator;
 
 
     private float verticalAxis;
@@ -73,6 +74,9 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
+        _animator.SetBool("IsGrounded", IsGrounded());
+        _animator.SetBool("IsClimbingLadder", isClimbingLadder);
+
         if (IsWallNear() && !IsGrounded()) //if the player is near to wall but is not grounded, that means he is wallsliding
 
             rigidBody.gravityScale = 1f;
@@ -254,6 +258,7 @@ public class CharacterController2D : MonoBehaviour
 
     public void Jump()
     {
+        _animator.SetTrigger("Jump");
         isClimbingLadder = false;
         if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.35f)) //checks if player is grounded, or is near to the wall to jump
         {
