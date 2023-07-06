@@ -15,3 +15,5 @@ MonoBehaviour:
   id: 4
   itemName: Spore Ribbon
   icon: {fileID: 0}
+  itemType: 0
+  abstractRibbon: {fileID: 0}

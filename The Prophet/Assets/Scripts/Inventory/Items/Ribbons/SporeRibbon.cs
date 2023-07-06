@@ -1,14 +1,8 @@
-using TMPro;
 using UnityEngine;
-
-public class SporeRibbon : Interactable
+public class SporeRibbon : AbstractRibbon
 {
-    public override void Interact()
+    public override void AbilityInvoker()
     {
-        base.Interact();
-
-        print("Spore Ribbon has been taken");
-        
-        Destroy(gameObject);
+        Debug.Log("Spore Ribbon Ability is called");
     }
 }
