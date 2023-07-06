@@ -1,12 +1,7 @@
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class AbstractKeyItem
+public abstract class AbstractKeyItem : Item
 {
-    public string ID;
-
-    protected AbstractKeyItem(string iD)
-    {
-        ID = iD;
-    }
 }

@@ -6,39 +6,59 @@ public class Inventory : MonoBehaviour
 
     public static Inventory instance;
 
-    public List <AbstractAmulet> amulets = new List <AbstractAmulet>();
-    public List<AbstractRibbon> ribbons = new List <AbstractRibbon>();
-    public List<AbstractKeyItem> keyItems = new List <AbstractKeyItem>();
+    public Dictionary<string, AbstractAmulet> amulets = new Dictionary<string, AbstractAmulet>();
+    public Dictionary<string, AbstractRibbon> ribbons = new Dictionary<string, AbstractRibbon>();
+    public Dictionary<string, AbstractKeyItem> keyItems = new Dictionary<string, AbstractKeyItem>();
 
     public void Start()
     {
-        instance = this;
-    }
-    public void AddAmulet(AbstractAmulet amulet)
-    {
-        amulets.Add(amulet);
     }
 
-    public void AddRibbon(AbstractRibbon ribbon)
+    public void AddAmulet(AbstractAmulet amulet, string ID)
     {
-        ribbons.Add(ribbon);
+        amulets.Add(ID, amulet);
     }
 
-    public void AddKeyItem(AbstractKeyItem keyItem)
+    public void AddRibbon(AbstractRibbon ribbon, string ID)
     {
-        keyItems.Add(keyItem);
+        ribbons.Add(ID, ribbon);
+    }
+
+    public void AddKeyItem(AbstractKeyItem keyItem, string ID)
+    {
+        keyItems.Add(ID, keyItem);
     }
 
     public void UseRibbon()
     {
-        foreach(AbstractRibbon ribbon in ribbons)
+        foreach (KeyValuePair <string, AbstractRibbon> ribbon in ribbons)
         {
-            if (ribbon.isWearing == true)
+            if (ribbon.Value.isWearing == true)
             {
-                ribbon.AbilityInvoker();
+                ribbon.Value.AbilityInvoker();
                 break;
             }
         }
     }
 
+    public void WearRibbon(string wearRibbon)
+    {
+        foreach (KeyValuePair<string, AbstractRibbon> ribbon in ribbons)
+        {
+            if (ribbon.Value.isWearing == true)
+            {
+                ribbon.Value.isWearing = false;
+                ribbons[wearRibbon].isWearing = true;
+                break;
+            }
+        }
+    }
+
+    public void WearAmulet(string wearAmulet, string unwearAmulet)
+    {
+        amulets[wearAmulet].isWearing = true;
+        amulets[unwearAmulet].isWearing = false;
+    }
+
 }
+

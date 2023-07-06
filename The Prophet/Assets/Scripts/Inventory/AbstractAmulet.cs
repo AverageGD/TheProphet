@@ -1,16 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class AbstractAmulet
+public abstract class AbstractAmulet : Item
 {
-    public string ID;
     public bool isWearing;
-
-    protected AbstractAmulet(string iD)
-    {
-        ID = iD;
-        isWearing = false;
-    }
 
     public abstract void AbilityInvoker();
 

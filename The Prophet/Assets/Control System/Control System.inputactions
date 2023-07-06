@@ -67,6 +67,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "75c4404c-ac6f-4547-a20b-9980602218ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Open/Close map",
+                    "type": "Button",
+                    "id": "b454c9e1-fc9b-450f-8cea-279db604e692",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -223,36 +241,10 @@
                     "action": "Watch Future",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Canvas",
-            "id": "ca60737d-00c9-44e5-b9f5-ce172284eec8",
-            "actions": [
-                {
-                    "name": "Inventory",
-                    "type": "Button",
-                    "id": "ce5fee0e-e36d-4c66-960c-497d58d5d16b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 },
                 {
-                    "name": "Open/Close map",
-                    "type": "Button",
-                    "id": "a8352acc-a7af-4c06-b3d1-3c19a48838d0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
                     "name": "",
-                    "id": "2f3ad3b0-eda3-4841-9c5f-9b13de655541",
+                    "id": "3de5eea7-936a-4c7c-9681-b33623d067ed",
                     "path": "<Keyboard>/#(I)",
                     "interactions": "",
                     "processors": "",
@@ -263,7 +255,7 @@
                 },
                 {
                     "name": "",
-                    "id": "0cd8241e-7d16-4e88-a074-724ecbb712df",
+                    "id": "5857c6d6-0588-41fa-9b95-74e24998c050",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
@@ -274,7 +266,7 @@
                 },
                 {
                     "name": "",
-                    "id": "03d69fe1-709b-4ddc-8165-066e626edc3c",
+                    "id": "4aaef0da-b6d7-4f24-b9cc-1af8ac359148",
                     "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
@@ -285,7 +277,7 @@
                 },
                 {
                     "name": "",
-                    "id": "a147e88d-d41b-4466-a73f-9eb0f8349a1b",
+                    "id": "599ed98c-3f3a-4b72-a5d8-8f259a011ea7",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
