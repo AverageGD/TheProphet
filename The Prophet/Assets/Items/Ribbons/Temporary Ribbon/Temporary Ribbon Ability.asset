@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619c142573d6fa64ba4315baeea41dc6, type: 3}
-  m_Name: Spore Ribbon
+  m_Script: {fileID: 11500000, guid: a155134682255a649a9391367731fe31, type: 3}
+  m_Name: Temporary Ribbon Ability
   m_EditorClassIdentifier: 
-  id: 4
-  itemName: Spore Ribbon
-  icon: {fileID: 0}
-  itemType: 0
-  abstractRibbon: {fileID: 0}
+  name: Temporary Ribbon Ability
+  coolDownTime: 1
+  activeTime: 0

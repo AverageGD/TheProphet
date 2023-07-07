@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2320199162623604502}
   - component: {fileID: 8963402167211223552}
   m_Layer: 9
-  m_Name: Spore Ribbon
+  m_Name: PickUpItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

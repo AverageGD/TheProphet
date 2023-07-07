@@ -37,6 +37,9 @@ public class InventoryManager : MonoBehaviour
             TMP_Text itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
             Image itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
+            if (item.itemType == Item.ItemType.ribbon)
+                obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
+
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
         }
