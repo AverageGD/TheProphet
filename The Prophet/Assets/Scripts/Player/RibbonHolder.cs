@@ -55,7 +55,7 @@ public class RibbonHolder : MonoBehaviour
 
     public void ActivateAbility() //When player clicka on the Ribbon's ability button(RMB or LB), engine calls this function
     {
-        if (state == RibbonState.ready) //checks if ribbon is ready to use
+        if (state == RibbonState.ready && ribbon != null) //checks if ribbon is ready to use
         {
             state = RibbonState.active; //changes the state to active
             ribbon.Activate(); //calls ribbon's function

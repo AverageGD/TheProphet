@@ -9,6 +9,8 @@ public class ItemPickUp : Interactable
         base.Interact();
 
         InventoryManager.instance.Add(item);
+
+        InventoryManager.instance.ListItems();
         Destroy(gameObject);
     }
 }
