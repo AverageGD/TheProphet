@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemPickUp : Interactable
+public class ItemPickUp : Interactable //overrides interact function for picking item up
 {
     public Item item;
 
