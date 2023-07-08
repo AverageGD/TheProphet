@@ -87,6 +87,7 @@ public class CharacterController2D : MonoBehaviour
         verticalAxis = Input.GetAxis("Vertical");
         horizontalAxis = Input.GetAxisRaw("Horizontal");
 
+
         if (Mathf.Abs(verticalAxis) > Mathf.Abs(horizontalAxis) && isLadder) //if the player is near to the ladder and vertical axis isn't equal to 0, then he starts to climb
         {
             isClimbingLadder = true;
@@ -107,11 +108,13 @@ public class CharacterController2D : MonoBehaviour
             _spriteRenderer.flipX = true;
         }
 
+
         _attackPoint.localPosition = new Vector2(direction * 0.63f, _attackPoint.localPosition.y); //determines the local position of attack point by depending on direction
 
         _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y); //determines the local position of wallChecker point by depending on direction
 
         _safePositionChecker.localPosition = new Vector2(direction, _safePositionChecker.localPosition.y); //determines the local position of safePositionChecker point by depending on direction
+
 
         if (rigidBody.velocity.y < fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
         {
@@ -158,6 +161,7 @@ public class CharacterController2D : MonoBehaviour
 
         LastSafePositionDeterminer();
 
+
         float targetSpeed = horizontalAxis * _speed; // The speed we need to reach
 
         float speedDif = targetSpeed - rigidBody.velocity.x; // The difference between targetSpeed and current speed 
@@ -167,6 +171,13 @@ public class CharacterController2D : MonoBehaviour
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, _velocityPower) * Mathf.Sign(speedDif); // final value of movement speed
 
         rigidBody.AddForce(movement * Vector2.right); // giving speed force to player
+
+        if (horizontalAxis != 0)
+
+            _animator.SetBool("IsRunning", true);
+        else
+
+            _animator.SetBool("IsRunning", false);
 
         #endregion
     }
