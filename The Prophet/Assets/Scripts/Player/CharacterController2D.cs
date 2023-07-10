@@ -36,7 +36,7 @@ public class CharacterController2D : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Animator _animator;
-    [SerializeField] private TrailRenderer _trailRenderer;
+    [SerializeField] private GameObject _playerGhost;
 
 
     private float verticalAxis;
@@ -54,6 +54,7 @@ public class CharacterController2D : MonoBehaviour
     private float lastJumpTime;
     private float fallSpeedYDampingChangeTreshold;
     private Transform currentLadder;
+    private float lastPlayerGhostSpawnTime;
 
     [Header("Upgrade")]
 
@@ -85,6 +86,7 @@ public class CharacterController2D : MonoBehaviour
 
             rigidBody.gravityScale = 4f;
 
+        //getting values from axises
         verticalAxis = Input.GetAxis("Vertical");
         horizontalAxis = Input.GetAxisRaw("Horizontal");
 
@@ -95,6 +97,8 @@ public class CharacterController2D : MonoBehaviour
         }
 
         if (isClimbingLadder) return; //When player uses a ladder he should not do anything else
+
+        TrySpawnPlayerGhost();
 
         if (isDashing || isAttacking) return; //when player dashes or attacks he should not do anything else
 
@@ -244,8 +248,6 @@ public class CharacterController2D : MonoBehaviour
         isDashing = true;
         float origGravity = rigidBody.gravityScale; // keeps default gravity scale
 
-        _trailRenderer.emitting = true;
-
         if (upgradeLevel >= 5)
         {
             //strikes damage to enemies
@@ -256,13 +258,23 @@ public class CharacterController2D : MonoBehaviour
         rigidBody.velocity = new Vector2(direction * _dashPower, 0f); // adds speed with player's current direction
         yield return new WaitForSeconds(0.2f);
 
-        _trailRenderer.emitting = false;
         rigidBody.gravityScale = origGravity; //returns default gravity scale
         gameObject.layer = LayerMask.NameToLayer("Player"); //returns player's default layer
         isDashing = false;
 
         yield return new WaitForSeconds(1.5f);
         canDash = true;
+    }
+
+    private void TrySpawnPlayerGhost() //Checks if it real to spawn the clone of player's ghost
+    {
+        if (isDashing && Time.time - lastPlayerGhostSpawnTime > 0.04f)
+        {
+            lastPlayerGhostSpawnTime = Time.time;
+            GameObject playerGhostClone = Instantiate(_playerGhost, transform.position, new Quaternion());
+            playerGhostClone.GetComponent<SpriteRenderer>().flipX = _spriteRenderer.flipX;
+            Destroy(playerGhostClone, 0.4f);
+        }
     }
     #endregion
 
@@ -290,6 +302,7 @@ public class CharacterController2D : MonoBehaviour
         return Physics2D.OverlapCircle(_groundChecker.position, _groundCheckDistance, _groundLayer);
     }
 
+    //Checks if player is near to the wall
     private bool IsWallNear()
     {
         if (!Input.GetButtonDown("Jump") && rigidBody.velocity.y > 0f) return false;

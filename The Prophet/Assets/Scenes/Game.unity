@@ -2726,6 +2726,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 81307722388245151, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -2842,6 +2846,10 @@ PrefabInstance:
       propertyPath: _dashPower
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 9014293953722779349, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
+      propertyPath: _playerGhost
+      value: 
+      objectReference: {fileID: 1986832492298096555, guid: a5b0afc55db1ed640a3a149e2c1e2871, type: 3}
     - target: {fileID: 9014293953722779349, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: _attackDistance
       value: 0.5
