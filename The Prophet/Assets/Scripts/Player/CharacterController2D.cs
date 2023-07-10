@@ -36,6 +36,7 @@ public class CharacterController2D : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Animator _animator;
+    [SerializeField] private TrailRenderer _trailRenderer;
 
 
     private float verticalAxis;
@@ -236,10 +237,14 @@ public class CharacterController2D : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        _animator.SetTrigger("Dash");
+
         gameObject.layer = LayerMask.NameToLayer("Invincible"); // Changes player's layer to avoid contact with enemies
         canDash = false;
         isDashing = true;
         float origGravity = rigidBody.gravityScale; // keeps default gravity scale
+
+        _trailRenderer.emitting = true;
 
         if (upgradeLevel >= 5)
         {
@@ -251,6 +256,7 @@ public class CharacterController2D : MonoBehaviour
         rigidBody.velocity = new Vector2(direction * _dashPower, 0f); // adds speed with player's current direction
         yield return new WaitForSeconds(0.2f);
 
+        _trailRenderer.emitting = false;
         rigidBody.gravityScale = origGravity; //returns default gravity scale
         gameObject.layer = LayerMask.NameToLayer("Player"); //returns player's default layer
         isDashing = false;
@@ -271,7 +277,7 @@ public class CharacterController2D : MonoBehaviour
     {
         _animator.SetTrigger("Jump");
         isClimbingLadder = false;
-        if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.35f)) //checks if player is grounded, or is near to the wall to jump
+        if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
             lastJumpTime = Time.time;
