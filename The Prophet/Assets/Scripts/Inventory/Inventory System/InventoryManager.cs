@@ -9,7 +9,9 @@ public class InventoryManager : MonoBehaviour
 
     public List <Item> items = new List <Item>();
 
-    public Transform itemContent;
+    public Transform ribbonContent;
+    public Transform amuletContent;
+    public Transform keyItemContent;
     public GameObject itemPrefab;
 
     private void Awake()
@@ -25,20 +27,38 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
-        foreach (Transform item in itemContent)
+        foreach (Transform item in ribbonContent)
         {
             Destroy(item.gameObject);
         }
-
+        foreach (Transform item in amuletContent)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in keyItemContent)
+        {
+            Destroy(item.gameObject);
+        }
         foreach (Item item in items)
         {
-            GameObject obj = Instantiate(itemPrefab, itemContent);
+            GameObject obj = null;
+            if (item.itemType == Item.ItemType.ribbon)
+            {
+                obj = Instantiate(itemPrefab, ribbonContent);
+                obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
+
+            } else if (item.itemType == Item.ItemType.amulet)
+            {
+                obj = Instantiate(itemPrefab, amuletContent);
+
+            } else if (item.itemType == Item.ItemType.keyItem)
+            {
+                obj = Instantiate(itemPrefab, keyItemContent);
+            }
 
             TMP_Text itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
             Image itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
-            if (item.itemType == Item.ItemType.ribbon)
-                obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
