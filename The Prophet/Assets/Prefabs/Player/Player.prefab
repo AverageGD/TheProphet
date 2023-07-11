@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2605065717963589662}
   - component: {fileID: 9014293953722779349}
   - component: {fileID: 7384144299223334899}
+  - component: {fileID: 4799520660682653130}
   - component: {fileID: 5301633399638714936}
   - component: {fileID: 1394037841690377520}
   - component: {fileID: 6517960094176525490}
@@ -164,7 +165,6 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 2605065717963589662}
   _animator: {fileID: 81307722388245151}
   _playerGhost: {fileID: 1986832492298096555, guid: a5b0afc55db1ed640a3a149e2c1e2871, type: 3}
-  _trailRenderer: {fileID: 0}
   upgradeLevel: 22
   lastSafePosition: {x: 0, y: 0}
 --- !u!114 &7384144299223334899
@@ -180,6 +180,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ribbon: {fileID: 0}
+--- !u!114 &4799520660682653130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935279571419285620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2c4ebf692059c4594f2d4613193d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5301633399638714936
 MonoBehaviour:
   m_ObjectHideFlags: 0

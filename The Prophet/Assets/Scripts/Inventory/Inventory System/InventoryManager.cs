@@ -9,9 +9,16 @@ public class InventoryManager : MonoBehaviour
 
     public List <Item> items = new List <Item>();
 
+    [Header("Items' contents")]
     public Transform ribbonContent;
     public Transform amuletContent;
     public Transform keyItemContent;
+
+    [Header("Weared Items' content")]
+    public Transform wearedRibbonContent;
+    public Transform wearedAmuletContent;
+
+    [Header("Item Prefab")]
     public GameObject itemPrefab;
 
     private void Awake()
@@ -39,17 +46,21 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+
         foreach (Item item in items)
         {
             GameObject obj = null;
             if (item.itemType == Item.ItemType.ribbon)
             {
                 obj = Instantiate(itemPrefab, ribbonContent);
+                obj.GetComponent<InventoryItemController>().wearedRibbonContent = wearedRibbonContent;
                 obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
 
             } else if (item.itemType == Item.ItemType.amulet)
             {
                 obj = Instantiate(itemPrefab, amuletContent);
+                obj.GetComponent<InventoryItemController>().wearedAmuletContent = wearedAmuletContent;
+                obj.GetComponent<InventoryItemController>().amulet = item.amuletAbility;
 
             } else if (item.itemType == Item.ItemType.keyItem)
             {

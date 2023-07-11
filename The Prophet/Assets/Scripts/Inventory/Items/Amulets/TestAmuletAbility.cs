@@ -1,12 +1,12 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class TemporaryRibbonAbility : RibbonAbility
+public class TestAmuletAbility : AmuletAbility
 {
     public override void Activate()
     {
         base.Activate();
 
-        Debug.Log("Temporary Ribbon has been called");
+        Debug.Log("Test Amulet is working now");
     }
 }

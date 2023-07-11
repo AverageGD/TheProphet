@@ -1,11 +1,15 @@
+using System.Collections;
 using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
     private bool isInventoryOpen = false;
-    public void TurnOnOffInventory() //Turns inventory UI on/off
+
+    public void TryToTurnOnOffInventory() //Turns inventory's UI on/off
     {
         isInventoryOpen = !isInventoryOpen;
+
         gameObject.SetActive(isInventoryOpen);
     }
+
 }
