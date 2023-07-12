@@ -9,14 +9,14 @@ public class InventoryManager : MonoBehaviour
 
     public List <Item> items = new List <Item>();
 
-    [Header("Items' contents")]
-    public Transform ribbonContent;
-    public Transform amuletContent;
-    public Transform keyItemContent;
+    [Header("Items' container")]
+    public Transform ribbonSlotContainer;
+    public Transform amuletSlotContainer;
+    public Transform keyItemSlotContainer;
 
-    [Header("Weared Items' content")]
-    public Transform wearedRibbonContent;
-    public Transform wearedAmuletContent;
+    [Header("Weared Items' container")]
+    public Transform wearedRibbonSlotContainer;
+    public Transform wearedAmuletSlotContainer;
 
     [Header("Item Prefab")]
     public GameObject itemPrefab;
@@ -34,37 +34,72 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
-        foreach (Transform item in ribbonContent)
+        foreach (Transform item in ribbonSlotContainer)
         {
             Destroy(item.gameObject);
         }
-        foreach (Transform item in amuletContent)
+        foreach (Transform item in amuletSlotContainer)
         {
             Destroy(item.gameObject);
         }
-        foreach (Transform item in keyItemContent)
+        foreach (Transform item in keyItemSlotContainer)
         {
             Destroy(item.gameObject);
         }
+
+        short xRibbon = 0;
+        short yRibbon = 0;
+
+        short xAmulet = 0;
+        short yAmulet = 0;
+        
+        short xKeyItem = 0;
+        short yKeyItem = 0;
 
         foreach (Item item in items)
         {
             GameObject obj = null;
             if (item.itemType == Item.ItemType.ribbon)
             {
-                obj = Instantiate(itemPrefab, ribbonContent);
-                obj.GetComponent<InventoryItemController>().wearedRibbonContent = wearedRibbonContent;
+                obj = Instantiate(itemPrefab, ribbonSlotContainer);
+
+                obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(xRibbon * 100f, -yRibbon * 100f);
+                obj.GetComponent<InventoryItemController>().wearedRibbonSlotContainer = wearedRibbonSlotContainer;
                 obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
+
+                xRibbon++;
+                if (xRibbon > 1)
+                {
+                    xRibbon = 0;
+                    yRibbon++;
+                }
 
             } else if (item.itemType == Item.ItemType.amulet)
             {
-                obj = Instantiate(itemPrefab, amuletContent);
-                obj.GetComponent<InventoryItemController>().wearedAmuletContent = wearedAmuletContent;
+                obj = Instantiate(itemPrefab, amuletSlotContainer);
+
+                obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(xAmulet * 100f, -yAmulet * 100f);
+                obj.GetComponent<InventoryItemController>().wearedAmuletSlotContainer = wearedAmuletSlotContainer;
                 obj.GetComponent<InventoryItemController>().amulet = item.amuletAbility;
+
+                xAmulet++;
+                if (xAmulet > 1)
+                {
+                    xAmulet = 0;
+                    yAmulet++;
+                }
 
             } else if (item.itemType == Item.ItemType.keyItem)
             {
-                obj = Instantiate(itemPrefab, keyItemContent);
+                obj = Instantiate(itemPrefab, keyItemSlotContainer);
+                obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(xKeyItem * 100f, -yKeyItem * 100f);
+
+                xKeyItem++;
+                if (xKeyItem > 1)
+                {
+                    xKeyItem = 0;
+                    yKeyItem++;
+                }
             }
 
             TMP_Text itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
