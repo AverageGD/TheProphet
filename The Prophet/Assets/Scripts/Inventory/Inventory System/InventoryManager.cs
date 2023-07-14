@@ -9,17 +9,15 @@ public class InventoryManager : MonoBehaviour
 
     public List <Item> items = new List <Item>();
 
-    [Header("Items' container")]
+    [Header("Items' containers")]
     public Transform ribbonSlotContainer;
     public Transform amuletSlotContainer;
     public Transform keyItemSlotContainer;
 
-    [Header("Weared Items' container")]
-    public Transform wearedRibbonSlotContainer;
-    public Transform wearedAmuletSlotContainer;
-
     [Header("Item Prefab")]
     public GameObject itemPrefab;
+
+    [SerializeField] private Canvas _canvas;
 
     private void Awake()
     {
@@ -64,7 +62,6 @@ public class InventoryManager : MonoBehaviour
                 obj = Instantiate(itemPrefab, ribbonSlotContainer);
 
                 obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(xRibbon * 100f, -yRibbon * 100f);
-                obj.GetComponent<InventoryItemController>().wearedRibbonSlotContainer = wearedRibbonSlotContainer;
                 obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
 
                 xRibbon++;
@@ -79,7 +76,6 @@ public class InventoryManager : MonoBehaviour
                 obj = Instantiate(itemPrefab, amuletSlotContainer);
 
                 obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(xAmulet * 100f, -yAmulet * 100f);
-                obj.GetComponent<InventoryItemController>().wearedAmuletSlotContainer = wearedAmuletSlotContainer;
                 obj.GetComponent<InventoryItemController>().amulet = item.amuletAbility;
 
                 xAmulet++;
@@ -101,6 +97,9 @@ public class InventoryManager : MonoBehaviour
                     yKeyItem++;
                 }
             }
+
+            obj.GetComponent<DragDrop>().canvas = _canvas;
+            obj.GetComponent<InventoryItemController>().id = item.id;
 
             TMP_Text itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
             Image itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();

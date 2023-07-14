@@ -4,7 +4,7 @@ public class RibbonHolder : MonoBehaviour
 {
     public static RibbonHolder instance;
 
-    public RibbonAbility ribbon;
+    public RibbonAbility ribbonAbility;
 
     private float coolDownTime;
     private float activeTime;
@@ -25,13 +25,13 @@ public class RibbonHolder : MonoBehaviour
 
     private void Update()
     {
-        if (ribbon == null) return; //Checking if ribbon is not weared
+        if (ribbonAbility == null) return; //Checking if ribbon is not weared
         
         switch (state)
         {
             case RibbonState.ready: //if ribbon is ready to use, we will give cooldownTime and activeTime corresponding values
-                coolDownTime = ribbon.coolDownTime;
-                activeTime = ribbon.activeTime;
+                coolDownTime = ribbonAbility.coolDownTime;
+                activeTime = ribbonAbility.activeTime;
             break;
 
             case RibbonState.active: //if ribbon's ability is already active, we need to decrease active time
@@ -40,7 +40,7 @@ public class RibbonHolder : MonoBehaviour
                 else
                 {
                     state = RibbonState.coolDown;
-                    coolDownTime = ribbon.coolDownTime;
+                    coolDownTime = ribbonAbility.coolDownTime;
                 }
            break;
 
@@ -55,10 +55,10 @@ public class RibbonHolder : MonoBehaviour
 
     public void ActivateAbility() //When player clicka on the Ribbon's ability button(RMB or LB), engine calls this function
     {
-        if (state == RibbonState.ready && ribbon != null) //checks if ribbon is ready to use
+        if (state == RibbonState.ready && ribbonAbility != null) //checks if ribbon is ready to use
         {
             state = RibbonState.active; //changes the state to active
-            ribbon.Activate(); //calls ribbon's function
+            ribbonAbility.Activate(); //calls ribbon's function
         }
     }
 }

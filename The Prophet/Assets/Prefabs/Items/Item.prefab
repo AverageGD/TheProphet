@@ -89,6 +89,8 @@ GameObject:
   - component: {fileID: 5545865519240707981}
   - component: {fileID: 4898003997097241740}
   - component: {fileID: 1490588459868345991}
+  - component: {fileID: -4837254835947080095}
+  - component: {fileID: 8321349635847117154}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -202,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1490588459868345991}
         m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
-        m_MethodName: WearItem
+        m_MethodName: UnwearItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -224,10 +226,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0cbc85f63504a41b9313df89067f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   ribbon: {fileID: 0}
-  wearedRibbonContent: {fileID: 0}
   amulet: {fileID: 0}
-  wearedAmuletContent: {fileID: 0}
+--- !u!114 &-4837254835947080095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3707822154537584227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4906cc9e940df4cbca3924f2342488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  canvasGroup: {fileID: 0}
+--- !u!225 &8321349635847117154
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3707822154537584227}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5880103030912831495
 GameObject:
   m_ObjectHideFlags: 0

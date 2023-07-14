@@ -2,33 +2,61 @@ using UnityEngine;
 
 public class InventoryItemController : MonoBehaviour //This script is made for contextual iem control depending on its type
 {
+    public int id;
+
     public RibbonAbility ribbon;
-    public Transform wearedRibbonSlotContainer;
-
     public AmuletAbility amulet;
-    public Transform wearedAmuletSlotContainer;
 
-    public void WearItem() //If player wants to wear any item he needs only to click on its icon
+    public void UnwearItem() //If player wants to unwear any item he needs only to click on its icon
     {
-        if (ribbon != null) WearRibbon();
+        ItemSlot itemSlot = transform.parent.gameObject.GetComponent<ItemSlot>();
 
-        if (amulet != null) WearAmulet();
-    }
+        if (itemSlot == null) 
+            return;
 
-    private void WearRibbon()
-    {
-        foreach (Transform item in wearedRibbonSlotContainer)
+        ItemSlot.Slots slot = itemSlot.slot;
+
+
+        if (slot == ItemSlot.Slots.ribbon1)
         {
-            Destroy(item.gameObject);
+            RibbonHolder.instance.ribbonAbility = null;
+            Destroy(transform.gameObject);
+            return;
         }
 
-        Instantiate(gameObject, wearedRibbonSlotContainer);
-        RibbonHolder.instance.ribbon = ribbon;
+        if (slot == ItemSlot.Slots.amulet1)
+        {
+            AmuletHolder.instance.firstAmuletAbility = null;
+            Destroy(transform.gameObject);
+            return;
+        }
+
+        if (slot == ItemSlot.Slots.amulet2)
+        {
+            AmuletHolder.instance.secondAmuletAbility = null;
+            Destroy(transform.gameObject);
+            return;
+        }
     }
 
-    private void WearAmulet()
+    public void WearItem(ItemSlot.Slots slots) //if player wants to wear any item he needs only drag it to the corresponding slot
     {
-        
 
+        switch(slots) //checks which slot player put an item to give value to the corresonding field
+        {
+            case ItemSlot.Slots.ribbon1:
+                RibbonHolder.instance.ribbonAbility = ribbon;
+                break;
+            case ItemSlot.Slots.amulet1:
+                AmuletHolder.instance.firstAmuletAbility = amulet;
+                break;
+            case ItemSlot.Slots.amulet2:
+                AmuletHolder.instance.secondAmuletAbility = amulet;
+                break;
+            default:
+                break;
+
+        }
     }
+
 }
