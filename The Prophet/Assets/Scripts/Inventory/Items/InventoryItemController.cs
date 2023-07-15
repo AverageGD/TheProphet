@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryItemController : MonoBehaviour //This script is made for contextual iem control depending on its type
 {
@@ -7,9 +9,19 @@ public class InventoryItemController : MonoBehaviour //This script is made for c
     public RibbonAbility ribbon;
     public AmuletAbility amulet;
 
-    public void UnwearItem() //If player wants to unwear any item he needs only to click on its icon
+    public string itemName;
+    public string itemDescription;
+
+    public GameObject descriptionBox;
+
+    public void TryToUnwearItemAndShowItemDescription() //If player wants to unwear any item or if he wants to read its description he needs only to click on its icon
     {
         ItemSlot itemSlot = transform.parent.gameObject.GetComponent<ItemSlot>();
+
+        descriptionBox.SetActive(true);
+
+        descriptionBox.transform.Find("Name").GetComponent<Text>().text = itemName;
+        descriptionBox.transform.Find("Description").GetComponent<Text>().text = itemDescription;
 
         if (itemSlot == null) 
             return;

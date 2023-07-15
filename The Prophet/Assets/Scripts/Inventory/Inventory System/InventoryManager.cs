@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,20 +17,23 @@ public class InventoryManager : MonoBehaviour
     public GameObject itemPrefab;
 
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private GameObject _descriptionBox;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void Add(Item item)
+    public void Add(Item item) //Just adds the new item in the list
     {
         items.Add(item);
     }
 
 
-    public void ListItems()
+    public void ListItems() //This script refreshes items' list in inventory UI
     {
+        //At first we destroy every item in the UI before, just to avoid duplicats
+
         foreach (Transform item in ribbonSlotContainer)
         {
             Destroy(item.gameObject);
@@ -54,9 +56,12 @@ public class InventoryManager : MonoBehaviour
         short xKeyItem = 0;
         short yKeyItem = 0;
 
+        //Depending on item's type spawn it in the corresponding place, by changing coordiants, and give corresponding ability and other information(id, name, description, icon, etc)
         foreach (Item item in items)
         {
             GameObject obj = null;
+
+
             if (item.itemType == Item.ItemType.ribbon)
             {
                 obj = Instantiate(itemPrefab, ribbonSlotContainer);
@@ -98,8 +103,13 @@ public class InventoryManager : MonoBehaviour
                 }
             }
 
+            InventoryItemController inventoryItemController = obj.GetComponent<InventoryItemController>();
+
             obj.GetComponent<DragDrop>().canvas = _canvas;
-            obj.GetComponent<InventoryItemController>().id = item.id;
+            inventoryItemController.id = item.id;
+            inventoryItemController.itemName = item.name;
+            inventoryItemController.itemDescription = item.description;
+            inventoryItemController.descriptionBox = _descriptionBox;
 
             Image itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 

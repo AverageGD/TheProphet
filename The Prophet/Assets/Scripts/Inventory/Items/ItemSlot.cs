@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IDropHandler
+public class ItemSlot : MonoBehaviour, IDropHandler //Here is described logic for items that we drag to the slots
 {
     public Slots slot;
 
@@ -9,31 +9,36 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     {
         Debug.Log("OnDrop");
 
-        InventoryItemController inventoryItemController = eventData.pointerDrag.gameObject.GetComponent<InventoryItemController>();
+        //keeps corresponding item's controller because we call it several times
+        InventoryItemController inventoryItemController = eventData.pointerDrag.gameObject.GetComponent<InventoryItemController>(); 
 
+        //just checks if the type of slot and item are the same
         if (eventData.pointerDrag != null && ((slot == Slots.ribbon1 && inventoryItemController.ribbon != null) || 
             (slot != Slots.ribbon1 && inventoryItemController.amulet != null)))
         {
+            //before adding new item in the slot we are being sure there id no left any other items
             foreach (Transform child in transform)
             {
                 Destroy(child);
             }
 
-            GameObject eventDataClone = Instantiate(eventData.pointerDrag.gameObject, transform);
+            GameObject eventDataClone = Instantiate(eventData.pointerDrag.gameObject, transform); //clone our item to that slot
 
+            //keeps corresponding item's dragdrop because we call it several times
+            DragDrop dragDrop = eventDataClone.GetComponent<DragDrop>(); 
 
-            DragDrop dragDrop = eventDataClone.GetComponent<DragDrop>();
             dragDrop.canvasGroup.blocksRaycasts = true;
             dragDrop.enabled = false;
 
             eventDataClone.transform.position = transform.position;
 
+            //Calls a function that is responsible for changing wearing items' abilities
             inventoryItemController.WearItem(slot);
 
         }
     }
 
-    public enum Slots
+    public enum Slots //Just for easy distinction
     {
         ribbon1,
         amulet1,
