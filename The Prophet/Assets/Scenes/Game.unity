@@ -573,7 +573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.091057, y: 0.66803, z: -9.292303}
+  m_LocalPosition: {x: 5.091068, y: 0.66803, z: -9.292303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -654,6 +654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 579731850}
+  - component: {fileID: 579731851}
   m_Layer: 5
   m_Name: KeyItemSlotContainer
   m_TagString: Untagged
@@ -678,9 +679,17 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 382, y: 418}
+  m_AnchoredPosition: {x: 269.4, y: 260}
   m_SizeDelta: {x: 139.74, y: 37.7191}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &579731851
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579731849}
+  m_CullTransparentMesh: 1
 --- !u!1 &617571793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1350,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0670af6fb5425e4ab853d04574e2b12, type: 3}
+--- !u!1 &1086546489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086546490}
+  m_Layer: 5
+  m_Name: WearedAmuletSlotContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1086546490
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086546489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1843370374}
+  - {fileID: 800704286}
+  m_Father: {fileID: 1673595776}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -504, y: 162}
+  m_SizeDelta: {x: 139.74, y: 37.7191}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1108622144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -7}
+  m_AnchoredPosition: {x: -251.6, y: 31}
   m_SizeDelta: {x: 139.74, y: 37.7191}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1178491701
@@ -1555,11 +1602,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1673595776}
+    m_TransformParent: {fileID: 1086546490}
     m_Modifications:
     - target: {fileID: 606649400769074150, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_Name
       value: Slot1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657016343842632976, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657016343842632976, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5683718008207899925, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: slot
@@ -1635,11 +1690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -337
+      value: 15.8
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -42.00003
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2139,9 +2194,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1086546490}
   - {fileID: 1173416966}
-  - {fileID: 1843370374}
-  - {fileID: 800704286}
   - {fileID: 2001709030}
   - {fileID: 1799532736}
   - {fileID: 579731850}
@@ -2196,15 +2250,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ea44216570b842241bdd5ad53f1ae865, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2239,11 +2293,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1673595776}
+    m_TransformParent: {fileID: 1086546490}
     m_Modifications:
     - target: {fileID: 606649400769074150, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_Name
       value: Slot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657016343842632976, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657016343842632976, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5683718008207899925, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: slot
@@ -2319,11 +2381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -337
+      value: 15.7
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -197
+      value: -246.4
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2351,6 +2413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1799532736}
+  - component: {fileID: 1799532737}
   m_Layer: 5
   m_Name: AmuletSlotContainer
   m_TagString: Untagged
@@ -2375,9 +2438,17 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 562, y: 418}
+  m_AnchoredPosition: {x: 488, y: 260}
   m_SizeDelta: {x: 139.74, y: 37.7191}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1799532737
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799532735}
+  m_CullTransparentMesh: 1
 --- !u!1 &1830707014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,6 +2593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001709030}
+  - component: {fileID: 2001709031}
   m_Layer: 5
   m_Name: RibbonSlotContainer
   m_TagString: Untagged
@@ -2546,9 +2618,17 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 745.79, y: 418}
-  m_SizeDelta: {x: 139.74, y: 37.7191}
+  m_AnchoredPosition: {x: 709, y: 260}
+  m_SizeDelta: {x: 139.74, y: 37.719}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2001709031
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001709029}
+  m_CullTransparentMesh: 1
 --- !u!1 &2059399257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +3012,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot1
       objectReference: {fileID: 0}
+    - target: {fileID: 3984629073313001030, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984629073313001030, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 639d45ae8d5152b468edf48e272726ef, type: 3}
+    - target: {fileID: 3984629073313001030, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657016343842632976, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5683718008207899925, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: wearedRibbonSlotContainer
       value: 
@@ -3002,11 +3098,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -33
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

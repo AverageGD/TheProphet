@@ -61,7 +61,7 @@ public class InventoryManager : MonoBehaviour
             {
                 obj = Instantiate(itemPrefab, ribbonSlotContainer);
 
-                obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(xRibbon * 100f, -yRibbon * 100f);
+                obj.transform.localPosition = new Vector2(xRibbon * 100f, -yRibbon * 100f);
                 obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
 
                 xRibbon++;
@@ -75,7 +75,7 @@ public class InventoryManager : MonoBehaviour
             {
                 obj = Instantiate(itemPrefab, amuletSlotContainer);
 
-                obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(xAmulet * 100f, -yAmulet * 100f);
+                obj.transform.localPosition = new Vector2(xAmulet * 100f, -yAmulet * 100f);
                 obj.GetComponent<InventoryItemController>().amulet = item.amuletAbility;
 
                 xAmulet++;
@@ -88,7 +88,7 @@ public class InventoryManager : MonoBehaviour
             } else if (item.itemType == Item.ItemType.keyItem)
             {
                 obj = Instantiate(itemPrefab, keyItemSlotContainer);
-                obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(xKeyItem * 100f, -yKeyItem * 100f);
+                obj.transform.localPosition = new Vector2(xKeyItem * 100f, -yKeyItem * 100f);
 
                 xKeyItem++;
                 if (xKeyItem > 1)
@@ -101,11 +101,8 @@ public class InventoryManager : MonoBehaviour
             obj.GetComponent<DragDrop>().canvas = _canvas;
             obj.GetComponent<InventoryItemController>().id = item.id;
 
-            TMP_Text itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
             Image itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
-
-            itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
         }
 
