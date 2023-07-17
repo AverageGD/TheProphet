@@ -50,6 +50,7 @@ public class CharacterController2D : MonoBehaviour
     private bool isAttacking;
     private short direction;
     private short currentNumberOfAttacks = 0;
+    private float lastAttackTime;
     private short damage = 1;
     private float lastJumpTime;
     private float fallSpeedYDampingChangeTreshold;
@@ -95,6 +96,8 @@ public class CharacterController2D : MonoBehaviour
         {
             isClimbingLadder = true;
         }
+
+        if (Time.time - lastAttackTime > 1) currentNumberOfAttacks = 0;
 
         if (isClimbingLadder) return; //When player uses a ladder he should not do anything else
 
@@ -190,7 +193,7 @@ public class CharacterController2D : MonoBehaviour
     #region AttackLogics
     public void AttackInvoker() //is called by new input manager
     {
-        if (canAttack)
+        if (canAttack && !isClimbingLadder)
         {
             isClimbingLadder = false;
             StartCoroutine(Attack()); //starts atack coroutine
@@ -200,16 +203,20 @@ public class CharacterController2D : MonoBehaviour
     {
         canAttack = false;
         isAttacking = true;
-
+        lastAttackTime = Time.time;
+        StartCoroutine(FreezeRigidbody(0.5f));
         print("lock");
 
         short maxNumberOfAttacks = (short)(upgradeLevel >= 1 ? 4 : 3);
+
         currentNumberOfAttacks++;
 
         if (currentNumberOfAttacks > maxNumberOfAttacks)
         {
             currentNumberOfAttacks = 1;
         }
+
+        _animator.SetTrigger("Attack" + currentNumberOfAttacks);
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackDistance, _enemyLayer);
 
@@ -221,7 +228,7 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
 
         print("open");
 
@@ -316,6 +323,15 @@ public class CharacterController2D : MonoBehaviour
         {
             lastSafePosition = transform.position;
         }
+    }
+
+    private IEnumerator FreezeRigidbody(float n)
+    {
+        rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        yield return new WaitForSeconds(n);
+
+        rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     #region LadderDetectingLogics
