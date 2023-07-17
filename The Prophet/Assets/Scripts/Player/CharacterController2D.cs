@@ -228,7 +228,7 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
 
         print("open");
 
