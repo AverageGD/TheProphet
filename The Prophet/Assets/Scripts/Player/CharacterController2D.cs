@@ -88,13 +88,17 @@ public class CharacterController2D : MonoBehaviour
             rigidBody.gravityScale = 4f;
 
         //getting values from axises
-        verticalAxis = Input.GetAxis("Vertical");
+        verticalAxis = Input.GetAxisRaw("Vertical");
         horizontalAxis = Input.GetAxisRaw("Horizontal");
 
 
-        if (Mathf.Abs(verticalAxis) > Mathf.Abs(horizontalAxis) && isLadder) //if the player is near to the ladder and vertical axis isn't equal to 0, then he starts to climb
+        if (Mathf.Abs(verticalAxis) > Mathf.Abs(horizontalAxis) && isLadder && !isDashing) //if the player is near to the ladder and vertical axis isn't equal to 0, then he starts to climb
         {
             isClimbingLadder = true;
+            _animator.SetBool("IsMovingVertically", true);
+        } else
+        {
+            _animator.SetBool("IsMovingVertically", false);
         }
 
         if (Time.time - lastAttackTime > 1) currentNumberOfAttacks = 0;
@@ -296,7 +300,7 @@ public class CharacterController2D : MonoBehaviour
     {
         _animator.SetTrigger("Jump");
         isClimbingLadder = false;
-        if (IsGrounded() || (upgradeLevel >= 2 && IsWallNear() && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
+        if (IsGrounded() || (upgradeLevel >= 5 && IsWallNear() && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
             lastJumpTime = Time.time;
@@ -350,6 +354,7 @@ public class CharacterController2D : MonoBehaviour
         {
             currentLadder = null;
             isClimbingLadder = false;
+            _animator.SetBool("IsMovingVertically", false);
             isLadder = false;
         }
     }
