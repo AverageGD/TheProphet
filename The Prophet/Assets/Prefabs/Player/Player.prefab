@@ -157,7 +157,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _attackPoint: {fileID: 3119143746469667009}
-  _attackDistance: 0.5
+  _attackDistance: 1
   _interactableLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74efaf3fd15793f49a3990bd4795d6ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ribbon: {fileID: 0}
+  ribbonAbility: {fileID: 0}
 --- !u!114 &4799520660682653130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2c4ebf692059c4594f2d4613193d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstAmuletAbility: {fileID: 0}
+  secondAmuletAbility: {fileID: 0}
 --- !u!114 &5301633399638714936
 MonoBehaviour:
   m_ObjectHideFlags: 0

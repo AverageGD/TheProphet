@@ -121,7 +121,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
 
-        _attackPoint.localPosition = new Vector2(direction * 0.63f, _attackPoint.localPosition.y); //determines the local position of attack point by depending on direction
+        _attackPoint.localPosition = new Vector2(direction * 1.94f, _attackPoint.localPosition.y); //determines the local position of attack point by depending on direction
 
         _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y); //determines the local position of wallChecker point by depending on direction
 
@@ -228,11 +228,11 @@ public class CharacterController2D : MonoBehaviour
         {
             if (enemy != null)
             {
-                // When enemies are created here will be calling function for taking damage
+                enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
             }
         }
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
 
         print("open");
 
