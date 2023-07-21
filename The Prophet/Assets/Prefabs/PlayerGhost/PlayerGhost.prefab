@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4464159571142371148}
   - component: {fileID: 769959124304064037}
   - component: {fileID: 2572717116325151816}
-  - component: {fileID: -1296200934791078727}
   m_Layer: 6
   m_Name: PlayerGhost
   m_TagString: Untagged
@@ -32,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &769959124304064037
 SpriteRenderer:
@@ -193,17 +192,3 @@ MonoBehaviour:
   optionalRotationMode: 0
   optionalScrambleMode: 0
   optionalString: 
---- !u!114 &-1296200934791078727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986832492298096555}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3368b972f6258a4aac2bd1757eb3ba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 4935279571419285620, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-  _ghostSpriteRenderer: {fileID: 769959124304064037}
