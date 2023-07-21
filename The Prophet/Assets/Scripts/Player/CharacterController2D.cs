@@ -228,6 +228,10 @@ public class CharacterController2D : MonoBehaviour
         {
             if (enemy != null)
             {
+                CinemachineShake.instance.Shake(1, 0.3f);
+
+                Vector2 knockbackDirection = transform.position - enemy.transform.position;
+                enemy.gameObject.GetComponent<Knockback>().KnockbackInvoker(knockbackDirection);
                 enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
             }
         }

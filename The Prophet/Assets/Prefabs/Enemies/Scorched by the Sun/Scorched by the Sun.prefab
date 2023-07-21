@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 8182320040503546703}
   - component: {fileID: 435085698976909397}
   - component: {fileID: 5976742733699984556}
+  - component: {fileID: 5775367031127850026}
+  - component: {fileID: 965293957383210173}
   - component: {fileID: 3133673963876780830}
   - component: {fileID: 4066585863338558115}
   - component: {fileID: 4047847825270167822}
+  - component: {fileID: 6206825421486635039}
   m_Layer: 8
   m_Name: Scorched by the Sun
   m_TagString: Untagged
@@ -32,7 +35,8 @@ Transform:
   m_LocalPosition: {x: 1.1, y: -8.176, z: 0.15703917}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3922854134775995199}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,6 +106,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 5
   currencyMultiplier: 0
+--- !u!114 &5775367031127850026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52179146741610744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931d06fe0763507498af61a60cbf2502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _safePositionChecker: {fileID: 0}
+  _safePositionCheckDistance: 0
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _speed: 0
+  _attackDistance: 0
+  _visibilityDistance: 0
+--- !u!114 &965293957383210173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52179146741610744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f98f20536b0387458a433a76f2de0b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _attackDistance: 1
+  isAttacking: 0
 --- !u!50 &3133673963876780830
 Rigidbody2D:
   serializedVersion: 4
@@ -185,3 +231,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6206825421486635039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52179146741610744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442789e82c72f9b40b7cbb6f46674542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 10
+--- !u!1 &2368777037601820044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3922854134775995199}
+  m_Layer: 8
+  m_Name: SafePositionChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3922854134775995199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2368777037601820044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.24, y: -3.88, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8182320040503546703}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

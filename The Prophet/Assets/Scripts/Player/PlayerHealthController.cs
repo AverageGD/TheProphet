@@ -1,11 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyHealthController : MonoBehaviour
+public class PlayerHealthController : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
-
-    public float currencyMultiplier;
 
     private float health;
     private SpriteRenderer spriteRenderer;
@@ -18,7 +16,6 @@ public class EnemyHealthController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
-
         health -= damage;
         if (health <= 0)
         {
@@ -31,5 +28,4 @@ public class EnemyHealthController : MonoBehaviour
         yield return new WaitForSeconds(0.08f);
         Destroy(gameObject);
     }
-    
 }
