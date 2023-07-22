@@ -39,15 +39,15 @@ public class ScorchedByTheSunAttacks : MonoBehaviour
         animator.SetTrigger("Attack");
 
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         attackPoint.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         attackPoint.SetActive(false);
 
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(4.5f);
 
         isAttacking = false;
         canAttack = true;

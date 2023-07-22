@@ -47,7 +47,7 @@ public class ScorchedByTheSunMovement : MonoBehaviour
                 rigidBody.velocity = Vector2.right * _speed * direction;
         }
 
-        if (isPlayerVeryNear)
+        if (isPlayerVeryNear && !isAttacking)
         {
             short direction = (short)Mathf.Sign(_player.position.x - transform.position.x);
 
