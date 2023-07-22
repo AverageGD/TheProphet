@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class ScorchedByTheSunMovement : MonoBehaviour
 {
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _safePositionChecker;
@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
 
         animator.SetBool("IsPlayerNear", isPlayerNear && IsSafeGround());
 
-        bool isAttacking = GetComponent<Attacks>().isAttacking; 
+        bool isAttacking = GetComponent<ScorchedByTheSunAttacks>().isAttacking; 
 
         if (isPlayerNear && !isPlayerVeryNear && !isAttacking)
         {

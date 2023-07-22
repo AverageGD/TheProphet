@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Attacks : MonoBehaviour
+public class ScorchedByTheSunAttacks : MonoBehaviour
 {
     [SerializeField] private Transform _player;
     [SerializeField] private LayerMask _playerLayer;
@@ -12,10 +12,13 @@ public class Attacks : MonoBehaviour
     private bool isPlayerVeryNear;
     private bool canAttack = true;
     private Animator animator;
+    private GameObject attackPoint;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        attackPoint = transform.Find("AttackPoint").gameObject;
+        attackPoint.SetActive(false);
     }
 
     private void Update()
@@ -35,12 +38,17 @@ public class Attacks : MonoBehaviour
 
         animator.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(1.5f);
 
-        if (isPlayerVeryNear)
-            _player.gameObject.GetComponent<PlayerHealthController>().TakeDamage(1);
+        yield return new WaitForSeconds(1f);
 
-        yield return new WaitForSeconds(4f);
+        attackPoint.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        attackPoint.SetActive(false);
+
+        yield return new WaitForSeconds(3.5f);
+
         isAttacking = false;
         canAttack = true;
 
