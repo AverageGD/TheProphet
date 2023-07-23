@@ -8,6 +8,7 @@ public class PlayerHealthController : MonoBehaviour
     private float health;
     private SpriteRenderer spriteRenderer;
 
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -16,13 +17,14 @@ public class PlayerHealthController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
+        GameManager.instance.InvincibilityInvoker(gameObject, 2.5f, true);
         health -= damage;
+
         if (health <= 0)
         {
             StartCoroutine(Die());
         }
     }
-
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(0.08f);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour
+public class EnemyDamage : MonoBehaviour //Universal script for enemies's weapons logic
 {
     [SerializeField] private float damage;
 
