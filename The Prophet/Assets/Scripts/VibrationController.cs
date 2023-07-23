@@ -30,12 +30,13 @@ public class VibrationController : MonoBehaviour
     public void StartVibration(float leftMotorIntensity, float rightMotorIntensity, float vibrationDuration)
     {
 
-        if (Input.GetJoystickNames().Length == 0)
+        if (Gamepad.current == null)
         {
             Debug.LogWarning("No gamepad found.");
             return;
         }
 
+        
         Gamepad.current.SetMotorSpeeds(leftMotorIntensity, rightMotorIntensity);
 
         timer = vibrationDuration;
