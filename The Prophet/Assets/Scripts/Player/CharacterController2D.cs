@@ -208,7 +208,7 @@ public class CharacterController2D : MonoBehaviour
         canAttack = false;
         isAttacking = true;
         lastAttackTime = Time.time;
-        StartCoroutine(FreezeRigidbody(0.5f));
+        StartCoroutine(FreezeRigidbody(0.2f));
         print("lock");
 
         short maxNumberOfAttacks = (short)(upgradeLevel >= 1 ? 4 : 3);
@@ -228,6 +228,8 @@ public class CharacterController2D : MonoBehaviour
         {
             if (enemy != null)
             {
+                VibrationController.instance.StartVibration(0.2f, 0.2f, 0.2f);
+
                 CinemachineShake.instance.Shake(1, 0.3f);
                 enemy.gameObject.GetComponent<Knockback>().KnockbackInvoker(transform);
                 enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);

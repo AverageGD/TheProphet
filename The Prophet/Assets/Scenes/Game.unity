@@ -490,6 +490,7 @@ Transform:
   - {fileID: 535348432}
   - {fileID: 621072253}
   - {fileID: 1943204877}
+  - {fileID: 1428512246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1159,6 +1160,11 @@ Transform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
   m_PrefabInstance: {fileID: 1788447237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &809549003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1562856598718627837, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
+  m_PrefabInstance: {fileID: 5811145411245377373}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &861769469
 GameObject:
@@ -2484,6 +2490,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1428512245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1428512246}
+  - component: {fileID: 1428512247}
+  m_Layer: 0
+  m_Name: GamepadManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1428512246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428512245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 489078087}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1428512247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428512245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b418dd842a7bd874ba1dd1936021009d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1470945280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,11 +3912,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5976742733699984556, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
       propertyPath: _maxHealth
-      value: 1000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5976742733699984556, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
-      propertyPath: currencyMultiplier
-      value: 1
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976742733699984556, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976742733699984556, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 809549003}
+    - target: {fileID: 5976742733699984556, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976742733699984556, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976742733699984556, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976742733699984556, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8182320040503546703, guid: 7214b7bc2d468594c86f8ebc3f8de75a, type: 3}
       propertyPath: m_RootOrder

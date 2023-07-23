@@ -35,6 +35,16 @@ public class Knockback : MonoBehaviour
         yield return new WaitForSeconds(knockbackDelay);
 
         rigidBody.velocity = Vector2.zero;
-        OnDone?.Invoke();
+        EnemyHealthController enemyHealthController = GetComponent<EnemyHealthController>();
+        if (enemyHealthController != null)
+        {
+            if (enemyHealthController.health > 0)
+                OnDone?.Invoke();
+
+        }
+        else
+        {
+            OnDone?.Invoke();
+        }
     }
 }
