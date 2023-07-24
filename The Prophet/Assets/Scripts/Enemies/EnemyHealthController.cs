@@ -9,8 +9,8 @@ public class EnemyHealthController : MonoBehaviour
     [SerializeField] private float _deathTiming;
 
     public float currencyMultiplier;
-    public UnityEvent OnDeath;
     public float health;
+    public UnityEvent OnDeath;
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -41,6 +41,7 @@ public class EnemyHealthController : MonoBehaviour
     private IEnumerator Die()
     {
         animator.SetTrigger("Death");
+        gameObject.layer = LayerMask.NameToLayer("Invincible");
 
         yield return new WaitForSeconds(_deathTiming / 2);
 
