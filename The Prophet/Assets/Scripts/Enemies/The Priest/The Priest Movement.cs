@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ScorchedByTheSunMovement : MonoBehaviour
+public class ThePriestMovement : MonoBehaviour
 {
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _safePositionChecker;
@@ -12,11 +13,12 @@ public class ScorchedByTheSunMovement : MonoBehaviour
     [SerializeField] private float _visibilityDistance;
 
     public bool isPlayerNear;
-    public bool isPlayerVeryNear;
+    public UnityEvent OnStart;
+    public UnityEvent OnEnd;
 
     private Animator animator;
     private Rigidbody2D rigidBody;
-    
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -27,22 +29,28 @@ public class ScorchedByTheSunMovement : MonoBehaviour
     {
         isPlayerNear = Physics2D.OverlapCircle(transform.position, _visibilityDistance, _playerLayer); //Checks if player is near to approach him
 
-        animator.SetBool("IsPlayerNear", isPlayerNear && IsSafeGround());
+        animator.SetBool("IsWalking", isPlayerNear && IsSafeGround());
 
         if (isPlayerNear) //If player is not attacking and player is near
         {
+            OnStart?.Invoke();
+
             short direction = (short)Mathf.Sign(_player.position.x - transform.position.x); //determines the direction of movement depending on the player's position
 
             if (direction == 1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-            } else
+            }
+            else
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
 
             if (IsSafeGround()) //if there is safe ground he moves
                 rigidBody.velocity = Vector2.right * _speed * direction;
+        } else
+        {
+            OnEnd?.Invoke();
         }
     }
 

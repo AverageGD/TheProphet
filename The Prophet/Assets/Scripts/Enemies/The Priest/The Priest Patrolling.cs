@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ThePriestPatrolling : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class ThePriestPatrolling : MonoBehaviour
     public Vector3[] points;
     public int current;
 
-    private float currentRotation = 0;
     private bool canMove = true;
     private bool isPatrolling = false;
     private Animator animator;
@@ -28,6 +28,17 @@ public class ThePriestPatrolling : MonoBehaviour
             animator.SetBool("IsWalking", true);
 
             transform.position = Vector2.MoveTowards(transform.position, points[current], _speed * Time.deltaTime);
+
+            short direction = (short)Mathf.Sign(points[current].x - transform.position.x);
+
+            if (direction == 1)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
         }
         else if (!isPatrolling)
         {
@@ -45,14 +56,11 @@ public class ThePriestPatrolling : MonoBehaviour
         isPatrolling = true;
 
         yield return new WaitForSeconds(_patrollingTime);
-
         isPatrolling = false;
         canMove = true;
 
-        transform.rotation = Quaternion.Euler(0, currentRotation + 180, 0);
-        currentRotation += 180;
-        currentRotation %= 360;
+        current++;
+        current %= points.Length;
 
-        current = (current + 1) % points.Length;
     }
 }

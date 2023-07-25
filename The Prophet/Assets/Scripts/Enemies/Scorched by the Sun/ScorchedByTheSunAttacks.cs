@@ -68,7 +68,7 @@ public class ScorchedByTheSunAttacks : MonoBehaviour
 
         attackPoint.SetActive(false);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
 
         OnEnd?.Invoke();
 

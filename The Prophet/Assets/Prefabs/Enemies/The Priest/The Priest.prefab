@@ -74,10 +74,11 @@ GameObject:
   - component: {fileID: 2728754830696892235}
   - component: {fileID: 8364704682952116684}
   - component: {fileID: 5132646795618650859}
+  - component: {fileID: 6063807326587204927}
   - component: {fileID: 5966568552592150708}
   - component: {fileID: 4939800821596610281}
-  - component: {fileID: 3277771831607795475}
   - component: {fileID: 7744694069509597663}
+  - component: {fileID: 3277771831607795475}
   m_Layer: 8
   m_Name: The Priest
   m_TagString: Untagged
@@ -100,7 +101,7 @@ Transform:
   - {fileID: 7360145182600654593}
   - {fileID: 2640209889143014832}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2728754830696892235
 SpriteRenderer:
@@ -216,6 +217,37 @@ CapsuleCollider2D:
   m_Offset: {x: -0.18476963, y: -1.6881988}
   m_Size: {x: 3.2123852, y: 4.9523263}
   m_Direction: 0
+--- !u!114 &6063807326587204927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091592603386631363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bbe59927b0c2e4d933d3b0aa382e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _safePositionChecker: {fileID: 0}
+  _safePositionCheckDistance: 0
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _speed: 0
+  _attackDistance: 0
+  _visibilityDistance: 0
+  isPlayerNear: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5966568552592150708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +287,24 @@ MonoBehaviour:
   OnDone:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7744694069509597663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091592603386631363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16606d9c7288a3741b006595b7c3f34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _patrollingTime: 2
+  points:
+  - {x: 40, y: -2.075696, z: 0}
+  - {x: 30, y: -2.075696, z: 0}
+  current: 0
 --- !u!95 &3277771831607795475
 Animator:
   serializedVersion: 5
@@ -276,21 +326,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7744694069509597663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8091592603386631363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16606d9c7288a3741b006595b7c3f34d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 2
-  _patrollingTime: 2
-  points:
-  - {x: 40, y: -2.075696, z: 0}
-  - {x: 30, y: -2.075696, z: 0}
-  current: 0
