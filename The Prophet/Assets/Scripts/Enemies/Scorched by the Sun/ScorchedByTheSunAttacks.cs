@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScorchedByTheSunAttacks : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class ScorchedByTheSunAttacks : MonoBehaviour
 
     private bool canAttack = true;
     public bool isAttacking = false;
+    public UnityEvent OnStart;
+    public UnityEvent OnEnd;
 
     private bool isPlayerVeryNear;
-    private float health;
     private Animator animator;
     private GameObject attackPoint;
+    
 
     private void Start()
     {
@@ -37,6 +40,8 @@ public class ScorchedByTheSunAttacks : MonoBehaviour
     {
         canAttack = false;
         isAttacking = true;
+
+        OnStart?.Invoke();
 
         animator.SetTrigger("Attack");
 
@@ -64,6 +69,8 @@ public class ScorchedByTheSunAttacks : MonoBehaviour
         attackPoint.SetActive(false);
 
         yield return new WaitForSeconds(0.5f);
+
+        OnEnd?.Invoke();
 
         isAttacking = false;
         canAttack = true;

@@ -13,6 +13,7 @@ public class ScorchedByTheSunMovement : MonoBehaviour
 
     public bool isPlayerNear;
     public bool isPlayerVeryNear;
+
     private Animator animator;
     private Rigidbody2D rigidBody;
     

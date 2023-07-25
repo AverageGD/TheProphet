@@ -349,7 +349,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemies/The Priest
+    - Assets/Prefabs/Enemies/The Priest
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -357,16 +357,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 66
   m_LastFolders:
-  - Assets/Scripts/Enemies/The Priest
+  - Assets/Prefabs/Enemies/The Priest
   m_LastFoldersGridSize: 66
   m_LastProjectPath: C:\Users\PC\Documents\GitHub\TheProphet\The Prophet
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 307}
-    m_SelectedIDs: 86830000
-    m_LastClickedID: 33670
-    m_ExpandedIDs: 00000000927600009476000096760000987600009a7600009c7600009e760000a0760000a2760000a4760000a6760000a8760000aa760000ac760000ae760000b0760000b2760000747800008a7800009278000000ca9a3b
+    scrollPos: {x: 0, y: 83}
+    m_SelectedIDs: 76a30000
+    m_LastClickedID: 41846
+    m_ExpandedIDs: 00000000927600009476000096760000987600009a7600009c7600009e760000a0760000a2760000a4760000a6760000a8760000aa760000ac760000ae760000b0760000b27600008a780000927800006aa3000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -489,7 +489,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f2faffff1a730000487300001c740000
+      m_ExpandedIDs: f2faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -921,9 +921,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 29.670015, y: -2.5827792, z: -0.12833855}
+    m_Target: {x: 44.358162, y: -1.0811143, z: -0.10060986}
     speed: 2
-    m_Value: {x: 29.670015, y: -2.5827792, z: -0.12833855}
+    m_Value: {x: 44.15335, y: -0.87630445, z: -0.10360679}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -973,9 +973,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.6010504
+    m_Target: 6.360167
     speed: 2
-    m_Value: 2.6010504
+    m_Value: 6.6598606
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1080,7 +1080,7 @@ MonoBehaviour:
       y: 21
       width: 1058
       height: 523
-    m_Scale: {x: 0.48425925, y: 0.48425925}
+    m_Scale: {x: 0.48425922, y: 0.48425925}
     m_Translation: {x: 529, y: 261.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -1275,14 +1275,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.80051297
+    - e00: 0.96391755
       e01: 0
       e02: 0
-      e03: 357.57654
+      e03: -13.9175415
       e10: 0
-      e11: 0.80051297
+      e11: 0.96391755
       e12: 0
-      e13: 56.39415
+      e13: 26.871124
       e20: 0
       e21: 0
       e22: 1
@@ -1291,14 +1291,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.6968693
+    - e00: 1.2203885
       e01: 0
       e02: 0
-      e03: 437.52045
+      e03: -87.934265
       e10: 0
-      e11: 0.6968693
+      e11: 1.2203885
       e12: 0
-      e13: 67.15328
+      e13: -2.0806274
       e20: 0
       e21: 0
       e22: 1
