@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &143412410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143412411}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143412411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143412410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44, y: -2.075696, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &185740626
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,8 +168,8 @@ GameObject:
   - component: {fileID: 185740632}
   - component: {fileID: 185740631}
   - component: {fileID: 185740630}
-  - component: {fileID: 185740629}
   - component: {fileID: 185740628}
+  - component: {fileID: 185740635}
   m_Layer: 8
   m_Name: The Priest
   m_TagString: Untagged
@@ -154,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185740626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.08, y: -2.06, z: 0}
+  m_LocalPosition: {x: 36.63, y: -2.06, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -184,34 +215,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &185740629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185740626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f31501f5a019845979fec5de658e0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _safePositionChecker: {fileID: 0}
-  _safePositionCheckDistance: 1
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  _playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  _speed: 2
-  _attackDistance: 1
-  _visibilityDistance: 10
-  _firstPoint: 29
-  _secondPoint: 40
-  _patrollingTime: 2
-  isPlayerNear: 0
 --- !u!114 &185740630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,8 +286,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18476963, y: -2.0060248}
-  m_Size: {x: 3.2123852, y: 5.587969}
+  m_Offset: {x: -0.18476963, y: -1.6881988}
+  m_Size: {x: 3.2123852, y: 4.9523263}
   m_Direction: 0
 --- !u!50 &185740633
 Rigidbody2D:
@@ -365,6 +368,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &185740635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185740626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16606d9c7288a3741b006595b7c3f34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _patrollingTime: 2
+  points:
+  - {x: 40, y: -2.075696, z: 0}
+  - {x: 30, y: -2.075696, z: 0}
+  current: 0
 --- !u!1 &207533470
 GameObject:
   m_ObjectHideFlags: 3
@@ -1843,6 +1864,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfbffa15042f47419764f13474646ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1021075483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021075484}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021075484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021075483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30, y: -2.075696, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1064177913
 PrefabInstance:
   m_ObjectHideFlags: 0

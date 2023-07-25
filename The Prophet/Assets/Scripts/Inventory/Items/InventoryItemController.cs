@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class InventoryItemController : MonoBehaviour //This script is made for contextual iem control depending on its type
 {
     public int id;
+    public bool isWearing;
 
     public RibbonAbility ribbon;
     public AmuletAbility amulet;
@@ -27,7 +28,8 @@ public class InventoryItemController : MonoBehaviour //This script is made for c
             return;
 
         ItemSlot.Slots slot = itemSlot.slot;
-
+        isWearing = false;
+        InventoryManager.instance.ResetWearedIems(id, false);
 
         if (slot == ItemSlot.Slots.ribbon1)
         {

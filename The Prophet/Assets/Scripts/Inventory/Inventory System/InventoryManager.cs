@@ -110,11 +110,23 @@ public class InventoryManager : MonoBehaviour
             inventoryItemController.itemName = item.name;
             inventoryItemController.itemDescription = item.description;
             inventoryItemController.descriptionBox = _descriptionBox;
-
+            inventoryItemController.isWearing = item.isWearing;
             Image itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
             itemIcon.sprite = item.icon;
         }
 
+    }
+
+    public void ResetWearedIems(int id, bool condition)
+    {
+        foreach(Item item in items)
+        {
+            if (item.id == id)
+            {
+                item.isWearing = condition;
+            }
+        }
+        ListItems();
     }
 }

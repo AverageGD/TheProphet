@@ -15,6 +15,8 @@ public class Item : ScriptableObject // Item scriptable object for the visual co
     public RibbonAbility ribbonAbility;
     public AmuletAbility amuletAbility;
 
+    public bool isWearing;
+
     public enum ItemType
     {
         ribbon,

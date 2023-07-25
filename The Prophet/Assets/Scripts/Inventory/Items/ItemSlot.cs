@@ -10,7 +10,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler //Here is described logic fo
         Debug.Log("OnDrop");
 
         //keeps corresponding item's controller because we call it several times
-        InventoryItemController inventoryItemController = eventData.pointerDrag.gameObject.GetComponent<InventoryItemController>(); 
+        InventoryItemController inventoryItemController = eventData.pointerDrag.gameObject.GetComponent<InventoryItemController>();
+
+        if (inventoryItemController.isWearing) return;
 
         //just checks if the type of slot and item are the same
         if (eventData.pointerDrag != null && ((slot == Slots.ribbon1 && inventoryItemController.ribbon != null) || 
@@ -19,6 +21,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler //Here is described logic fo
             //before adding new item in the slot we are being sure there id no left any other items
             foreach (Transform child in transform)
             {
+                child.GetComponent<InventoryItemController>().isWearing = false;
+                InventoryManager.instance.ResetWearedIems(child.GetComponent<InventoryItemController>().id, false);
                 Destroy(child);
             }
 
@@ -29,6 +33,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler //Here is described logic fo
 
             dragDrop.canvasGroup.blocksRaycasts = true;
             dragDrop.enabled = false;
+            inventoryItemController.isWearing = true;
+            InventoryManager.instance.ResetWearedIems(inventoryItemController.id, true);
 
             eventDataClone.transform.position = transform.position;
 
