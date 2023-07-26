@@ -4,7 +4,7 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies's weapon
 {
     [SerializeField] private float damage;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {

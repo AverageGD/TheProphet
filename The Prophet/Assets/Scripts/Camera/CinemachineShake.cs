@@ -18,6 +18,8 @@ public class CinemachineShake : MonoBehaviour
         }
 
         cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
+
+        Shake(0, 0);
     }
 
     public void Shake(float intensity, float time)

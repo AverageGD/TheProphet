@@ -4,6 +4,7 @@ using UnityEngine;
 public class Flash : MonoBehaviour
 {
     [SerializeField] private Material _flashMaterial;
+    [SerializeField] private Material _defaultMaterial;
 
     public static Flash instance;
 
@@ -18,12 +19,10 @@ public class Flash : MonoBehaviour
 
     private IEnumerator FlashSprite(SpriteRenderer spriteRenderer)
     {
-        Material originalMaterial = spriteRenderer.material;
-
         spriteRenderer.material = _flashMaterial;
 
         yield return new WaitForSeconds(0.05f);
 
-        spriteRenderer.material = originalMaterial;
+        spriteRenderer.material = _defaultMaterial;
     }
 }
