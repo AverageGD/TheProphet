@@ -4,9 +4,7 @@ public class ThePriestBatDamage : EnemyDamage
 {
     [SerializeField] private float _speed;
 
-
     public Transform player;
-    public short Direction { private get; set; }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,7 +16,7 @@ public class ThePriestBatDamage : EnemyDamage
 
     private void Update()
     {
-        transform.Translate(Vector2.right * Direction * _speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.position, _speed * Time.deltaTime);
     }
 
 }

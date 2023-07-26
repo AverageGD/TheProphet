@@ -26,9 +26,21 @@ public class ThePriestAttacks : MonoBehaviour
     {
         isPlayerNear = Physics2D.OverlapCircle(transform.position, _visibilityDistance, _playerLayer);
 
-        if (isPlayerNear && canAttack)
+        if (isPlayerNear)
         {
-            StartCoroutine(Attack());
+            short direction = (short)Mathf.Sign(_player.position.x - transform.position.x);
+
+            if (direction == 1)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+
+            if (canAttack)
+                StartCoroutine(Attack());
         }
     }
 
@@ -37,16 +49,6 @@ public class ThePriestAttacks : MonoBehaviour
         canAttack = false;
         OnStart?.Invoke();
 
-        short direction = (short)Mathf.Sign(_player.position.x - transform.position.x);
-
-        if (direction == 1)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
         animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(0.4f);
@@ -61,12 +63,11 @@ public class ThePriestAttacks : MonoBehaviour
 
             batPrefabClone.transform.position = _attackPoint.position;
 
-            batPrefabClone.GetComponent<ThePriestBatDamage>().Direction = direction;
             batPrefabClone.GetComponent<ThePriestBatDamage>().player = _player;
 
-            Destroy(batPrefabClone, 4);
+            Destroy(batPrefabClone, 2);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
             print("Spawned");
         }
 

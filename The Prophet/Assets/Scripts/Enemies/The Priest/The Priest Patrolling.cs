@@ -1,17 +1,19 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ThePriestPatrolling : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _patrollingTime;
+    [SerializeField] private float _visibilityDistance;
+    [SerializeField] private LayerMask _playerLayer;
 
     public Vector3[] points;
     public int current;
 
     private bool canMove = true;
     private bool isPatrolling = false;
+    private bool isPlayerNear;
     private Animator animator;
     private void Start()
     {
@@ -23,7 +25,9 @@ public class ThePriestPatrolling : MonoBehaviour
     
     private void Update()
     {
-        if (transform.position != points[current] && canMove)
+        isPlayerNear = Physics2D.OverlapCircle(transform.position, _visibilityDistance, _playerLayer);
+
+        if (transform.position != points[current] && canMove && !isPlayerNear)
         {
             animator.SetBool("IsWalking", true);
 
