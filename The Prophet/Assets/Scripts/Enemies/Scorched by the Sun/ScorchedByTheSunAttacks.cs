@@ -68,7 +68,7 @@ public class ScorchedByTheSunAttacks : MonoBehaviour
 
         attackPoint.SetActive(false);
 
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(2f);
 
         if (GetComponent<EnemyHealthController>().health > 0)
             OnEnd?.Invoke();

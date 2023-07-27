@@ -5,16 +5,15 @@ public class ThePriestPatrolling : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _patrollingTime;
-    [SerializeField] private float _visibilityDistance;
-    [SerializeField] private LayerMask _playerLayer;
 
     public Vector3[] points;
     public int current;
 
     private bool canMove = true;
     private bool isPatrolling = false;
-    private bool isPlayerNear;
     private Animator animator;
+    private short direction;
+
     private void Start()
     {
         current = 0;
@@ -25,15 +24,21 @@ public class ThePriestPatrolling : MonoBehaviour
     
     private void Update()
     {
-        isPlayerNear = Physics2D.OverlapCircle(transform.position, _visibilityDistance, _playerLayer);
-
-        if (transform.position != points[current] && canMove && !isPlayerNear)
+        if (transform.position != points[current] && canMove)
         {
             animator.SetBool("IsWalking", true);
 
             transform.position = Vector2.MoveTowards(transform.position, points[current], _speed * Time.deltaTime);
 
-            short direction = (short)Mathf.Sign(points[current].x - transform.position.x);
+            if (points[current].x - transform.position.x > 0)
+            {
+                direction = 1;
+            } else if (points[current].x - transform.position.x < 0)
+            {
+                direction = -1;
+            }
+
+            print(direction);
 
             if (direction == 1)
             {

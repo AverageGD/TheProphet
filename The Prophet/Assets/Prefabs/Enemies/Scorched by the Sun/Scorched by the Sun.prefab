@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5775367031127850026}
   - component: {fileID: 965293957383210173}
   - component: {fileID: 5976742733699984556}
-  - component: {fileID: 4264676254447545996}
   - component: {fileID: 3133673963876780830}
   - component: {fileID: 4066585863338558115}
   - component: {fileID: 4047847825270167822}
@@ -40,7 +39,7 @@ Transform:
   - {fileID: 2403282116462059901}
   - {fileID: 6703858514130171549}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &435085698976909397
 SpriteRenderer:
@@ -106,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931d06fe0763507498af61a60cbf2502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 4773482487640630855, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
+  _player: {fileID: 0}
   _safePositionChecker: {fileID: 3922854134775995199}
-  _safePositionCheckDistance: 0
+  _safePositionCheckDistance: 0.5
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -116,8 +115,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _speed: 3
-  _attackDistance: 3
-  _visibilityDistance: 15
+  _attackDistance: 1.5
+  _visibilityDistance: 10
   isPlayerNear: 0
   isPlayerVeryNear: 0
 --- !u!114 &965293957383210173
@@ -132,12 +131,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f98f20536b0387458a433a76f2de0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 4773482487640630855, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
+  _player: {fileID: 0}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  _attackDistance: 1
+  _attackDistance: 1.5
   isAttacking: 0
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5775367031127850026}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &5976742733699984556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,9 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b90b022c284234e8edaa9030ba1347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  _maxHealth: 10
   _deathTiming: 1.75
   currencyMultiplier: 1
+  health: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -180,18 +198,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4066585863338558115}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 3133673963876780830}
         m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
         m_MethodName: set_gravityScale
@@ -204,24 +210,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4264676254447545996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52179146741610744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 442789e82c72f9b40b7cbb6f46674542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackForce: 16
-  knockbackDelay: 0.15
-  OnBegin:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5775367031127850026}
+      - m_Target: {fileID: 692449220791062972}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -232,45 +221,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 965293957383210173}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDone:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5775367031127850026}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 965293957383210173}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!50 &3133673963876780830
 Rigidbody2D:

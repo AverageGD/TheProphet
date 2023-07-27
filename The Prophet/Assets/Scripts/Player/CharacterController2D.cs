@@ -234,7 +234,6 @@ public class CharacterController2D : MonoBehaviour
                 VibrationController.instance.StartVibration(0.2f, 0.2f, 0.2f);
 
                 CinemachineShake.instance.Shake(1, 0.3f);
-                enemy.gameObject.GetComponent<Knockback>().KnockbackInvoker(transform);
                 enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
             }
         }

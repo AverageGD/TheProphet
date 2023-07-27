@@ -16,8 +16,10 @@ public class PlayerHealthController : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        VibrationController.instance.StartVibration(0.3f, 0.3f, 0.5f);
+        GameManager.instance.InvincibilityInvoker(gameObject, 1.5f, true);
+
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
-        GameManager.instance.InvincibilityInvoker(gameObject, 2.5f, true);
         health -= damage;
 
         if (health <= 0)
