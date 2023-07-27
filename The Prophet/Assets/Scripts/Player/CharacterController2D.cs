@@ -79,11 +79,14 @@ public class CharacterController2D : MonoBehaviour
     {
         _animator.SetBool("IsGrounded", IsGrounded());
         _animator.SetBool("IsClimbingLadder", isClimbingLadder);
+        _animator.SetBool("IsWallSliding", IsWallNear());
 
         if (IsWallNear() && !IsGrounded()) //if the player is near to wall but is not grounded, that means he is wallsliding
-
+        {
+            rigidBody.gravityScale = 0f;
             rigidBody.gravityScale = 1f;
-        else if (!isDashing) //if the player is not dashing(because there is conflict between dash and this part), then we set gravity as normal
+
+        } else if (!isDashing) //if the player is not dashing(because there is conflict between dash and this part), then we set gravity as normal
 
             rigidBody.gravityScale = 4f;
 
