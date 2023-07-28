@@ -1,12 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealthController : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
 
-    private float health;
     private SpriteRenderer spriteRenderer;
+
+    public float health;
+    public UnityEvent OnDeath;
 
 
     private void Start()
@@ -29,7 +32,12 @@ public class PlayerHealthController : MonoBehaviour
     }
     private IEnumerator Die()
     {
+        OnDeath?.Invoke();
+
+        DeathScreen.instance.CreateSilhouette(transform, spriteRenderer);
+
         yield return new WaitForSeconds(0.08f);
-        Destroy(gameObject);
+
+        gameObject.SetActive(false);
     }
 }

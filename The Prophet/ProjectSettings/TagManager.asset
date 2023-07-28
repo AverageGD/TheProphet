@@ -47,3 +47,9 @@ TagManager:
   - name: Items
     uniqueID: 1669494955
     locked: 0
+  - name: World Space Canvas
+    uniqueID: 4121893921
+    locked: 0
+  - name: DeathSilhouettes
+    uniqueID: 3447139003
+    locked: 0
