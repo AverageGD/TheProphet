@@ -211,8 +211,7 @@ public class CharacterController2D : MonoBehaviour
         canAttack = false;
         isAttacking = true;
         lastAttackTime = Time.time;
-        StartCoroutine(FreezeRigidbody(0.2f));
-        print("lock");
+        StartCoroutine(FreezeRigidbody(0.25f));
 
         short maxNumberOfAttacks = (short)(upgradeLevel >= 1 ? 4 : 3);
 
@@ -231,16 +230,19 @@ public class CharacterController2D : MonoBehaviour
         {
             if (enemy != null)
             {
-                VibrationController.instance.StartVibration(0.2f, 0.2f, 0.2f);
+                VibrationController.instance.StartVibration(0.2f, 0.2f, 0.3f);
 
                 CinemachineShake.instance.Shake(1, 0.3f);
                 enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
             }
         }
 
-        yield return new WaitForSeconds(0.2f);
+        if (currentNumberOfAttacks == 4)
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
 
-        print("open");
+        yield return new WaitForSeconds(0.25f);
 
         canAttack = true;
         isAttacking = false;

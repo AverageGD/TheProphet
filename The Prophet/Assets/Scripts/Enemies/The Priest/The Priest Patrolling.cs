@@ -38,8 +38,6 @@ public class ThePriestPatrolling : MonoBehaviour
                 direction = -1;
             }
 
-            print(direction);
-
             if (direction == 1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);

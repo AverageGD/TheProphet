@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour //Universal script for enemies's weapons logic
 {
     [SerializeField] private float damage;
+    [SerializeField] private GameObject _enemy;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,7 +13,7 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies's weapon
 
             if (collision.gameObject.GetComponent<PlayerHealthController>().health <= 0)
             {
-                DeathScreen.instance.CreateSilhouette(transform.parent, transform.parent.GetComponent<SpriteRenderer>());
+                DeathScreen.instance.CreateSilhouette(_enemy.transform, _enemy.transform.GetComponent<SpriteRenderer>());
             }
         }
     }

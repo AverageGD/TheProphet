@@ -70,7 +70,7 @@ public class ThePriestAttacks : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
 
-            GameObject ballPrefabClone = Instantiate(_ballPrefab, transform);
+            GameObject ballPrefabClone = Instantiate(_ballPrefab);
 
             ballPrefabClone.transform.position = _attackPoint.position;
 
