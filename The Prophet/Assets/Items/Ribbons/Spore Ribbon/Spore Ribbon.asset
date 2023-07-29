@@ -20,3 +20,4 @@ MonoBehaviour:
   itemType: 0
   ribbonAbility: {fileID: 11400000, guid: 9b2b0f1e6c7e8bd42ace071626dba20e, type: 2}
   amuletAbility: {fileID: 0}
+  isWearing: 1

@@ -211,7 +211,7 @@ public class CharacterController2D : MonoBehaviour
         canAttack = false;
         isAttacking = true;
         lastAttackTime = Time.time;
-        StartCoroutine(FreezeRigidbody(0.25f));
+        GameManager.instance.FreezeRigidbodyInvoker(0.25f, rigidBody);
 
         short maxNumberOfAttacks = (short)(upgradeLevel >= 1 ? 4 : 3);
 
@@ -297,6 +297,21 @@ public class CharacterController2D : MonoBehaviour
     }
     #endregion
 
+    #region LookToTheFuture
+    public void LookToTheFutureInvoker()
+    {
+        StartCoroutine(LookToTheFuture());
+    }
+
+    private IEnumerator LookToTheFuture()
+    {
+        Time.timeScale = 0.3f;
+        yield return new WaitForSecondsRealtime(5);
+
+        Time.timeScale = 1;
+    }
+    #endregion //Is NOT finished
+
     public void InteractionInvoker() // Calls when player Interacts with enviroment
     {
         Collider2D[] interactionalObjects = Physics2D.OverlapCircleAll(transform.position, _interactionRadius, _interactableLayer); // Finds each interactable object in area
@@ -337,14 +352,6 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    private IEnumerator FreezeRigidbody(float n)
-    {
-        rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
-
-        yield return new WaitForSeconds(n);
-
-        rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
 
     #region LadderDetectingLogics
     private void OnTriggerEnter2D(Collider2D collision)

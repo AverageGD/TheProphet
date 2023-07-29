@@ -60,4 +60,19 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Freeze logics
+    public void FreezeRigidbodyInvoker(float n, Rigidbody2D rigidBody)
+    {
+        StartCoroutine(FreezeRigidbody(n, rigidBody));
+    }
+    private IEnumerator FreezeRigidbody(float n, Rigidbody2D rigidBody)
+    {
+        rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        yield return new WaitForSeconds(n);
+
+        rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+    #endregion
 }

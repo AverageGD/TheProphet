@@ -27,6 +27,8 @@ public class InventoryManager : MonoBehaviour
     public void Add(Item item) //Just adds the new item in the list
     {
         items.Add(item);
+
+        item.isWearing = false;
     }
 
 

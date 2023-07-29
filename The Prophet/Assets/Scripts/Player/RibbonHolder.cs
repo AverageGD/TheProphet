@@ -8,6 +8,8 @@ public class RibbonHolder : MonoBehaviour
 
     private float coolDownTime;
     private float activeTime;
+    private Animator animator;
+    private Rigidbody2D rigidBody;
 
     enum RibbonState
     {
@@ -20,7 +22,11 @@ public class RibbonHolder : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
+
         instance = this;
+
     }
 
     private void Update()
@@ -55,8 +61,12 @@ public class RibbonHolder : MonoBehaviour
 
     public void ActivateAbility() //When player clicka on the Ribbon's ability button(RMB or LB), engine calls this function
     {
+
         if (state == RibbonState.ready && ribbonAbility != null) //checks if ribbon is ready to use
         {
+            animator.SetTrigger("Special Ability");
+            GameManager.instance.FreezeRigidbodyInvoker(0.3f, rigidBody);
+
             state = RibbonState.active; //changes the state to active
             ribbonAbility.Activate(); //calls ribbon's function
         }
