@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ThePriestPatrolling : MonoBehaviour
+public class EnemyPatrolling : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _patrollingTime;
