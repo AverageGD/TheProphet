@@ -5,16 +5,33 @@ using UnityEngine.Events;
 public class PlayerHealthController : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
+    [SerializeField] private float _groundCheckDistance;
 
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
+    private Rigidbody2D rigidBody;
+    private Transform groundChecker;
+    private short currentHealTriesCount;
+    private bool canHeal = true;
 
+    public short maxHealTriesCount;
     public float health;
+    public float recoverableHealth;
+
     public UnityEvent OnDeath;
+    public UnityEvent OnHealStart;
+    public UnityEvent OnHealEnd;
 
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
+
+        groundChecker = transform.Find("GroundChecker");
+
+        currentHealTriesCount = maxHealTriesCount;
         health = _maxHealth;
     }
     public void TakeDamage(float damage)
@@ -30,6 +47,37 @@ public class PlayerHealthController : MonoBehaviour
             StartCoroutine(Die());
         }
     }
+
+    public void TryToHealInvoker()
+    {
+        rigidBody.velocity = Vector3.zero;
+
+        if (!canHeal || currentHealTriesCount == 0 || !GameManager.instance.IsGrounded(groundChecker, _groundCheckDistance))
+            return;
+
+        StartCoroutine(Heal());
+    }
+
+    private IEnumerator Heal()
+    {
+        animator.SetBool("IsHealing", true);
+        canHeal = false;
+        currentHealTriesCount--;
+
+        OnHealStart?.Invoke();
+
+        yield return new WaitForSeconds(1.3f);
+
+        health += recoverableHealth;
+        health = Mathf.Clamp(health, 0, _maxHealth);
+
+        OnHealEnd?.Invoke();
+
+        canHeal = true;
+        print("Can heal now");
+        animator.SetBool("IsHealing", false);
+    }
+
     private IEnumerator Die()
     {
         OnDeath?.Invoke();
@@ -40,4 +88,6 @@ public class PlayerHealthController : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+
 }

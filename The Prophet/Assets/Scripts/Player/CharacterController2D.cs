@@ -77,11 +77,11 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetBool("IsGrounded", IsGrounded());
+        _animator.SetBool("IsGrounded", GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance));
         _animator.SetBool("IsClimbingLadder", isClimbingLadder);
         _animator.SetBool("IsWallSliding", IsWallNear());
 
-        if (IsWallNear() && !IsGrounded()) //if the player is near to wall but is not grounded, that means he is wallsliding
+        if (IsWallNear() && !GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance)) //if the player is near to wall but is not grounded, that means he is wallsliding
         {
             rigidBody.gravityScale = 0f;
             rigidBody.gravityScale = 1f;
@@ -323,17 +323,11 @@ public class CharacterController2D : MonoBehaviour
     {
         _animator.SetTrigger("Jump");
         isClimbingLadder = false;
-        if (IsGrounded() || (upgradeLevel >= 5 && IsWallNear() && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
+        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || (upgradeLevel >= 5 && IsWallNear() && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
             lastJumpTime = Time.time;
         }
-    }
-
-    //Checks if player is grounded
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(_groundChecker.position, _groundCheckDistance, _groundLayer);
     }
 
     //Checks if player is near to the wall

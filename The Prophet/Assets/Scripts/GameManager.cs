@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] private Transform _player;
+    [SerializeField] private LayerMask _groundLayer;
 
     private void Start()
     {
@@ -75,4 +76,9 @@ public class GameManager : MonoBehaviour
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     #endregion
+
+    public bool IsGrounded(Transform groundChecker, float groundCheckDistance)
+    {
+        return Physics2D.OverlapCircle(groundChecker.position, groundCheckDistance, _groundLayer);
+    }
 }
