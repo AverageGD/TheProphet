@@ -31,6 +31,7 @@ public class CameraManager : MonoBehaviour
             instance = this;
         }
 
+
         for (int i = 0; i < _allVirtualCameras.Length; i++)
         {
             if (_allVirtualCameras[i].enabled)
@@ -42,8 +43,9 @@ public class CameraManager : MonoBehaviour
                 framingTransposer = currentCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
             }
         }
-
         normYPanAmount = framingTransposer.m_YDamping;
+
+        ChangeYOffsetInvoker(2);
     }
 
     public void LerpYDamping(bool isPlayerFalling)
@@ -82,4 +84,25 @@ public class CameraManager : MonoBehaviour
         }
 
     }
+
+    public void ChangeYOffsetInvoker(float newOffset)
+    {
+        StartCoroutine(ChangeYOffset(newOffset));
+    }
+    
+    private IEnumerator ChangeYOffset(float newOffset)
+    {
+        float currentOffset = currentCamera.GetComponent<CinemachineCameraOffset>().m_Offset.y;
+
+        float deltaOffset = ((newOffset - currentOffset) / 0.2f) * 0.001f;
+
+        while ((int)currentOffset != (int)newOffset)
+        {
+            currentOffset += deltaOffset;
+            currentCamera.GetComponent<CinemachineCameraOffset>().m_Offset.y += deltaOffset;    
+
+            yield return new WaitForSeconds(0.001f);
+        }
+    }
+
 } 

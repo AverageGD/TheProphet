@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        CameraManager.instance.ChangeYOffsetInvoker(-3);
         _dialogueBox.SetActive(true);
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -54,6 +55,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        CameraManager.instance.ChangeYOffsetInvoker(2);
         if (_dialogueBox != null)
             _dialogueBox.SetActive(false);
     }
