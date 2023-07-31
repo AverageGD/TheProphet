@@ -106,6 +106,8 @@ public class CharacterController2D : MonoBehaviour
 
         if (Time.time - lastAttackTime > 1) currentNumberOfAttacks = 0;
 
+        direction = (short)Mathf.Sign(horizontalAxis);
+
         if (isClimbingLadder) return; //When player uses a ladder he should not do anything else
 
         TrySpawnPlayerGhost();
@@ -114,15 +116,12 @@ public class CharacterController2D : MonoBehaviour
 
         if (horizontalAxis > 0)
         {
-            direction = 1;
             _spriteRenderer.flipX = false;
         }
         else if (horizontalAxis < 0)
         {
-            direction = -1;
             _spriteRenderer.flipX = true;
         }
-
 
         _attackPoint.localPosition = new Vector2(direction * 2.4f, _attackPoint.localPosition.y); //determines the local position of attack point by depending on direction
 
@@ -265,6 +264,20 @@ public class CharacterController2D : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Invincible"); // Changes player's layer to avoid contact with enemies
         canDash = false;
         isDashing = true;
+
+        isClimbingLadder = false;
+        currentLadder = null;
+        isLadder = false;
+
+        if (horizontalAxis > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (horizontalAxis < 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
+
         float origGravity = rigidBody.gravityScale; // keeps default gravity scale
 
         if (upgradeLevel >= 5)

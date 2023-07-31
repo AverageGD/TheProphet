@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5070808307848039472
+--- !u!1 &321186204955076181
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6787796994217357723}
-  - component: {fileID: 809821556128854557}
-  - component: {fileID: 1802974300423155916}
-  - component: {fileID: 785589449289601299}
-  - component: {fileID: 8925108024188263184}
+  - component: {fileID: 8243672646322070629}
+  - component: {fileID: 4587994802860869158}
+  - component: {fileID: 631322382423508568}
+  - component: {fileID: 2468936026830073067}
+  - component: {fileID: 8757870194707960526}
   m_Layer: 9
-  m_Name: Rosina
+  m_Name: Mikolash
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6787796994217357723
+--- !u!4 &8243672646322070629
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070808307848039472}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -7.488, y: -2.862, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_GameObject: {fileID: 321186204955076181}
+  m_LocalRotation: {x: 0, y: 0.019371942, z: 0, w: 0.99981236}
+  m_LocalPosition: {x: -5.96, y: -2.06, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!212 &809821556128854557
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 2.22, z: 0}
+--- !u!212 &4587994802860869158
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070808307848039472}
+  m_GameObject: {fileID: 321186204955076181}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 212279861
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82e6490d5ad3d664a8aa43efad8a30e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e6bd53620bd155542a205813e202c709, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,17 +87,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1802974300423155916
+--- !u!95 &631322382423508568
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070808307848039472}
+  m_GameObject: {fileID: 321186204955076181}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0364b1ece95a6f44496f66b9b6f9c204, type: 2}
+  m_Controller: {fileID: 9100000, guid: 285bd3220a3467d4089b2076ccc9d78f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -108,13 +108,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &785589449289601299
+--- !u!114 &2468936026830073067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070808307848039472}
+  m_GameObject: {fileID: 321186204955076181}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 042543bb844bfa640ad3a9508fa9aa91, type: 3}
@@ -122,29 +122,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _dialogues:
-  - name: Rosina
+  - name: Mikolash
     sentences:
-    - 'Greetings starstrider, I am Rosina, the daughter of a gold digger, and the
-      owner of this shop. Here I sell everything that my father brings me from his
-      trips.
-
-'
-    - Did the Church send thee to investigate this all?
-    - . . . .
-    - However, you can count on my support.
-    - Farewell, good preacher!
-  - name: Rosina
+    - Greetings, wanderer. What brings you to these drains?
+    - 'I am Mikolash. I spire to enter the cathedral, feeling its magical allure.
+      Prophecies and ancient secrets shroud it, stirring my curiosity. '
+    - In the depths of the sewers, I seek pathways leading to the ancient gates of
+      this mystical place, where destiny and many answers lie concealed.
+    - Magic and prophecies are woven into its walls, and perhaps my fate is connected
+      to this place.
+    - Everything here is veiled in mystery, and I'm not sure what draws me to it.
+  - name: Mikolash
     sentences:
-    - Hi there! Looking for something?
+    - Be cautious my friend - this place holds dangers that go beyond time and space.
   _delayTime: 0.2
   dialogueIndex: 0
---- !u!58 &8925108024188263184
+--- !u!58 &8757870194707960526
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070808307848039472}
+  m_GameObject: {fileID: 321186204955076181}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -172,4 +171,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.5261198, y: 0}
   serializedVersion: 2
-  m_Radius: 21.01607
+  m_Radius: 8.4

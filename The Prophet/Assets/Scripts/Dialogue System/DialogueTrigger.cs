@@ -4,7 +4,6 @@ public class DialogueTrigger : Interactable
 {
     [SerializeField] private Dialogue[] _dialogues;
     [SerializeField] private float _delayTime;
-    [SerializeField] private float _maximalDistanceFromPlayer;
 
     public int dialogueIndex = 0;
 
@@ -41,10 +40,30 @@ public class DialogueTrigger : Interactable
 
     }
 
-    private void OnTriggerExit2D()
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player"))
+            return;
+
         indexOfCurrentSentence = 0;
 
         DialogueManager.instance.EndDialogue();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player"))
+            return;
+
+        short direction = (short)Mathf.Sign(transform.position.x - _player.transform.position.x);
+
+        if (direction == 1)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }

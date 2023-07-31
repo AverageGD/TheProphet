@@ -42,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: NPCs
+    uniqueID: 212279861
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -51,6 +54,6 @@ TagManager:
   - name: World Space Canvas
     uniqueID: 4121893921
     locked: 0
-  - name: DeathSilhouettes
+  - name: Death Silhouettes
     uniqueID: 3447139003
     locked: 0

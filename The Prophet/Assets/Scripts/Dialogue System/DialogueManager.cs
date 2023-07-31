@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
 
         nameText = _dialogueBox.transform.Find("Name").gameObject.GetComponent<Text>();
         dialogueText = _dialogueBox.transform.Find("Dialogue").gameObject.GetComponent<Text>();
+
+        _dialogueBox.SetActive(false);
     }
 
     public void StartDialogue(Dialogue dialogue)
