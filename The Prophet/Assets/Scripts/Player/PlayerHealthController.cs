@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _groundCheckDistance;
+    [SerializeField] private Slider _healthBarUI;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -19,6 +21,7 @@ public class PlayerHealthController : MonoBehaviour
     public float recoverableHealth;
 
     public UnityEvent OnDeath;
+
     public UnityEvent OnHealStart;
     public UnityEvent OnHealEnd;
 
@@ -33,7 +36,23 @@ public class PlayerHealthController : MonoBehaviour
 
         currentHealTriesCount = maxHealTriesCount;
         health = _maxHealth;
+
+        _healthBarUI.maxValue = _maxHealth;
+        _healthBarUI.value = health;
     }
+
+    private IEnumerator UpdateHealthBarUI()
+    {
+        float healthBarUIChangingVelocity = 0;
+
+        while (_healthBarUI.value != health)
+        {
+            _healthBarUI.value = Mathf.SmoothDamp(_healthBarUI.value, health, ref healthBarUIChangingVelocity, 0.2f);
+
+            yield return new WaitForSeconds(0.001f);
+        }
+    }
+
     public void TakeDamage(float damage)
     {
         VibrationController.instance.StartVibration(0.3f, 0.3f, 0.5f);
@@ -41,6 +60,8 @@ public class PlayerHealthController : MonoBehaviour
 
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
         health -= damage;
+
+        StartCoroutine(UpdateHealthBarUI());
 
         if (health <= 0)
         {
@@ -76,6 +97,8 @@ public class PlayerHealthController : MonoBehaviour
         canHeal = true;
         print("Can heal now");
         animator.SetBool("IsHealing", false);
+
+        StartCoroutine(UpdateHealthBarUI());
     }
 
     private IEnumerator Die()
