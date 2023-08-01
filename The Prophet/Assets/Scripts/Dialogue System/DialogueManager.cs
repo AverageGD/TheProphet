@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -13,6 +14,9 @@ public class DialogueManager : MonoBehaviour
 
     private Text nameText;
     private Text dialogueText;
+
+    public UnityEvent OnStart;
+    public UnityEvent OnEnd;
 
     private void Start()
     {
@@ -29,7 +33,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        CameraManager.instance.ChangeYOffsetInvoker(-3);
+        OnStart?.Invoke();
+
         _dialogueBox.SetActive(true);
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -55,7 +60,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        CameraManager.instance.ChangeYOffsetInvoker(2);
+        OnEnd?.Invoke();
+
         if (_dialogueBox != null)
             _dialogueBox.SetActive(false);
     }

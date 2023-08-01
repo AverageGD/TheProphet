@@ -72,6 +72,7 @@ Transform:
   - {fileID: 6196039321344089645}
   - {fileID: 3119143746469667009}
   - {fileID: 6224995740848040505}
+  - {fileID: 3420143101861084662}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,6 +182,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 0
+  _groundCheckDistance: 0
+  maxHealTriesCount: 0
+  health: 0
+  recoverableHealth: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7384144299223334899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +373,37 @@ Transform:
   m_GameObject: {fileID: 7582299743467997865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.595, y: -2.112, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4773482487640630855}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8070381526630305100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3420143101861084662}
+  m_Layer: 6
+  m_Name: CameraDialogueTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3420143101861084662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8070381526630305100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -7.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

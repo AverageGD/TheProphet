@@ -44,8 +44,6 @@ public class CameraManager : MonoBehaviour
             }
         }
         normYPanAmount = framingTransposer.m_YDamping;
-
-        ChangeYOffsetInvoker(2);
     }
 
     public void LerpYDamping(bool isPlayerFalling)
@@ -85,24 +83,8 @@ public class CameraManager : MonoBehaviour
 
     }
 
-    public void ChangeYOffsetInvoker(float newOffset)
+    public void FollowNewTarget(Transform target)
     {
-        StartCoroutine(ChangeYOffset(newOffset));
+        currentCamera.Follow = target;
     }
-    
-    private IEnumerator ChangeYOffset(float newOffset)
-    {
-        float currentOffset = currentCamera.GetComponent<CinemachineCameraOffset>().m_Offset.y;
-
-        float deltaOffset = ((newOffset - currentOffset) / 0.2f) * 0.001f;
-
-        while ((int)currentOffset != (int)newOffset)
-        {
-            currentOffset += deltaOffset;
-            currentCamera.GetComponent<CinemachineCameraOffset>().m_Offset.y += deltaOffset;    
-
-            yield return new WaitForSeconds(0.001f);
-        }
-    }
-
 } 
