@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Spore Ribbon
   coolDownTime: 2
   activeTime: 0
+  manaCost: 2

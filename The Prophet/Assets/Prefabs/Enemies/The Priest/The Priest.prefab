@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1682863295200784304
 Transform:
   m_ObjectHideFlags: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  _enemy: {fileID: 0}
 --- !u!1 &6534793126785258295
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +350,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _visibilityDistance: 12
-  _meleeAttackDistance: 5
+  _meleeAttackDistance: 3
   _ballPrefab: {fileID: 5593212388736210608, guid: 85988c500691ab84fb11d30cdeb5262d, type: 3}
   OnStart:
     m_PersistentCalls:

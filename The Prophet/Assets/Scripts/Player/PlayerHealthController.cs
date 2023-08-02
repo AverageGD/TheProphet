@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour
 {
+    public static PlayerHealthController instance;
+
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private Slider _healthBarUI;
@@ -17,8 +19,9 @@ public class PlayerHealthController : MonoBehaviour
     private bool canHeal = true;
 
     public short maxHealTriesCount;
-    public float health;
     public float recoverableHealth;
+
+    public float Health { get; private set; }
 
     public UnityEvent OnDeath;
 
@@ -28,6 +31,10 @@ public class PlayerHealthController : MonoBehaviour
 
     private void Start()
     {
+
+        if (instance == null)
+            instance = this;
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
@@ -35,19 +42,20 @@ public class PlayerHealthController : MonoBehaviour
         groundChecker = transform.Find("GroundChecker");
 
         currentHealTriesCount = maxHealTriesCount;
-        health = _maxHealth;
+        Health = _maxHealth;
 
         _healthBarUI.maxValue = _maxHealth;
-        _healthBarUI.value = health;
+        _healthBarUI.value = Health;
     }
 
     private IEnumerator UpdateHealthBarUI()
     {
+
         float healthBarUIChangingVelocity = 0;
 
-        while (_healthBarUI.value != health)
+        while (_healthBarUI.value != Health)
         {
-            _healthBarUI.value = Mathf.SmoothDamp(_healthBarUI.value, health, ref healthBarUIChangingVelocity, 0.2f);
+            _healthBarUI.value = Mathf.SmoothDamp(_healthBarUI.value, Health, ref healthBarUIChangingVelocity, 0.2f);
 
             yield return new WaitForSeconds(0.001f);
         }
@@ -55,15 +63,23 @@ public class PlayerHealthController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+
+        animator.SetBool("IsHealing", false);
+
+        OnHealEnd?.Invoke();
+        canHeal = true;
+
         VibrationController.instance.StartVibration(0.3f, 0.3f, 0.5f);
         GameManager.instance.InvincibilityInvoker(gameObject, 1.5f, true);
 
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
-        health -= damage;
+        Health -= damage;
+        StopAllCoroutines();
 
         StartCoroutine(UpdateHealthBarUI());
 
-        if (health <= 0)
+
+        if (Health <= 0)
         {
             StartCoroutine(Die());
         }
@@ -89,8 +105,8 @@ public class PlayerHealthController : MonoBehaviour
 
         yield return new WaitForSeconds(1.3f);
 
-        health += recoverableHealth;
-        health = Mathf.Clamp(health, 0, _maxHealth);
+        Health += recoverableHealth;
+        Health = Mathf.Clamp(Health, 0, _maxHealth);
 
         OnHealEnd?.Invoke();
 

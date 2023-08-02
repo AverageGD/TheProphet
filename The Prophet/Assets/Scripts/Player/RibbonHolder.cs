@@ -22,11 +22,10 @@ public class RibbonHolder : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        rigidBody = GetComponent<Rigidbody2D>();
-
         instance = this;
 
+        animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -62,7 +61,7 @@ public class RibbonHolder : MonoBehaviour
     public void ActivateAbility() //When player clicka on the Ribbon's ability button(RMB or LB), engine calls this function
     {
 
-        if (state == RibbonState.ready && ribbonAbility != null) //checks if ribbon is ready to use
+        if (state == RibbonState.ready && ribbonAbility != null && PlayerManaController.instance.Mana >= ribbonAbility.manaCost) //checks if ribbon is ready to use
         {
             animator.SetTrigger("Special Ability");
             GameManager.instance.FreezeRigidbodyInvoker(0.3f, rigidBody);

@@ -106,7 +106,13 @@ public class CharacterController2D : MonoBehaviour
 
         if (Time.time - lastAttackTime > 1) currentNumberOfAttacks = 0;
 
-        direction = (short)Mathf.Sign(horizontalAxis);
+        if (horizontalAxis > 0)
+        {
+            direction = 1;
+        } else if (horizontalAxis < 0)
+        {
+            direction = -1;
+        }
 
         if (isClimbingLadder) return; //When player uses a ladder he should not do anything else
 
@@ -233,6 +239,7 @@ public class CharacterController2D : MonoBehaviour
 
                 CinemachineShake.instance.Shake(1, 0.3f);
                 enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
+                PlayerManaController.instance.ReceiveMana(0.15f);
             }
         }
 

@@ -5,8 +5,10 @@ public class RibbonAbility : ScriptableObject //Parent for all ribbon abilities 
     public string name;
     public float coolDownTime;
     public float activeTime;
+    public float manaCost;
 
     public virtual void Activate() 
     {
+        PlayerManaController.instance.SpendMana(manaCost);
     }
 }

@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4773482487640630855}
   - component: {fileID: 2605065717963589662}
   - component: {fileID: 9014293953722779349}
+  - component: {fileID: 602758095603627752}
   - component: {fileID: 9167658657191060510}
   - component: {fileID: 7384144299223334899}
   - component: {fileID: 4799520660682653130}
@@ -169,6 +170,18 @@ MonoBehaviour:
   _playerGhost: {fileID: 1986832492298096555, guid: a5b0afc55db1ed640a3a149e2c1e2871, type: 3}
   upgradeLevel: 22
   lastSafePosition: {x: 0, y: 0}
+--- !u!114 &602758095603627752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935279571419285620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c75cadb1237a546af6d31592c59009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9167658657191060510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 0
   _groundCheckDistance: 0
+  _healthBarUI: {fileID: 0}
   maxHealTriesCount: 0
   health: 0
   recoverableHealth: 0
