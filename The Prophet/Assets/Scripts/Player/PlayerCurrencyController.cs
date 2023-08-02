@@ -20,6 +20,7 @@ public class PlayerCurrencyController : MonoBehaviour
 
     public void TakeCurrency(int currencyCount)
     {
-        currency -= currencyCount;
+        if (currency - currencyCount >= 0)
+            currency -= currencyCount;
     }
 }

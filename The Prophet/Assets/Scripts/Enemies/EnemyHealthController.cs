@@ -7,6 +7,8 @@ public class EnemyHealthController : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _deathTiming;
+    [SerializeField] private float _currencyMinimum;
+    [SerializeField] private float _currencyMaximum;
 
     public float currencyMultiplier;
     public float health;
@@ -51,7 +53,8 @@ public class EnemyHealthController : MonoBehaviour
 
 
         OnDeath?.Invoke();
-        
+        PlayerCurrencyController.instance.AddCurrency((int)(currencyMultiplier * Random.Range(_currencyMinimum, _currencyMaximum)));
+
         while (spriteRenderer.color.a > 0)
         {
             spriteRenderer.color = spriteRenderer.color.WithAlpha(spriteRenderer.color.a - Time.deltaTime);

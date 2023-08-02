@@ -57,7 +57,7 @@ public class PlayerHealthController : MonoBehaviour
         {
             _healthBarUI.value = Mathf.SmoothDamp(_healthBarUI.value, Health, ref healthBarUIChangingVelocity, 0.2f);
 
-            yield return new WaitForSeconds(0.001f);
+            yield return null;
         }
     }
 

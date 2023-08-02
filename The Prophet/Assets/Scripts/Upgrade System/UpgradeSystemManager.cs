@@ -5,7 +5,7 @@ public class UpgradeSystemManager : MonoBehaviour
 {
     public static UpgradeSystemManager instance;
 
-    public List<UpgradeAbility> availableAbilities = new();
+    public List<UpgradeAbility> availableUpgrades = new();
 
     private void Awake()
     {
@@ -15,12 +15,12 @@ public class UpgradeSystemManager : MonoBehaviour
 
     public void AddAbility(UpgradeAbility upgradeAbility)
     {
-        availableAbilities.Add(upgradeAbility);
+        availableUpgrades.Add(upgradeAbility);
     }
 
     private void Update()
     {
-        foreach (UpgradeAbility upgradeAbility in availableAbilities)
+        foreach (UpgradeAbility upgradeAbility in availableUpgrades)
         {
             upgradeAbility.Activate();
         }
