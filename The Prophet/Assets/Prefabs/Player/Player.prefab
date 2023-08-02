@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 1394037841690377520}
   - component: {fileID: 6517960094176525490}
   - component: {fileID: 81307722388245151}
+  - component: {fileID: 6296504758403754760}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -182,6 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c75cadb1237a546af6d31592c59009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxMana: 0
+  _manaBarUI: {fileID: 0}
 --- !u!114 &9167658657191060510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +201,6 @@ MonoBehaviour:
   _groundCheckDistance: 0
   _healthBarUI: {fileID: 0}
   maxHealTriesCount: 0
-  health: 0
   recoverableHealth: 0
   OnDeath:
     m_PersistentCalls:
@@ -331,6 +333,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6296504758403754760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935279571419285620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360341600c29a9343a386deab97eeb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6967970778722298141
 GameObject:
   m_ObjectHideFlags: 0

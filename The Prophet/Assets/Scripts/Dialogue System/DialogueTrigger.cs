@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueTrigger : Interactable
 {
@@ -6,6 +7,7 @@ public class DialogueTrigger : Interactable
     [SerializeField] private float _delayTime;
 
     public int dialogueIndex = 0;
+    public UnityEvent OnDialogueEnd;
 
     private float lastClickTime;
     private int indexOfCurrentSentence = 0;
@@ -24,6 +26,7 @@ public class DialogueTrigger : Interactable
             } else if (indexOfCurrentSentence == _dialogues[dialogueIndex].sentences.Length)
             {
                 DialogueManager.instance.EndDialogue();
+                OnDialogueEnd?.Invoke();
                 dialogueIndex++;
                 dialogueIndex = Mathf.Clamp(dialogueIndex, 0, _dialogues.Length - 1);
 
