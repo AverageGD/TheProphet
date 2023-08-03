@@ -57,10 +57,6 @@ public class CharacterController2D : MonoBehaviour
     private Transform currentLadder;
     private float lastPlayerGhostSpawnTime;
 
-    [Header("Upgrade")]
-
-    public short upgradeLevel;
-
     [Header("Other")]
 
     public Vector2 lastSafePosition;
@@ -218,7 +214,7 @@ public class CharacterController2D : MonoBehaviour
         lastAttackTime = Time.time;
         GameManager.instance.FreezeRigidbodyInvoker(0.25f, rigidBody);
 
-        short maxNumberOfAttacks = (short)(upgradeLevel >= 1 ? 4 : 3);
+        short maxNumberOfAttacks = (short)(UpgradeSystemManager.instance.CanUseAbility("The Fool") ? 4 : 3);
 
         currentNumberOfAttacks++;
 
@@ -238,7 +234,13 @@ public class CharacterController2D : MonoBehaviour
                 VibrationController.instance.StartVibration(0.2f, 0.2f, 0.3f);
 
                 CinemachineShake.instance.Shake(1, 0.3f);
-                enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
+                if (currentNumberOfAttacks == 4)
+                {
+                    enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(2 * damage);
+                } else
+                {
+                    enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
+                }
                 PlayerManaController.instance.ReceiveMana(0.15f);
             }
         }
@@ -286,11 +288,6 @@ public class CharacterController2D : MonoBehaviour
         }
 
         float origGravity = rigidBody.gravityScale; // keeps default gravity scale
-
-        if (upgradeLevel >= 5)
-        {
-            //strikes damage to enemies
-        }
 
         rigidBody.gravityScale = 0;
         rigidBody.velocity = Vector2.zero;
@@ -343,7 +340,7 @@ public class CharacterController2D : MonoBehaviour
     {
         _animator.SetTrigger("Jump");
         isClimbingLadder = false;
-        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || (upgradeLevel >= 5 && IsWallNear() && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
+        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || (UpgradeSystemManager.instance.CanUseAbility("The Hanged Man") && IsWallNear() && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
             lastJumpTime = Time.time;

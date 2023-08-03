@@ -16,13 +16,18 @@ public class UpgradeSystemManager : MonoBehaviour
     public void AddAbility(UpgradeAbility upgradeAbility)
     {
         availableUpgrades.Add(upgradeAbility);
+
+        upgradeAbility.Activate();
     }
 
-    private void Update()
+    public bool CanUseAbility(string name)
     {
         foreach (UpgradeAbility upgradeAbility in availableUpgrades)
         {
-            upgradeAbility.Activate();
+            if (upgradeAbility.name == name) return true;
         }
+
+        return false;
     }
+
 }
