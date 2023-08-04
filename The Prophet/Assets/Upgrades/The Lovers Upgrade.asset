@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 542ed14cc9988d943a6f50a1cae1b594, type: 3}
-  m_Name: The Fool
+  m_Script: {fileID: 11500000, guid: 4ae06926de9373d4699d9fb80c500d40, type: 3}
+  m_Name: The Lovers Upgrade
   m_EditorClassIdentifier: 
-  name: The Fool
-  description: Gives the ability to strike a fourth blow in a combo that deals twice
-    as much damage.
+  name: The Lovers
+  description: Emits a cadaverous smell that causes passive damage.
