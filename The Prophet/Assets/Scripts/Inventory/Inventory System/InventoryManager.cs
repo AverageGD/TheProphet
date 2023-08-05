@@ -6,7 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
 
-    public List <Item> items = new List <Item>();
+    public List<Item> items = new List<Item>();
 
     [Header("Items' containers")]
     public Transform ribbonSlotContainer;
@@ -54,7 +54,7 @@ public class InventoryManager : MonoBehaviour
 
         short xAmulet = 0;
         short yAmulet = 0;
-        
+
         short xKeyItem = 0;
         short yKeyItem = 0;
 
@@ -78,7 +78,8 @@ public class InventoryManager : MonoBehaviour
                     yRibbon++;
                 }
 
-            } else if (item.itemType == Item.ItemType.amulet)
+            }
+            else if (item.itemType == Item.ItemType.amulet)
             {
                 obj = Instantiate(itemPrefab, amuletSlotContainer);
 
@@ -92,7 +93,8 @@ public class InventoryManager : MonoBehaviour
                     yAmulet++;
                 }
 
-            } else if (item.itemType == Item.ItemType.keyItem)
+            }
+            else if (item.itemType == Item.ItemType.keyItem)
             {
                 obj = Instantiate(itemPrefab, keyItemSlotContainer);
                 obj.transform.localPosition = new Vector2(xKeyItem * 100f, -yKeyItem * 100f);
@@ -122,7 +124,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ResetWearedIems(int id, bool condition)
     {
-        foreach(Item item in items)
+        foreach (Item item in items)
         {
             if (item.id == id)
             {

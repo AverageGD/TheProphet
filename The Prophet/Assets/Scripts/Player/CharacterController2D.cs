@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
+    public static CharacterController2D instance;
+
     [Header("Movement")]
 
     [SerializeField] private float _speed;
@@ -61,8 +63,11 @@ public class CharacterController2D : MonoBehaviour
 
     public Vector2 lastSafePosition;
 
-    private void Start()
+    private void Awake()
     {
+        if (instance == null)
+            instance = this;
+
         rigidBody = GetComponent<Rigidbody2D>();
     
         direction = 1;
@@ -201,7 +206,7 @@ public class CharacterController2D : MonoBehaviour
     #region AttackLogics
     public void AttackInvoker() //is called by new input manager
     {
-        if (canAttack && !isClimbingLadder)
+        if (canAttack && !isClimbingLadder && gameObject.activeSelf)
         {
             isClimbingLadder = false;
             StartCoroutine(Attack()); //starts atack coroutine

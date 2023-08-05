@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Teleportation(Vector2 newPosition) //Calls fade, waits 0.74 seconds and changes player's position
     {
-        Fade.instance.FadeInvoker();
+        LocalFade.instance.LocalFadeInvoker();
 
         yield return new WaitForSeconds(0.74f);
 
@@ -77,6 +78,19 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region SceneReloading logics
+    
+    public void ReloadCurrentSceneInvoker(float delay)
+    {
+        StartCoroutine(ReloadCurrentScene(delay));
+    }
+    private IEnumerator ReloadCurrentScene(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    #endregion
     public bool IsGrounded(Transform groundChecker, float groundCheckDistance)
     {
         return Physics2D.OverlapCircle(groundChecker.position, groundCheckDistance, _groundLayer);

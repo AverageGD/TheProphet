@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   itemName: Spore Ribbon
-  description: The ribbon that was found by Ciuperci in the one of canalization's
-    dead-ends
+  description: 'The ribbon that was found by Ciuperci in the one of canalization''s
+    dead-ends.
+
+'
   icon: {fileID: 0}
   itemType: 0
   ribbonAbility: {fileID: 11400000, guid: 9b2b0f1e6c7e8bd42ace071626dba20e, type: 2}
   amuletAbility: {fileID: 0}
-  isWearing: 1
+  isWearing: 0

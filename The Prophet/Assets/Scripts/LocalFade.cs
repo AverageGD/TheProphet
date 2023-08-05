@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class Fade : MonoBehaviour
+public class LocalFade : MonoBehaviour
 {
-    public static Fade instance;
+    public static LocalFade instance;
 
     private void Start()
     {
@@ -11,14 +11,14 @@ public class Fade : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void FadeInvoker() //Calls the private coroutie for fading
+    public void LocalFadeInvoker() //Calls the private coroutie for fading
     {
         gameObject.SetActive(true);
 
-        StartCoroutine(FadeLogic());
+        StartCoroutine(LocalFadeAction());
     }
 
-    private IEnumerator FadeLogic() //Waits 2.16 seconds and disables Fade canvas object
+    private IEnumerator LocalFadeAction() //Waits 2.16 seconds and disables Fade canvas object
     {
         yield return new WaitForSeconds(2.16f);
 

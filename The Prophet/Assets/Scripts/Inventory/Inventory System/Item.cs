@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]
+
 public class Item : ScriptableObject // Item scriptable object for the visual connection to the UI and saving in InventoryManager script
 {
     public int id;
@@ -24,3 +25,4 @@ public class Item : ScriptableObject // Item scriptable object for the visual co
         keyItem
     }
 }
+

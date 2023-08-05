@@ -6,27 +6,28 @@ public class PlayerManaController : MonoBehaviour
 {
     public static PlayerManaController instance;
 
-    [SerializeField] private float _maxMana;
     [SerializeField] private Slider _manaBarUI;
+
+    public float maxMana;
     public float Mana { get; private set; }
 
 
-    private void Start()
+    private void Awake()
     {
 
         if (instance == null)
             instance = this;
 
-        Mana = _maxMana;
-        _manaBarUI.maxValue = _maxMana;
-        _manaBarUI.value = _maxMana;
+        Mana = maxMana;
+        _manaBarUI.maxValue = maxMana;
+        _manaBarUI.value = maxMana;
 
     }
 
     public void SpendMana(float spendingMana)
     {
         Mana -= spendingMana;
-        Mana = Mathf.Clamp(Mana, 0, _maxMana);
+        Mana = Mathf.Clamp(Mana, 0, maxMana);
 
         StartCoroutine(UpdateManaBarUI());
     }
@@ -35,7 +36,7 @@ public class PlayerManaController : MonoBehaviour
     {
         Mana += receivingMana;
 
-        Mana = Mathf.Clamp(Mana, 0, _maxMana);
+        Mana = Mathf.Clamp(Mana, 0, maxMana);
 
         StartCoroutine(UpdateManaBarUI());
     }

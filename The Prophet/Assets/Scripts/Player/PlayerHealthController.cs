@@ -7,7 +7,6 @@ public class PlayerHealthController : MonoBehaviour
 {
     public static PlayerHealthController instance;
 
-    [SerializeField] private float _maxHealth;
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private Slider _healthBarUI;
 
@@ -20,6 +19,7 @@ public class PlayerHealthController : MonoBehaviour
 
     public short maxHealTriesCount;
     public float recoverableHealth;
+    public float maxHealth;
 
     public float Health { get; private set; }
 
@@ -29,7 +29,7 @@ public class PlayerHealthController : MonoBehaviour
     public UnityEvent OnHealEnd;
 
 
-    private void Start()
+    private void Awake()
     {
 
         if (instance == null)
@@ -42,9 +42,9 @@ public class PlayerHealthController : MonoBehaviour
         groundChecker = transform.Find("GroundChecker");
 
         currentHealTriesCount = maxHealTriesCount;
-        Health = _maxHealth;
+        Health = maxHealth;
 
-        _healthBarUI.maxValue = _maxHealth;
+        _healthBarUI.maxValue = maxHealth;
         _healthBarUI.value = Health;
     }
 
@@ -81,7 +81,7 @@ public class PlayerHealthController : MonoBehaviour
 
         if (Health <= 0)
         {
-            StartCoroutine(Die());
+            Die();
         }
     }
 
@@ -106,7 +106,7 @@ public class PlayerHealthController : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
 
         Health += recoverableHealth;
-        Health = Mathf.Clamp(Health, 0, _maxHealth);
+        Health = Mathf.Clamp(Health, 0, maxHealth);
 
         OnHealEnd?.Invoke();
 
@@ -117,13 +117,14 @@ public class PlayerHealthController : MonoBehaviour
         StartCoroutine(UpdateHealthBarUI());
     }
 
-    private IEnumerator Die()
+    private void Die()
     {
         OnDeath?.Invoke();
 
         DeathScreen.instance.CreateSilhouette(transform, spriteRenderer);
 
-        yield return new WaitForSeconds(0.08f);
+        GlobalFade.instance.FadeIn();
+        DeathMessage.instance.ShowMessage();
 
         gameObject.SetActive(false);
     }
