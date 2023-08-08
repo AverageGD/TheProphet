@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: The Fool
   m_EditorClassIdentifier: 
   name: The Fool
+  id: 7
   description: Gives the ability to strike a fourth blow in a combo that deals twice
     as much damage.
+  isPurchased: 1

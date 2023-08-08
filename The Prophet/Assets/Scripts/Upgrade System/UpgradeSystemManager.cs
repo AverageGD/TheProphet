@@ -16,6 +16,7 @@ public class UpgradeSystemManager : MonoBehaviour
     public void AddAbility(UpgradeAbility upgradeAbility)
     {
         availableUpgrades.Add(upgradeAbility);
+        upgradeAbility.isPurchased = true;
 
         upgradeAbility.Activate();
     }

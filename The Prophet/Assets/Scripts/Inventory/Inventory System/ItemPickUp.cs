@@ -4,6 +4,12 @@ public class ItemPickUp : Interactable //overrides interact function for picking
 {
     public Item item;
 
+    private void Update()
+    {
+        if (InventoryManager.instance.Contains(item.id))
+            Destroy(gameObject);
+    }
+
     public override void Interact()
     {
         base.Interact();

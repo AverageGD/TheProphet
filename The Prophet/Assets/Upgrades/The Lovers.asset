@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ae06926de9373d4699d9fb80c500d40, type: 3}
-  m_Name: The Lovers Upgrade
+  m_Name: The Lovers
   m_EditorClassIdentifier: 
   name: The Lovers
+  id: 8
   description: Emits a cadaverous smell that causes passive damage.
+  isPurchased: 1

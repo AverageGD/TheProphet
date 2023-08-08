@@ -6,7 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
 
-    public List<Item> items = new List<Item>();
+    public List<Item> items;
 
     [Header("Items' containers")]
     public Transform ribbonSlotContainer;
@@ -21,16 +21,32 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
+
+        items = new List<Item>();
+
     }
 
     public void Add(Item item) //Just adds the new item in the list
     {
+        if (items == null)
+            items = new List<Item>();
+
         items.Add(item);
 
         item.isWearing = false;
     }
 
+    public bool Contains(int id)
+    {
+        foreach (Item item in items)
+        {
+            if (item.id == id)
+                return true;
+        }
+        return false;
+    }
 
     public void ListItems() //This script refreshes items' list in inventory UI
     {
@@ -68,11 +84,11 @@ public class InventoryManager : MonoBehaviour
             {
                 obj = Instantiate(itemPrefab, ribbonSlotContainer);
 
-                obj.transform.localPosition = new Vector2(xRibbon * 100f, -yRibbon * 100f);
+                obj.transform.localPosition = new Vector2(xRibbon * 100f, -yRibbon * 120f);
                 obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
 
                 xRibbon++;
-                if (xRibbon > 1)
+                if (xRibbon >= 1)
                 {
                     xRibbon = 0;
                     yRibbon++;
@@ -83,11 +99,11 @@ public class InventoryManager : MonoBehaviour
             {
                 obj = Instantiate(itemPrefab, amuletSlotContainer);
 
-                obj.transform.localPosition = new Vector2(xAmulet * 100f, -yAmulet * 100f);
+                obj.transform.localPosition = new Vector2(xAmulet * 100f, -yAmulet * 120f);
                 obj.GetComponent<InventoryItemController>().amulet = item.amuletAbility;
 
                 xAmulet++;
-                if (xAmulet > 1)
+                if (xAmulet >= 1)
                 {
                     xAmulet = 0;
                     yAmulet++;
@@ -97,10 +113,10 @@ public class InventoryManager : MonoBehaviour
             else if (item.itemType == Item.ItemType.keyItem)
             {
                 obj = Instantiate(itemPrefab, keyItemSlotContainer);
-                obj.transform.localPosition = new Vector2(xKeyItem * 100f, -yKeyItem * 100f);
+                obj.transform.localPosition = new Vector2(xKeyItem * 100f, -yKeyItem * 120f);
 
                 xKeyItem++;
-                if (xKeyItem > 1)
+                if (xKeyItem >= 1)
                 {
                     xKeyItem = 0;
                     yKeyItem++;

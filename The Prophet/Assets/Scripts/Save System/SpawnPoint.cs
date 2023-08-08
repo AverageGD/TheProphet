@@ -7,6 +7,9 @@ public class SpawnPoint : Interactable
         base.Interact();
 
         SaveManager.instance.SavePlayerData();
+        SaveManager.instance.SavePlayerInventory();
+        SaveManager.instance.SavePlayerUpgrades();
+
         GlobalFade.instance.FadeIn();
         GameManager.instance.ReloadCurrentSceneInvoker(1.5f);
     }

@@ -1,7 +1,6 @@
-using System.Collections;
+using System;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -14,6 +13,8 @@ public class SaveManager : MonoBehaviour
 
 
         LoadPlayerData();
+        LoadPlayerInventory();
+        LoadPlayerUpgrades();
     }
 
     public void SavePlayerData()
@@ -30,7 +31,6 @@ public class SaveManager : MonoBehaviour
         string json = JsonUtility.ToJson(playerData);
         File.WriteAllText(Application.dataPath + "/playerData.txt", json);
     }
-
     public void LoadPlayerData()
     {
         if (!File.Exists(Application.dataPath + "/playerData.txt"))
@@ -48,6 +48,52 @@ public class SaveManager : MonoBehaviour
         PlayerHealthController.instance.maxHealTriesCount = playerData.maxHealTriesCount;
         PlayerCurrencyController.instance.currency = playerData.currency;
         CharacterController2D.instance.gameObject.transform.position = playerData.lastSafePosition;
+    }
+
+    public void SavePlayerInventory()
+    {
+        string inventoryData = "";
+
+        foreach (Item item in InventoryManager.instance.items)
+        {
+            inventoryData += Convert.ToChar(item.id);
+        }
+
+        PlayerPrefs.SetString("InventoryItems", inventoryData);
+
+        PlayerPrefs.Save();
+    }
+    public void LoadPlayerInventory()
+    {
+        string inventoryData = PlayerPrefs.GetString("InventoryItems");
+
+        for (int i = 0; i < inventoryData.Length; i++)
+        {
+            InventoryManager.instance.Add(AllItemsContainer.instance.itemsDictionary[inventoryData[i]]);
+        }
+    }
+
+    public void SavePlayerUpgrades()
+    {
+        string upgradesData = "";
+
+        foreach (UpgradeAbility upgrade in UpgradeSystemManager.instance.availableUpgrades)
+        {
+            upgradesData += Convert.ToChar(upgrade.id);
+        }
+
+        PlayerPrefs.SetString("Upgrades", upgradesData);
+
+        PlayerPrefs.Save();
+    }
+    public void LoadPlayerUpgrades()
+    {
+        string upgradesData = PlayerPrefs.GetString("Upgrades");
+
+        for (int i = 0; i < upgradesData.Length; i++)
+        {
+            UpgradeSystemManager.instance.AddAbility(AllUpgradesContainer.instance.upgradesDictionary[upgradesData[i]]);
+        }
     }
 
     private struct PlayerData

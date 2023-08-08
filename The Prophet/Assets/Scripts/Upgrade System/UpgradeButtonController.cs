@@ -13,19 +13,24 @@ public class UpgradeButtonController : MonoBehaviour
 
     public bool isPurchased = false;
 
-    private void Start()
+    private void Update()
     {
+        isPurchased = _upgradeAbility.isPurchased;
         if (isPurchased)
+        {
             GetComponent<Image>().sprite = _purchasedUpgrade;
-        else
+        } else
+        {
             GetComponent<Image>().sprite = _lockedUpgrade;
+        }
     }
 
     public void TryToPurchaseUpgrade()
     {
         if (PlayerCurrencyController.instance.currency - _upgradeCost >= 0 && (_previousButton == null || _previousButton.isPurchased) && !isPurchased)
         {
-            isPurchased = true;
+            _upgradeAbility.isPurchased = true;
+
             GetComponent<Image>().sprite = _purchasedUpgrade;
             PlayerCurrencyController.instance.TakeCurrency(_upgradeCost);
             UpgradeSystemManager.instance.AddAbility(_upgradeAbility);
