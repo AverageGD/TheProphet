@@ -11,7 +11,7 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies's weapon
         {
             collision.gameObject.GetComponent<PlayerHealthController>().TakeDamage(damage);
 
-            if (PlayerHealthController.instance.Health <= 0)
+            if (PlayerHealthController.instance.health <= 0)
             {
                 DeathScreen.instance.CreateSilhouette(_enemy.transform, _enemy.transform.GetComponent<SpriteRenderer>());
             }

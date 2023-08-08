@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 8091592603386631363}
 --- !u!1 &6534793126785258295
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 10
   _deathTiming: 0.5
+  _currencyMinimum: 0
+  _currencyMaximum: 0
   currencyMultiplier: 1
   health: 0
   OnDeath:

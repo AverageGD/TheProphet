@@ -17,11 +17,12 @@ public class PlayerHealthController : MonoBehaviour
     private short currentHealTriesCount;
     private bool canHeal = true;
 
+    public float health;
     public short maxHealTriesCount;
     public float recoverableHealth;
     public float maxHealth;
 
-    public float Health { get; private set; }
+   
 
     public UnityEvent OnDeath;
 
@@ -40,12 +41,15 @@ public class PlayerHealthController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
 
         groundChecker = transform.Find("GroundChecker");
+    }
 
+    private void Start()
+    {
         currentHealTriesCount = maxHealTriesCount;
-        Health = maxHealth;
+        health = maxHealth;
 
         _healthBarUI.maxValue = maxHealth;
-        _healthBarUI.value = Health;
+        _healthBarUI.value = health;
     }
 
     private IEnumerator UpdateHealthBarUI()
@@ -53,9 +57,9 @@ public class PlayerHealthController : MonoBehaviour
 
         float healthBarUIChangingVelocity = 0;
 
-        while (_healthBarUI.value != Health)
+        while (_healthBarUI.value != health)
         {
-            _healthBarUI.value = Mathf.SmoothDamp(_healthBarUI.value, Health, ref healthBarUIChangingVelocity, 0.2f);
+            _healthBarUI.value = Mathf.SmoothDamp(_healthBarUI.value, health, ref healthBarUIChangingVelocity, 0.2f);
 
             yield return null;
         }
@@ -73,13 +77,13 @@ public class PlayerHealthController : MonoBehaviour
         GameManager.instance.InvincibilityInvoker(gameObject, 1.5f, true);
 
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
-        Health -= damage;
+        health -= damage;
         StopAllCoroutines();
 
         StartCoroutine(UpdateHealthBarUI());
 
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             Die();
         }
@@ -105,8 +109,8 @@ public class PlayerHealthController : MonoBehaviour
 
         yield return new WaitForSeconds(1.3f);
 
-        Health += recoverableHealth;
-        Health = Mathf.Clamp(Health, 0, maxHealth);
+        health += recoverableHealth;
+        health = Mathf.Clamp(health, 0, maxHealth);
 
         OnHealEnd?.Invoke();
 
