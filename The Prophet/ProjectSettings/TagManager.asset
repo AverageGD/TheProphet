@@ -42,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1319289547
+    locked: 0
   - name: NPCs
     uniqueID: 212279861
     locked: 0

@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
 
     public void InvincibilityInvoker(GameObject gameObject, float time, bool changeTransparency)
     {
-        StopAllCoroutines();
         StartCoroutine(Invincibility(gameObject, time, changeTransparency));
     }
 
@@ -43,7 +42,10 @@ public class GameManager : MonoBehaviour
     {
         SpriteRenderer spriteRenderer = null;
 
-        LayerMask originalLayer = gameObject.layer;
+        LayerMask originalLayer = LayerMask.NameToLayer("Player");
+
+        if (gameObject.CompareTag("Enemy"))
+            originalLayer = LayerMask.NameToLayer("Enemy");
 
         if (changeTransparency)
         {

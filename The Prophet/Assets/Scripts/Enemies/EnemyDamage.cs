@@ -4,6 +4,7 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies's weapon
 {
     [SerializeField] private float damage;
     [SerializeField] private GameObject _enemy;
+    [SerializeField] private DamageType _damageType;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,10 +12,18 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies's weapon
         {
             collision.gameObject.GetComponent<PlayerHealthController>().TakeDamage(damage);
 
+            StatusEffectManager.instance.GivePlayerCorrespondingStatusEffect(_damageType);
+
             if (PlayerHealthController.instance.health <= 0)
             {
                 DeathScreen.instance.CreateSilhouette(_enemy.transform, _enemy.transform.GetComponent<SpriteRenderer>());
             }
         }
+    }
+
+    public enum DamageType
+    {
+        clear,
+        poison,
     }
 }

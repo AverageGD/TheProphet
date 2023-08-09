@@ -14,11 +14,11 @@ public class PlayerHealthController : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rigidBody;
     private Transform groundChecker;
-    private short currentHealTriesCount;
     private bool canHeal = true;
 
     public float health;
     public short maxHealTriesCount;
+    public short currentHealTriesCount;
     public float recoverableHealth;
     public float maxHealth;
 
@@ -50,6 +50,8 @@ public class PlayerHealthController : MonoBehaviour
 
         _healthBarUI.maxValue = maxHealth;
         _healthBarUI.value = health;
+
+        HealPotionsBarController.instance.UpdateHealPotions();
     }
 
     private IEnumerator UpdateHealthBarUI()
@@ -91,8 +93,6 @@ public class PlayerHealthController : MonoBehaviour
 
     public void TryToHealInvoker()
     {
-        rigidBody.velocity = Vector3.zero;
-
         if (!canHeal || currentHealTriesCount == 0 || !GameManager.instance.IsGrounded(groundChecker, _groundCheckDistance))
             return;
 
@@ -101,9 +101,13 @@ public class PlayerHealthController : MonoBehaviour
 
     private IEnumerator Heal()
     {
+        rigidBody.velocity = Vector3.zero;
         animator.SetBool("IsHealing", true);
+
         canHeal = false;
         currentHealTriesCount--;
+
+        HealPotionsBarController.instance.UpdateHealPotions();
 
         OnHealStart?.Invoke();
 
