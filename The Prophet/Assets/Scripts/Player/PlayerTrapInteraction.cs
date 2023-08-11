@@ -10,8 +10,9 @@ public class PlayerTrapInteraction : MonoBehaviour
             print("trapped");
 
             //also here will be taking damage for the player
+            PlayerHealthController.instance.TakeDamage(1);
 
-            GameManager.instance.TeleportationInvoker(gameObject.GetComponent<CharacterController2D>().lastSafePosition); //Calls teleportation script to the last safe position
+            GameManager.instance.TeleportationInvoker(CharacterController2D.instance.lastSafePosition); //Calls teleportation script to the last safe position
         }
     }
 

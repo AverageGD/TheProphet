@@ -22,7 +22,7 @@ public class Flash : MonoBehaviour
         spriteRenderer.material = _flashMaterial;
 
         yield return new WaitForSeconds(0.05f);
-
-        spriteRenderer.material = _defaultMaterial;
+        if (spriteRenderer != null)
+            spriteRenderer.material = _defaultMaterial;
     }
 }

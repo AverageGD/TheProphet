@@ -69,14 +69,15 @@ public class PlayerHealthController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-        animator.SetBool("IsHealing", false);
+        if (animator != null)
+            animator.SetBool("IsHealing", false);
 
         OnHealEnd?.Invoke();
         canHeal = true;
 
         VibrationController.instance.StartVibration(0.3f, 0.3f, 0.5f);
-        GameManager.instance.InvincibilityInvoker(gameObject, 1.5f, true);
+        if (gameObject != null)
+            GameManager.instance.InvincibilityInvoker(gameObject, 1.5f, true);
 
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
         health -= damage;
@@ -134,7 +135,7 @@ public class PlayerHealthController : MonoBehaviour
         GlobalFade.instance.FadeIn();
         DeathMessage.instance.ShowMessage();
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
 

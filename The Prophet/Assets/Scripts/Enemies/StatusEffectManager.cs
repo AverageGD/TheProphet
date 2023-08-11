@@ -32,7 +32,8 @@ public class StatusEffectManager : MonoBehaviour
     {
         for (int repeatCount = 0; repeatCount < 20; repeatCount++)
         {
-            PlayerHealthController.instance.TakeDamage(0.2f);
+            if (PlayerHealthController.instance != null)
+                PlayerHealthController.instance.TakeDamage(0.2f);
 
             yield return new WaitForSeconds(0.5f);
         }

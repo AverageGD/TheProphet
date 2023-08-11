@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.74f);
 
-        _player.transform.position = newPosition;
+        if (_player != null)
+            _player.transform.position = newPosition;
     }
     #endregion
 
@@ -57,10 +58,11 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        if (changeTransparency)
+        if (changeTransparency && spriteRenderer != null)
             spriteRenderer.color = spriteRenderer.color.WithAlpha(1);
 
-        gameObject.layer = originalLayer;
+        if (gameObject != null)
+            gameObject.layer = originalLayer;
     }
 
     #endregion
