@@ -1,9 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LocalFade : MonoBehaviour
 {
     public static LocalFade instance;
+
+    public UnityEvent OnStart;
+    public UnityEvent OnEnd;
 
     private void Start()
     {
@@ -20,8 +24,15 @@ public class LocalFade : MonoBehaviour
 
     private IEnumerator LocalFadeAction() //Waits 2.16 seconds and disables Fade canvas object
     {
-        yield return new WaitForSeconds(2.16f);
+        OnStart?.Invoke();
+
+        yield return new WaitForSeconds(1.5f);
+
+        OnEnd?.Invoke();
+
+        yield return new WaitForSeconds(0.66f);
 
         gameObject.SetActive(false);
+
     }
 }

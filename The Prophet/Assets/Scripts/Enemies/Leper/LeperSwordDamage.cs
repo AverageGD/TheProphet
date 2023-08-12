@@ -31,7 +31,7 @@ public class LeperSwordDamage : EnemyDamage
             }
         }
 
-        transform.Translate(_speed * Time.deltaTime * transform.right);
+        transform.Translate(_speed * direction * Time.deltaTime * Vector2.right);
 
     }
 }

@@ -10,6 +10,9 @@ public class PlayerTrapInteraction : MonoBehaviour
             print("trapped");
 
             //also here will be taking damage for the player
+
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Animator>().Play("Idle");
             PlayerHealthController.instance.TakeDamage(1);
 
             GameManager.instance.TeleportationInvoker(CharacterController2D.instance.lastSafePosition); //Calls teleportation script to the last safe position
