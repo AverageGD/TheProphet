@@ -4,7 +4,6 @@ using UnityEngine.Events;
 
 public class ThePriestAttacks : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private float _visibilityDistance;
@@ -59,7 +58,7 @@ public class ThePriestAttacks : MonoBehaviour
 
         for (int i = 0; i < numberOfBalls; i++)
         {
-            short direction = (short)Mathf.Sign(_player.position.x - transform.position.x);
+            short direction = (short)Mathf.Sign(CharacterController2D.instance.transform.position.x - transform.position.x);
 
             if (direction == 1)
             {
@@ -74,7 +73,6 @@ public class ThePriestAttacks : MonoBehaviour
 
             ballPrefabClone.transform.position = _attackPoint.position;
 
-            ballPrefabClone.GetComponent<ThePriestBallDamage>().player = _player;
 
             Destroy(ballPrefabClone, 2);
 
@@ -99,7 +97,7 @@ public class ThePriestAttacks : MonoBehaviour
         canAttack = false;
         OnStart?.Invoke();
 
-        short direction = (short)Mathf.Sign(_player.position.x - transform.position.x);
+        short direction = (short)Mathf.Sign(CharacterController2D.instance.transform.position.x - transform.position.x);
 
         if (direction == 1)
         {

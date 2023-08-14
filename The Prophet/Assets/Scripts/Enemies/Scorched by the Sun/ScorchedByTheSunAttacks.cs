@@ -4,7 +4,6 @@ using UnityEngine.Events;
 
 public class ScorchedByTheSunAttacks : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private float _attackDistance;
 
@@ -45,7 +44,7 @@ public class ScorchedByTheSunAttacks : MonoBehaviour
 
         animator.SetTrigger("Attack");
 
-        short direction = (short)Mathf.Sign(_player.position.x - transform.position.x);
+        short direction = (short)Mathf.Sign(CharacterController2D.instance.transform.position.x - transform.position.x);
 
         if (direction == 1)
         {

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   _enemy: {fileID: 2610926429710531108}
+  _damageType: 0
 --- !u!60 &5870471073267842340
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -416,8 +417,8 @@ MonoBehaviour:
   _speed: 5
   _patrollingTime: 5
   points:
-  - {x: -3, y: -3.07, z: 0}
   - {x: 20, y: -3.07, z: 0}
+  - {x: 40, y: -3.07, z: 0}
   current: 0
 --- !u!114 &4821574480951531069
 MonoBehaviour:
@@ -433,8 +434,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 5
   _deathTiming: 0.5
-  _currencyMinimum: 0
-  _currencyMaximum: 0
+  _currencyMinimum: 40
+  _currencyMaximum: 60
   currencyMultiplier: 1
   health: 0
   OnDeath:
@@ -515,8 +516,8 @@ MonoBehaviour:
   _player: {fileID: 0}
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  _attackDistance: 0
+    m_Bits: 64
+  _attackDistance: 1.72
   isAttacking: 0
   OnStart:
     m_PersistentCalls:

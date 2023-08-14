@@ -42,6 +42,8 @@ public class EnemyHealthController : MonoBehaviour
 
     private IEnumerator Die()
     {
+        OnDeath?.Invoke();
+
         animator.SetTrigger("Death");
         gameObject.layer = LayerMask.NameToLayer("Invincible");
 
@@ -52,12 +54,14 @@ public class EnemyHealthController : MonoBehaviour
         yield return new WaitForSeconds(_deathTiming / 2);
 
 
-        OnDeath?.Invoke();
         PlayerCurrencyController.instance.AddCurrency((int)(currencyMultiplier * Random.Range(_currencyMinimum, _currencyMaximum)));
 
         while (spriteRenderer.color.a > 0)
         {
-            spriteRenderer.color = spriteRenderer.color.WithAlpha(spriteRenderer.color.a - Time.deltaTime);
+            Color tmp = spriteRenderer.color;
+            tmp.a = spriteRenderer.color.a - Time.deltaTime;
+            spriteRenderer.color = tmp;
+
             yield return null;
         }
 

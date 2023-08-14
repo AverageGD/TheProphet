@@ -24,7 +24,7 @@ public class EnemyPatrolling : MonoBehaviour
     
     private void Update()
     {
-        if (transform.position != points[current] && canMove)
+        if (points.Length > 0 && transform.position != points[current] && canMove)
         {
             animator.SetBool("IsWalking", true);
 
@@ -67,7 +67,8 @@ public class EnemyPatrolling : MonoBehaviour
         canMove = true;
 
         current++;
-        current %= points.Length;
+        if (points.Length != 0)
+            current %= points.Length;
 
     }
 }

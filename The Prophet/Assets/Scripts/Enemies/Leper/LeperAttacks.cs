@@ -6,7 +6,6 @@ public class LeperAttacks : MonoBehaviour
     [SerializeField] private float _attackDistance;
     [SerializeField] private float _cooldownTime;
     [SerializeField] private LayerMask _playerLayer;
-    [SerializeField] private Transform _player;
     [SerializeField] private GameObject _swordPrefab;
 
     private Animator animator;
@@ -40,7 +39,7 @@ public class LeperAttacks : MonoBehaviour
     {
         animator.SetTrigger("RangeAttackOpen");
 
-        short direction = (short)Mathf.Sign(_player.position.x - transform.position.x);
+        short direction = (short)Mathf.Sign(CharacterController2D.instance.transform.position.x - transform.position.x);
 
         if (direction == 1)
         {

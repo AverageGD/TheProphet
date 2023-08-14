@@ -241,10 +241,10 @@ public class CharacterController2D : MonoBehaviour
                 CinemachineShake.instance.Shake(1, 0.3f);
                 if (currentNumberOfAttacks == 4)
                 {
-                    enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(2 * damage);
+                        enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(2 * damage);
                 } else
                 {
-                    enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
+                        enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(damage);
                 }
                 PlayerManaController.instance.ReceiveMana(0.15f);
             }

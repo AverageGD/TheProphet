@@ -152,8 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 5
   _deathTiming: 0.5
-  _currencyMinimum: 0
-  _currencyMaximum: 0
+  _currencyMinimum: 50
+  _currencyMaximum: 60
   currencyMultiplier: 1
   health: 0
   OnDeath:
@@ -254,12 +254,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b77bbb896fe4d4b969dddf70d3f902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDistance: 15
+  _attackDistance: 14.7
   _cooldownTime: 1
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  _player: {fileID: 0}
   _swordPrefab: {fileID: 2577809202992426687, guid: f65a16162d6b2f84da4b34d181dc5bae, type: 3}
 --- !u!1 &5609362547876587446
 GameObject:

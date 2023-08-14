@@ -1,1 +1,1 @@
-{"maxHealth":10.0,"maxMana":5.0,"maxHealTriesCount":3,"lastSafePosition":{"x":5.482705593109131,"y":-2.0651087760925295},"currency":1215}
+{"maxHealth":10.0,"maxMana":5.0,"maxHealTriesCount":3,"lastSafePosition":{"x":-54.628055572509769,"y":11.125245094299317},"currency":1419}

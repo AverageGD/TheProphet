@@ -51,7 +51,10 @@ public class GameManager : MonoBehaviour
         if (changeTransparency)
         {
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-            spriteRenderer.color = spriteRenderer.color.WithAlpha(0.5f);
+
+            Color tmp = spriteRenderer.color;
+            tmp.a = 0.5f;
+            spriteRenderer.color = tmp;
         }
 
         gameObject.layer = LayerMask.NameToLayer("Invincible");
@@ -59,7 +62,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         if (changeTransparency && spriteRenderer != null)
-            spriteRenderer.color = spriteRenderer.color.WithAlpha(1);
+        {
+            Color tmp = spriteRenderer.color;
+            tmp.a = 1f;
+            spriteRenderer.color = tmp;
+        }
 
         if (gameObject != null)
             gameObject.layer = originalLayer;

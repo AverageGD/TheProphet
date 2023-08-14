@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1682863295200784304}
   - component: {fileID: 6548758806635707216}
   - component: {fileID: 5087693076329083273}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: MeleeAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   _enemy: {fileID: 8091592603386631363}
+  _damageType: 0
 --- !u!1 &6534793126785258295
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c81b5ff40e9822f42812225900394533, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8079414, g: 1, b: 0.7971698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -344,7 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944a822ee39ee074d9f2aa13abfd978b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _attackPoint: {fileID: 2640209889143014832}
   _playerLayer:
     serializedVersion: 2
@@ -396,9 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _patrollingTime: 4
-  points:
-  - {x: 23, y: -2.075696, z: 0}
-  - {x: 20, y: -2.075696, z: 0}
+  points: []
   current: 0
 --- !u!114 &5966568552592150708
 MonoBehaviour:
@@ -414,8 +412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 10
   _deathTiming: 0.5
-  _currencyMinimum: 0
-  _currencyMaximum: 0
+  _currencyMinimum: 50
+  _currencyMaximum: 60
   currencyMultiplier: 1
   health: 0
   OnDeath:
@@ -469,9 +467,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5241162901113245250}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 6548758806635707216}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

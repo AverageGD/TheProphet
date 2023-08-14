@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ScorchedByTheSunMovement : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
     [SerializeField] private Transform _safePositionChecker;
     [SerializeField] private float _safePositionCheckDistance;
     [SerializeField] private LayerMask _groundLayer;
@@ -31,7 +30,7 @@ public class ScorchedByTheSunMovement : MonoBehaviour
 
         if (isPlayerNear) //If player is not attacking and player is near
         {
-            short direction = (short)Mathf.Sign(_player.position.x - transform.position.x); //determines the direction of movement depending on the player's position
+            short direction = (short)Mathf.Sign(CharacterController2D.instance.transform.position.x - transform.position.x); //determines the direction of movement depending on the player's position
 
             if (direction == 1)
             {

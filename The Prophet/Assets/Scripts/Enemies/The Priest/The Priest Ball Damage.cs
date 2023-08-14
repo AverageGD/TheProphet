@@ -5,8 +5,6 @@ public class ThePriestBallDamage : EnemyDamage
 {
     [SerializeField] private float _speed;
 
-    public Transform player;
-
     private Animator animator;
 
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +28,7 @@ public class ThePriestBallDamage : EnemyDamage
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, _speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, CharacterController2D.instance.transform.position, _speed * Time.deltaTime);
     }
 
     private IEnumerator DefaultDeath()

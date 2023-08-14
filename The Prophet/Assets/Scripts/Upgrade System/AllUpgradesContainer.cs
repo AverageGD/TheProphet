@@ -17,6 +17,7 @@ public class AllUpgradesContainer : MonoBehaviour
         foreach (UpgradeAbility upgrade in upgrades)
         {
             upgradesDictionary[upgrade.id] = upgrade;
+            upgrade.isPurchased = false;
         }
     }
 }
