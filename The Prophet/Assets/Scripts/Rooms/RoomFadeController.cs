@@ -1,0 +1,41 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class RoomFadeController : MonoBehaviour
+{
+    private GameObject roomFade;
+
+
+    private void Start()
+    {
+        roomFade = GameManager.instance.roomFade;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            roomFade.SetActive(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (roomFade != null)
+                roomFade.SetActive(false);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Color tmp = roomFade.GetComponent<Image>().color;
+
+            tmp.a = 1 / Mathf.Abs(collision.transform.position.x - transform.position.x);
+
+            roomFade.GetComponent<Image>().color = tmp;
+        }
+    }
+}

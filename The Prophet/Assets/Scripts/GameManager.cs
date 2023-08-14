@@ -1,6 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -11,24 +11,42 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private LayerMask _groundLayer;
 
-    private void Start()
+
+    public GameObject roomFade;
+
+    public UnityEvent OnTeleportStart;
+    public UnityEvent OnTeleportEnd;
+
+    private void Awake()
     {
         instance = this;
     }
 
     #region Teleportation logics
-    public void TeleportationInvoker(Vector2 newPosition) //Calls the coroutine of teleportation to the new position
+    public void TeleportationInvoker(Vector2 newPosition, bool needFade) //Calls the coroutine of teleportation to the new position
     {
-        StartCoroutine(Teleportation(newPosition));
+        StartCoroutine(Teleportation(newPosition, needFade));
     }
-    private IEnumerator Teleportation(Vector2 newPosition) //Calls fade, waits 0.74 seconds and changes player's position
+    private IEnumerator Teleportation(Vector2 newPosition, bool needFade) //Calls fade, waits 0.74 seconds and changes player's position
     {
-        LocalFade.instance.LocalFadeInvoker();
+        if (needFade)
+        {
+            LocalFade.instance.LocalFadeInvoker();
 
-        yield return new WaitForSeconds(0.74f);
+            yield return new WaitForSeconds(0.74f);
+        }
 
         if (_player != null)
+        {
+            OnTeleportStart?.Invoke();
+
             _player.transform.position = newPosition;
+            Camera.main.transform.position = newPosition;
+
+            yield return new WaitForSeconds(0.1f);
+
+            OnTeleportEnd?.Invoke();
+        }
     }
     #endregion
 

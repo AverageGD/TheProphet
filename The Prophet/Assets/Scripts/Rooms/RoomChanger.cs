@@ -18,9 +18,11 @@ public class RoomChanger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.instance.TeleportationInvoker(teleportationTarget.position);
+            GameManager.instance.TeleportationInvoker(teleportationTarget.position, false);
 
             Instantiate(_newRoom);
+
+            SaveManager.instance.roomID = _newRoom.GetComponent<RoomInfo>().id;
 
             Destroy(currentRoom);
 

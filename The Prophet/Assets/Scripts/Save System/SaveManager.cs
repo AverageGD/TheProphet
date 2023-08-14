@@ -6,6 +6,9 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
 
+    public short roomID = 13;
+
+
     private void Start()
     {
         if (instance == null)
@@ -25,7 +28,8 @@ public class SaveManager : MonoBehaviour
             maxMana = PlayerManaController.instance.maxMana,
             maxHealTriesCount = PlayerHealthController.instance.maxHealTriesCount,
             currency = PlayerCurrencyController.instance.currency,
-            lastSafePosition = CharacterController2D.instance.lastSafePosition
+            lastSafePosition = CharacterController2D.instance.lastSafePosition,
+            roomID = roomID
         };
 
         string json = JsonUtility.ToJson(playerData);
@@ -36,6 +40,10 @@ public class SaveManager : MonoBehaviour
         if (!File.Exists(Application.dataPath + "/playerData.txt"))
         {
             File.Create(Application.dataPath + "/playerData.txt");
+            roomID = 13;
+
+            AllRoomsContainer.instance.CreateRoom(roomID);
+
             return;
         }
 
@@ -48,6 +56,9 @@ public class SaveManager : MonoBehaviour
         PlayerHealthController.instance.maxHealTriesCount = playerData.maxHealTriesCount;
         PlayerCurrencyController.instance.currency = playerData.currency;
         CharacterController2D.instance.gameObject.transform.position = playerData.lastSafePosition;
+        roomID = playerData.roomID;
+
+        AllRoomsContainer.instance.CreateRoom(roomID);
     }
 
     public void SavePlayerInventory()
@@ -101,6 +112,7 @@ public class SaveManager : MonoBehaviour
         public float maxHealth;
         public float maxMana;
         public short maxHealTriesCount;
+        public short roomID;
         public Vector2 lastSafePosition;
         public int currency;
     }

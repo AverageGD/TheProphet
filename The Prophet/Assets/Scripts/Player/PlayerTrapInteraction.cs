@@ -15,7 +15,7 @@ public class PlayerTrapInteraction : MonoBehaviour
             GetComponent<Animator>().Play("Idle");
             PlayerHealthController.instance.TakeDamage(1);
 
-            GameManager.instance.TeleportationInvoker(CharacterController2D.instance.lastSafePosition); //Calls teleportation script to the last safe position
+            GameManager.instance.TeleportationInvoker(CharacterController2D.instance.lastSafePosition, true); //Calls teleportation script to the last safe position
         }
     }
 
