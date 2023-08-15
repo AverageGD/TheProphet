@@ -28,7 +28,8 @@ public class ThePriestBallDamage : EnemyDamage
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, CharacterController2D.instance.transform.position, _speed * Time.deltaTime);
+        if (CharacterController2D.instance != null)
+            transform.position = Vector2.MoveTowards(transform.position, CharacterController2D.instance.transform.position, _speed * Time.deltaTime);
     }
 
     private IEnumerator DefaultDeath()

@@ -39,7 +39,6 @@ public class SaveManager : MonoBehaviour
     {
         if (!File.Exists(Application.dataPath + "/playerData.txt"))
         {
-            File.Create(Application.dataPath + "/playerData.txt");
             roomID = 13;
 
             AllRoomsContainer.instance.CreateRoom(roomID);

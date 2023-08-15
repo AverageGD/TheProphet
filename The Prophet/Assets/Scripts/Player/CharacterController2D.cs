@@ -206,7 +206,7 @@ public class CharacterController2D : MonoBehaviour
     #region AttackLogics
     public void AttackInvoker() //is called by new input manager
     {
-        if (canAttack && !isClimbingLadder && gameObject.activeSelf)
+        if (canAttack && !isClimbingLadder && gameObject.activeSelf && !(IsWallNear() && !GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance)))
         {
             isClimbingLadder = false;
             StartCoroutine(Attack()); //starts atack coroutine
@@ -217,7 +217,8 @@ public class CharacterController2D : MonoBehaviour
         canAttack = false;
         isAttacking = true;
         lastAttackTime = Time.time;
-        GameManager.instance.FreezeRigidbodyInvoker(0.25f, rigidBody);
+
+        GameManager.instance.FreezeRigidbodyInvoker(0.2f, rigidBody);
 
         short maxNumberOfAttacks = (short)(UpgradeSystemManager.instance.CanUseAbility("The Fool") ? 4 : 3);
 

@@ -16,6 +16,7 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies' weapons
 
             if (PlayerHealthController.instance.health <= 0)
             {
+                transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 DeathScreen.instance.CreateSilhouette(_enemy.transform, _enemy.transform.GetComponent<SpriteRenderer>());
             }
         }

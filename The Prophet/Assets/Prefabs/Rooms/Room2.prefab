@@ -5412,6 +5412,26 @@ PrefabInstance:
       propertyPath: _newRoom
       value: 
       objectReference: {fileID: 2466803163006007759, guid: 0fa1a8c8aa146cf4fb33a9cf045fe118, type: 3}
+    - target: {fileID: 4370141199003634934, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_Size.x
+      value: 4.857771
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370141199003634934, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_Size.y
+      value: 1.45576
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370141199003634934, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.15700245
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370141199003634934, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.9461875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370141199003634934, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5372680937036611600, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.18

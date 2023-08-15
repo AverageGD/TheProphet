@@ -17,6 +17,11 @@ public class LocalFade : MonoBehaviour
 
     public void LocalFadeInvoker() //Calls the private coroutie for fading
     {
+        if (gameObject.activeSelf)
+        {
+            StopAllCoroutines();
+            gameObject.SetActive(false);
+        }    
         gameObject.SetActive(true);
 
         StartCoroutine(LocalFadeAction());

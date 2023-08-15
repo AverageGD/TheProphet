@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3655022243888127741}
   - component: {fileID: 9164873154309617646}
-  - component: {fileID: 5673769972399122249}
+  - component: {fileID: 4370141199003634934}
   m_Layer: 0
   m_Name: FadeController
   m_TagString: Untagged
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06cbb3920ff4cd419a987ac7430b203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &5673769972399122249
-CircleCollider2D:
+--- !u!61 &4370141199003634934
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -74,12 +74,22 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.46}
+  m_Offset: {x: 0, y: 1.4794605}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 3.5
+  m_Size: {x: 1, y: 6.9888577}
+  m_EdgeRadius: 0
 --- !u!1 &5886656737630727633
 GameObject:
   m_ObjectHideFlags: 0

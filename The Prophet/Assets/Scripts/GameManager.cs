@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator FreezeRigidbody(float n, Rigidbody2D rigidBody)
     {
-        rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+        rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
         yield return new WaitForSeconds(n);
 

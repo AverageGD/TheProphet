@@ -12,6 +12,7 @@ public class LeperSwordDamage : EnemyDamage
     {
         isThrown = true;
         direction = 1;
+        transform.localScale = Vector3.one;
     }
 
     private void Update()

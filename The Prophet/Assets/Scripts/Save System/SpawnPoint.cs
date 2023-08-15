@@ -12,5 +12,6 @@ public class SpawnPoint : Interactable
 
         GlobalFade.instance.FadeIn();
         GameManager.instance.ReloadCurrentSceneInvoker(1.5f);
+
     }
 }
