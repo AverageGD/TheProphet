@@ -33,7 +33,8 @@ public class RoomFadeController : MonoBehaviour
         {
             Color tmp = roomFade.GetComponent<Image>().color;
 
-            tmp.a = 1 / Mathf.Abs(collision.transform.position.x - transform.position.x);
+            float distance = Mathf.Pow(collision.transform.position.x - transform.position.x, 2) + Mathf.Pow(collision.transform.position.y - transform.position.y, 2);
+            tmp.a = 1 / Mathf.Sqrt(distance);
 
             roomFade.GetComponent<Image>().color = tmp;
         }

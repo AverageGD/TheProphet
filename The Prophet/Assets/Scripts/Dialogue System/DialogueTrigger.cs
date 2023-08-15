@@ -58,7 +58,7 @@ public class DialogueTrigger : Interactable
         if (!collision.CompareTag("Player"))
             return;
 
-        short direction = (short)Mathf.Sign(transform.position.x - _player.transform.position.x);
+        short direction = (short)Mathf.Sign(transform.position.x - collision.transform.position.x);
 
         if (direction == 1)
         {

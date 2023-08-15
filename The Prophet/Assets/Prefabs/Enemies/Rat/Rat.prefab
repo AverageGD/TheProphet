@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 4429272886666193461}
   - component: {fileID: 2261014382551144339}
   - component: {fileID: 5870471073267842340}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4429272886666193461
 Transform:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3427382083053778199}
   - component: {fileID: 4821574480951531069}
   - component: {fileID: 3936071358579128931}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2610926429710531108}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.11, y: -3.07, z: -0.02101345}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -179,8 +179,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1449736729
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a63ca6b133f15ac46a9372a0689ab2f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -417,8 +417,8 @@ MonoBehaviour:
   _speed: 5
   _patrollingTime: 5
   points:
-  - {x: 20, y: -3.07, z: 0}
-  - {x: 40, y: -3.07, z: 0}
+  - {x: -41, y: -77, z: 0}
+  - {x: 40, y: -77, z: 0}
   current: 0
 --- !u!114 &4821574480951531069
 MonoBehaviour:
@@ -513,7 +513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9e31b02dbcaab4ca9663bc61379e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64

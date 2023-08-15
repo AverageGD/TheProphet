@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5513404420464101463
 SpriteRenderer:
@@ -144,6 +144,9 @@ MonoBehaviour:
     - "Please, I have to work on new mushroom species, so don't interfere! \r\n"
   _delayTime: 0.2
   dialogueIndex: 0
+  OnDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &9146884527907107732
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -178,4 +181,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 8.4
+  m_Radius: 4.63

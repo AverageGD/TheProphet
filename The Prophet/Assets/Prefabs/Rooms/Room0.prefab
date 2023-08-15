@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4192159363109719765}
   - component: {fileID: 9075401568341143068}
   - component: {fileID: 7591790091837215720}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Background Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
