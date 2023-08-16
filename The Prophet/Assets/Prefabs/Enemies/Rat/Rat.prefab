@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   _enemy: {fileID: 2610926429710531108}
-  _damageType: 0
+  _damageType: 1
 --- !u!60 &5870471073267842340
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1

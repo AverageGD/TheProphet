@@ -134,7 +134,7 @@ public class CharacterController2D : MonoBehaviour
 
         _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y); //determines the local position of wallChecker point by depending on direction
 
-        _safePositionChecker.localPosition = new Vector2(direction, _safePositionChecker.localPosition.y); //determines the local position of safePositionChecker point by depending on direction
+        _safePositionChecker.localPosition = new Vector2(direction * 1.5f, _safePositionChecker.localPosition.y); //determines the local position of safePositionChecker point by depending on direction
 
 
         if (rigidBody.velocity.y < fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
@@ -345,9 +345,9 @@ public class CharacterController2D : MonoBehaviour
     public void Jump()
     {
         _animator.SetTrigger("Jump");
-        isClimbingLadder = false;
-        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || (UpgradeSystemManager.instance.CanUseAbility("The Hanged Man") && IsWallNear() && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
+        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || ((UpgradeSystemManager.instance.CanUseAbility("The Hanged Man") && IsWallNear() || isClimbingLadder) && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
         {
+            isClimbingLadder = false;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
             lastJumpTime = Time.time;
         }
@@ -363,7 +363,7 @@ public class CharacterController2D : MonoBehaviour
     //Checks if the player's current position is safe to keep in the lastSafePosition
     private void LastSafePositionDeterminer()
     {
-        if (Physics2D.OverlapCircle(_safePositionChecker.position, _safePositionCheckDistance, _groundLayer) && rigidBody.velocity.y == 0)
+        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) && Physics2D.OverlapCircle(_safePositionChecker.position, _safePositionCheckDistance, _groundLayer) && rigidBody.velocity.y == 0)
         {
             lastSafePosition = transform.position;
         }
