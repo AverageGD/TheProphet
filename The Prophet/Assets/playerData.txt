@@ -1,1 +1,1 @@
-{"maxHealth":10.0,"maxMana":5.0,"maxHealTriesCount":3,"roomID":17,"lastSafePosition":{"x":-23.938697814941408,"y":-22.560823440551759},"currency":0}
+{"maxHealth":10.0,"maxMana":5.0,"maxHealTriesCount":3,"roomID":24,"lastSafePosition":{"x":-122.6958236694336,"y":-35.06247329711914},"currency":0}
