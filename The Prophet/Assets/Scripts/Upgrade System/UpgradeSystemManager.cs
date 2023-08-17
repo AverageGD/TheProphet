@@ -18,6 +18,8 @@ public class UpgradeSystemManager : MonoBehaviour
         availableUpgrades.Add(upgradeAbility);
         upgradeAbility.isPurchased = true;
 
+        SaveManager.instance.SavePlayerUpgrades();
+
         upgradeAbility.Activate();
     }
 

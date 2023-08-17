@@ -21,6 +21,7 @@ public class PlayerHealthController : MonoBehaviour
     public short currentHealTriesCount;
     public float recoverableHealth;
     public float maxHealth;
+    public bool isHealing;
 
    
 
@@ -106,6 +107,7 @@ public class PlayerHealthController : MonoBehaviour
         animator.SetBool("IsHealing", true);
 
         canHeal = false;
+        isHealing = true;
         currentHealTriesCount--;
 
         HealPotionsBarController.instance.UpdateHealPotions();
@@ -120,6 +122,8 @@ public class PlayerHealthController : MonoBehaviour
         OnHealEnd?.Invoke();
 
         canHeal = true;
+        isHealing = false;
+
         print("Can heal now");
         animator.SetBool("IsHealing", false);
 

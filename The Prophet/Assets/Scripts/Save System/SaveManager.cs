@@ -18,6 +18,7 @@ public class SaveManager : MonoBehaviour
         LoadPlayerData();
         LoadPlayerInventory();
         LoadPlayerUpgrades();
+
     }
 
     public void SavePlayerData()

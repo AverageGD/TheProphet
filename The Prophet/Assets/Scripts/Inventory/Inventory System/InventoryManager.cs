@@ -34,8 +34,10 @@ public class InventoryManager : MonoBehaviour
             items = new List<Item>();
 
         items.Add(item);
-
+        
         item.isWearing = false;
+
+        SaveManager.instance.SavePlayerInventory();
     }
 
     public bool Contains(int id)

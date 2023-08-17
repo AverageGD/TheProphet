@@ -150,7 +150,7 @@ Transform:
   - {fileID: 828267316230779228}
   - {fileID: 7038801340156760796}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6068624292771804847
 MonoBehaviour:
@@ -6165,8 +6165,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.58045006, y: -0.08745003, z: 0}
-    m_Extent: {x: 7.07385, y: 3.70905, z: 0}
+    m_Center: {x: -0.57805014, y: -0.08700001, z: 0}
+    m_Extent: {x: 7.06005, y: 3.7094998, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 2.35
@@ -11825,7 +11825,7 @@ PrefabInstance:
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
-      objectReference: {fileID: 5164184507305543958, guid: 85266d1b8f435bb419ad31048be9d33d, type: 3}
+      objectReference: {fileID: 5827905990158957430, guid: 097d0ff45a6fa1d43a34ca35c1947178, type: 3}
     - target: {fileID: 3655022243888127741, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.54

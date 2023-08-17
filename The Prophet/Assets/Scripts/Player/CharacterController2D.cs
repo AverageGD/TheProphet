@@ -206,7 +206,7 @@ public class CharacterController2D : MonoBehaviour
     #region AttackLogics
     public void AttackInvoker() //is called by new input manager
     {
-        if (canAttack && !isClimbingLadder && gameObject.activeSelf && !(IsWallNear() && !GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance)))
+        if (canAttack && !isClimbingLadder && gameObject.activeSelf && !(IsWallNear() && !GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance)) && !PlayerHealthController.instance.isHealing)
         {
             isClimbingLadder = false;
             StartCoroutine(Attack()); //starts atack coroutine
@@ -266,7 +266,7 @@ public class CharacterController2D : MonoBehaviour
     #region DashLogics
     public void DashInvoker() //is called by new input manager
     {
-        if (horizontalAxis != 0 && canDash)
+        if (horizontalAxis != 0 && canDash && !PlayerHealthController.instance.isHealing)
         {
             StartCoroutine(Dash()); //starts dash coroutine
         }
@@ -337,15 +337,26 @@ public class CharacterController2D : MonoBehaviour
 
     public void InteractionInvoker() // Calls when player Interacts with enviroment
     {
+        if (PlayerHealthController.instance.isHealing)
+            return;
+
         Collider2D[] interactionalObjects = Physics2D.OverlapCircleAll(transform.position, _interactionRadius, _interactableLayer); // Finds each interactable object in area
         if (interactionalObjects.Length > 0)
             interactionalObjects[0].gameObject.GetComponent<Interactable>().Interact(); //Calls an override interaction function from the first interactable object
     }
 
+    public void ResetVelocity()
+    {
+        rigidBody.velocity = Vector3.zero;
+
+    }
+
     public void Jump()
     {
         _animator.SetTrigger("Jump");
-        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || ((UpgradeSystemManager.instance.CanUseAbility("The Hanged Man") && IsWallNear() || isClimbingLadder) && Time.time - lastJumpTime > 0.8f)) //checks if player is grounded, or is near to the wall to jump
+        
+        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || ((UpgradeSystemManager.instance.CanUseAbility("The Hanged Man") && IsWallNear() || isClimbingLadder) && Time.time - lastJumpTime > 0.8f)
+            && !PlayerHealthController.instance.isHealing) //checks if player is grounded, or is near to the wall to jump
         {
             isClimbingLadder = false;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);

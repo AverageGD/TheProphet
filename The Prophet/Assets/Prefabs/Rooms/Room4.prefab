@@ -1000,7 +1000,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 193581877
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -4149,6 +4149,7 @@ GameObject:
   - component: {fileID: 7168428173182203977}
   - component: {fileID: 2921773347686867552}
   - component: {fileID: 1709365418576226400}
+  - component: {fileID: 9079069198142912175}
   m_Layer: 12
   m_Name: Background Tilemap
   m_TagString: Untagged
@@ -7834,6 +7835,21 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &9079069198142912175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6839127916769594955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22021e80b5f67a4fb1921434bf1dd47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _followingTarget: {fileID: 0}
+  _parallaxStrength: 0.1
+  disableVerticalParallax: 0
 --- !u!1 &7968330317529860492
 GameObject:
   m_ObjectHideFlags: 0

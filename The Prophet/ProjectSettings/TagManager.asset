@@ -8,6 +8,7 @@ TagManager:
   - Ladder
   - Trap
   - NPC
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
