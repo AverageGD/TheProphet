@@ -4276,7 +4276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _followingTarget: {fileID: 0}
   _parallaxStrength: 0.15
-  disableVerticalParallax: 1
+  _disableVerticalParallax: 0
+  _disableHorizontalParallax: 0
 --- !u!1 &3027447178087162100
 GameObject:
   m_ObjectHideFlags: 0
@@ -8416,6 +8417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 13
+  roomSprite: {fileID: 21300000, guid: 5b32dffffd609ae4d8f77df8d910c801, type: 3}
 --- !u!1 &7864571314061139207
 GameObject:
   m_ObjectHideFlags: 0
@@ -8515,7 +8517,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _followingTarget: {fileID: 0}
   _parallaxStrength: 0.25
-  disableVerticalParallax: 0
+  _disableVerticalParallax: 0
+  _disableHorizontalParallax: 0
 --- !u!1 &8017486162978794640
 GameObject:
   m_ObjectHideFlags: 0

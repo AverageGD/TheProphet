@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 25
+  roomSprite: {fileID: 21300000, guid: ce3c27cda37cecf4983bf5fc1c0b0676, type: 3}
 --- !u!1 &1700556872499602038
 GameObject:
   m_ObjectHideFlags: 0
