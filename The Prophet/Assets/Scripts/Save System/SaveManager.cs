@@ -14,7 +14,6 @@ public class SaveManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-
         LoadPlayerData();
         LoadPlayerInventory();
         LoadPlayerUpgrades();
@@ -57,53 +56,61 @@ public class SaveManager : MonoBehaviour
         PlayerCurrencyController.instance.currency = playerData.currency;
         CharacterController2D.instance.gameObject.transform.position = playerData.lastSafePosition;
         roomID = playerData.roomID;
+        Camera.main.transform.position = playerData.lastSafePosition;
 
         AllRoomsContainer.instance.CreateRoom(roomID);
     }
 
     public void SavePlayerInventory()
     {
-        string inventoryData = "";
+        int inventoryDataLength = InventoryManager.instance.items.Count;
+
+        int iteration = 0;
 
         foreach (Item item in InventoryManager.instance.items)
         {
-            inventoryData += Convert.ToChar(item.id);
+            PlayerPrefs.SetInt("Item" + iteration, item.id);
+            iteration++;
         }
 
-        PlayerPrefs.SetString("InventoryItems", inventoryData);
+        PlayerPrefs.SetInt("InventoryItemsLength", inventoryDataLength);
 
         PlayerPrefs.Save();
     }
     public void LoadPlayerInventory()
     {
-        string inventoryData = PlayerPrefs.GetString("InventoryItems");
+        int inventoryDataLength = PlayerPrefs.GetInt("InventoryItemsLength");
 
-        for (int i = 0; i < inventoryData.Length; i++)
+        for (int i = 0; i < inventoryDataLength; i++)
         {
-            InventoryManager.instance.Add(AllItemsContainer.instance.itemsDictionary[inventoryData[i]]);
+            InventoryManager.instance.Add(AllItemsContainer.instance.itemsDictionary[PlayerPrefs.GetInt("Item" + i)]);
         }
     }
 
     public void SavePlayerUpgrades()
     {
-        string upgradesData = "";
+        int upgradesDataLength = UpgradeSystemManager.instance.availableUpgrades.Count;
+
+        int iteration = 0;
 
         foreach (UpgradeAbility upgrade in UpgradeSystemManager.instance.availableUpgrades)
         {
-            upgradesData += Convert.ToChar(upgrade.id);
+            PlayerPrefs.SetInt("Upgrade" + iteration, upgrade.id);
+            iteration++;
         }
 
-        PlayerPrefs.SetString("Upgrades", upgradesData);
+        PlayerPrefs.SetInt("UpgradesDataLength", upgradesDataLength);
 
         PlayerPrefs.Save();
     }
     public void LoadPlayerUpgrades()
     {
-        string upgradesData = PlayerPrefs.GetString("Upgrades");
+        int upgradesDataLength = PlayerPrefs.GetInt("UpgradesDataLength");
 
-        for (int i = 0; i < upgradesData.Length; i++)
+
+        for (int i = 0; i < upgradesDataLength; i++)
         {
-            UpgradeSystemManager.instance.AddAbility(AllUpgradesContainer.instance.upgradesDictionary[upgradesData[i]]);
+            UpgradeSystemManager.instance.AddAbility(AllUpgradesContainer.instance.upgradesDictionary[PlayerPrefs.GetInt("Upgrade" + i)]);
         }
     }
 
