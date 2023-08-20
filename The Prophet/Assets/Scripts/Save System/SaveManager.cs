@@ -28,13 +28,14 @@ public class SaveManager : MonoBehaviour
             maxHealth = PlayerHealthController.instance.maxHealth,
             maxMana = PlayerManaController.instance.maxMana,
             maxHealTriesCount = PlayerHealthController.instance.maxHealTriesCount,
-            currency = PlayerCurrencyController.instance.currency,
             lastSafePosition = CharacterController2D.instance.lastSafePosition,
             roomID = roomID
         };
 
         string json = JsonUtility.ToJson(playerData);
         File.WriteAllText(Application.dataPath + "/playerData.txt", json);
+
+        SavePlayerCurrency();
     }
     public void LoadPlayerData()
     {
@@ -54,12 +55,23 @@ public class SaveManager : MonoBehaviour
         PlayerHealthController.instance.maxHealth = playerData.maxHealth;
         PlayerManaController.instance.maxMana = playerData.maxMana;
         PlayerHealthController.instance.maxHealTriesCount = playerData.maxHealTriesCount;
-        PlayerCurrencyController.instance.currency = playerData.currency;
         CharacterController2D.instance.gameObject.transform.position = playerData.lastSafePosition;
         roomID = playerData.roomID;
         Camera.main.transform.position = playerData.lastSafePosition;
+        LoadPlayerCurrency();
 
         AllRoomsContainer.instance.CreateRoom(roomID);
+    }
+
+    public void SavePlayerCurrency()
+    {
+        PlayerPrefs.SetInt("Currency", PlayerCurrencyController.instance.currency);
+
+        PlayerPrefs.Save();
+    }
+    private void LoadPlayerCurrency()
+    {
+        PlayerCurrencyController.instance.currency = PlayerPrefs.GetInt("Currency");
     }
 
     public void SavePlayerInventory()
@@ -75,6 +87,7 @@ public class SaveManager : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("InventoryItemsLength", inventoryDataLength);
+        SavePlayerCurrency();
 
         PlayerPrefs.Save();
     }
@@ -86,6 +99,8 @@ public class SaveManager : MonoBehaviour
         {
             InventoryManager.instance.Add(AllItemsContainer.instance.itemsDictionary[PlayerPrefs.GetInt("Item" + i)]);
         }
+
+        LoadPlayerCurrency();
     }
 
     public void SavePlayerUpgrades()
@@ -102,6 +117,8 @@ public class SaveManager : MonoBehaviour
 
         PlayerPrefs.SetInt("UpgradesDataLength", upgradesDataLength);
 
+        SavePlayerCurrency();
+
         PlayerPrefs.Save();
     }
     public void LoadPlayerUpgrades()
@@ -113,6 +130,8 @@ public class SaveManager : MonoBehaviour
         {
             UpgradeSystemManager.instance.AddAbility(AllUpgradesContainer.instance.upgradesDictionary[PlayerPrefs.GetInt("Upgrade" + i)]);
         }
+
+        LoadPlayerCurrency();
     }
 
     public void SaveVisitedRooms()
@@ -149,6 +168,5 @@ public class SaveManager : MonoBehaviour
         public short maxHealTriesCount;
         public short roomID;
         public Vector2 lastSafePosition;
-        public int currency;
     }
 }

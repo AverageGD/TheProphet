@@ -16,6 +16,7 @@ public class PlayerCurrencyController : MonoBehaviour
     public void AddCurrency(int currencyCount)
     {
         currency += currencyCount;
+        SaveManager.instance.SavePlayerCurrency();
     }
 
     public void TakeCurrency(int currencyCount)
