@@ -5,7 +5,7 @@ public class AllItemsContainer : MonoBehaviour
 {
     public static AllItemsContainer instance;
 
-    [SerializeField] private List<Item> items = new List<Item>();
+    [SerializeField] private List<Item> _items = new List<Item>();
 
     public Dictionary<int, Item> itemsDictionary = new Dictionary<int, Item>();
 
@@ -14,7 +14,7 @@ public class AllItemsContainer : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        foreach (Item item in items)
+        foreach (Item item in _items)
         {
             itemsDictionary[item.id] = item;
         }

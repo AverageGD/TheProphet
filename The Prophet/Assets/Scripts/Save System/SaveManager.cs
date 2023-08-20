@@ -17,6 +17,7 @@ public class SaveManager : MonoBehaviour
         LoadPlayerData();
         LoadPlayerInventory();
         LoadPlayerUpgrades();
+        LoadVisitedRooms();
 
     }
 
@@ -111,6 +112,33 @@ public class SaveManager : MonoBehaviour
         for (int i = 0; i < upgradesDataLength; i++)
         {
             UpgradeSystemManager.instance.AddAbility(AllUpgradesContainer.instance.upgradesDictionary[PlayerPrefs.GetInt("Upgrade" + i)]);
+        }
+    }
+
+    public void SaveVisitedRooms()
+    {
+        int roomsDataLength = AllRoomsContainer.instance.visitedRooms.Count;
+
+        int iteration = 0;
+
+        foreach (int id in AllRoomsContainer.instance.visitedRooms)
+        {
+            PlayerPrefs.SetInt("Room" + iteration, id);
+            iteration++;
+        }
+
+        PlayerPrefs.SetInt("RoomsDataLength", roomsDataLength);
+
+        PlayerPrefs.Save();
+    }
+    public void LoadVisitedRooms()
+    {
+        int roomsDataLength = PlayerPrefs.GetInt("RoomsDataLength");
+
+
+        for (int i = 0; i < roomsDataLength; i++)
+        {
+            AllRoomsContainer.instance.visitedRooms.Add(PlayerPrefs.GetInt("Room" + i));
         }
     }
 

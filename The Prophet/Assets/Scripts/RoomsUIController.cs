@@ -6,8 +6,8 @@ public class RoomsUIController : MonoBehaviour
 {
     public static RoomsUIController instance;
 
-    [SerializeField] private GameObject roomUI;
-    [SerializeField] private Transform map;
+    [SerializeField] private GameObject _roomUI;
+    [SerializeField] private Transform _map;
 
     private bool isMapOpen;
 
@@ -29,22 +29,18 @@ public class RoomsUIController : MonoBehaviour
 
     public void ListRooms()
     {
-        foreach (Transform room in map)
+        foreach (Transform room in _map)
         {
             Destroy(room.gameObject);
         }
 
-        foreach (KeyValuePair<int, bool> key in AllRoomsContainer.instance.visitedRoomsDictionary)
+        foreach (int id in AllRoomsContainer.instance.visitedRooms)
         {
-            if (key.Value)
-            {
-                GameObject roomUIClone = Instantiate(roomUI, transform);
+                GameObject roomUIClone = Instantiate(_roomUI, transform);
 
-                roomUIClone.transform.localPosition = AllRoomsContainer.instance.roomsDictionary[key.Key].GetComponent<RoomInfo>().roomSpriteCoordinates;
-                roomUIClone.GetComponent<Image>().sprite = AllRoomsContainer.instance.roomsDictionary[key.Key].GetComponent<RoomInfo>().roomSprite;
+                roomUIClone.transform.localPosition = AllRoomsContainer.instance.roomsDictionary[id].GetComponent<RoomInfo>().roomSpriteCoordinates;
+                roomUIClone.GetComponent<Image>().sprite = AllRoomsContainer.instance.roomsDictionary[id].GetComponent<RoomInfo>().roomSprite;
                 roomUIClone.GetComponent<Image>().SetNativeSize();
-            }
-
         }
     }
 }

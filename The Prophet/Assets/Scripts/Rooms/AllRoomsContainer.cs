@@ -8,7 +8,7 @@ public class AllRoomsContainer : MonoBehaviour
     [SerializeField] private List <GameObject> rooms = new List<GameObject> ();
 
     public Dictionary <int, GameObject> roomsDictionary = new Dictionary<int, GameObject> ();
-    public Dictionary <int, bool> visitedRoomsDictionary = new Dictionary<int, bool> ();
+    public List <int> visitedRooms = new List<int>();
 
     private void Awake()
     {
@@ -18,7 +18,6 @@ public class AllRoomsContainer : MonoBehaviour
         foreach (GameObject room in rooms)
         {
             roomsDictionary[room.GetComponent<RoomInfo>().id] = room;
-            visitedRoomsDictionary[room.GetComponent<RoomInfo>().id] = false;
         }
     }
 
@@ -29,6 +28,10 @@ public class AllRoomsContainer : MonoBehaviour
 
     public void VisitRoom(short id)
     {
-        visitedRoomsDictionary[id] = true;
+        if (visitedRooms.Contains(id))
+            return;
+
+        visitedRooms.Add(id);
+        SaveManager.instance.SaveVisitedRooms();
     }
 }
