@@ -72,6 +72,8 @@ public class SaveManager : MonoBehaviour
     private void LoadPlayerCurrency()
     {
         PlayerCurrencyController.instance.currency = PlayerPrefs.GetInt("Currency");
+
+        CurrencyUIController.instance.UpdateCurrencyWindowValueInvoker(1);
     }
 
     public void SavePlayerInventory()

@@ -17,11 +17,13 @@ public class PlayerCurrencyController : MonoBehaviour
     {
         currency += currencyCount;
         SaveManager.instance.SavePlayerCurrency();
+        CurrencyUIController.instance.UpdateCurrencyWindowValueInvoker(1);
     }
 
     public void TakeCurrency(int currencyCount)
     {
         if (currency - currencyCount >= 0)
             currency -= currencyCount;
+        CurrencyUIController.instance.UpdateCurrencyWindowValueInvoker(-1);
     }
 }

@@ -395,6 +395,9 @@ public class CharacterController2D : MonoBehaviour
     {
         if (collision.CompareTag("Ladder"))
         {
+            if (rigidBody.velocity.y > 0)
+                Jump();
+
             currentLadder = null;
             isClimbingLadder = false;
             _animator.SetBool("IsMovingVertically", false);

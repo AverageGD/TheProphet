@@ -132,6 +132,9 @@ public class PlayerHealthController : MonoBehaviour
 
     private void Die()
     {
+        PlayerCurrencyController.instance.currency = 0;
+        SaveManager.instance.SavePlayerCurrency();
+
         OnDeath?.Invoke();
 
         DeathScreen.instance.CreateSilhouette(transform, spriteRenderer);
