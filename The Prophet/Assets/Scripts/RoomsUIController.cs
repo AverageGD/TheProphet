@@ -4,10 +4,19 @@ using UnityEngine.UI;
 
 public class RoomsUIController : MonoBehaviour
 {
+    public static RoomsUIController instance;
+
     [SerializeField] private GameObject roomUI;
     [SerializeField] private Transform map;
 
     private bool isMapOpen;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
+
     public void TryToTurnOnOffMap()
     {
         isMapOpen = !isMapOpen;
@@ -15,11 +24,10 @@ public class RoomsUIController : MonoBehaviour
         gameObject.SetActive(isMapOpen);
 
         ListRooms();
-
     }
 
 
-    private void ListRooms()
+    public void ListRooms()
     {
         foreach (Transform room in map)
         {

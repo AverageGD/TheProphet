@@ -9,5 +9,7 @@ public class RoomInfo : MonoBehaviour
     private void Start()
     {
         AllRoomsContainer.instance.VisitRoom(id);
+        if (RoomsUIController.instance != null)
+            RoomsUIController.instance.ListRooms();
     }
 }

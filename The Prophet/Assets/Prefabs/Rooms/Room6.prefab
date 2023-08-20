@@ -12924,6 +12924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 19
   roomSprite: {fileID: 21300000, guid: 3e2693ba9941bfd4cb3e1ad8915cc55f, type: 3}
+  roomSpriteCoordinates: {x: -250, y: 20}
 --- !u!1001 &1054078741282117816
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8418,7 +8418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 13
   roomSprite: {fileID: 21300000, guid: 5b32dffffd609ae4d8f77df8d910c801, type: 3}
-  roomSpriteCoordinates: {x: -400, y: 260}
+  roomSpriteCoordinates: {x: -400, y: 500}
 --- !u!1 &7864571314061139207
 GameObject:
   m_ObjectHideFlags: 0
