@@ -15,6 +15,7 @@ public class PlayerHealthController : MonoBehaviour
     private Rigidbody2D rigidBody;
     private Transform groundChecker;
     private bool canHeal = true;
+    private bool isDead = false;
 
     public float health;
     public short maxHealTriesCount;
@@ -37,6 +38,7 @@ public class PlayerHealthController : MonoBehaviour
         if (instance == null)
             instance = this;
 
+        isDead = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
@@ -87,7 +89,7 @@ public class PlayerHealthController : MonoBehaviour
         StartCoroutine(UpdateHealthBarUI());
 
 
-        if (health <= 0)
+        if (!isDead && health <= 0)
         {
             Die();
         }
@@ -132,7 +134,14 @@ public class PlayerHealthController : MonoBehaviour
 
     private void Die()
     {
+        isDead = true;
+
+        print("Dead");
+
+        SaveManager.instance.SaveDeathInfo(SaveManager.instance.roomID);
+
         PlayerCurrencyController.instance.currency = 0;
+
         SaveManager.instance.SavePlayerCurrency();
 
         OnDeath?.Invoke();

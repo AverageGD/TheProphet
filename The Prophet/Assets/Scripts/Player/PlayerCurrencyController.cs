@@ -6,6 +6,7 @@ public class PlayerCurrencyController : MonoBehaviour
     public static PlayerCurrencyController instance;
 
     public int currency;
+    public float currencyMultiplier;
 
     private void Awake()
     {

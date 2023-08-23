@@ -33,7 +33,7 @@ public class CurrencyUIController : MonoBehaviour
         {
             currencyWindowText.text = Convert.ToString((Convert.ToInt16(currencyWindowText.text) + n));
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

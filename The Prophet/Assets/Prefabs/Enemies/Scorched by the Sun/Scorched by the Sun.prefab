@@ -38,7 +38,7 @@ Transform:
   - {fileID: 3922854134775995199}
   - {fileID: 2403282116462059901}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &435085698976909397
 SpriteRenderer:
@@ -180,7 +180,6 @@ MonoBehaviour:
   _deathTiming: 1.75
   _currencyMinimum: 40
   _currencyMaximum: 50
-  currencyMultiplier: 1
   health: 0
   OnDeath:
     m_PersistentCalls:
@@ -417,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 52179146741610744}
   _damageType: 0
 --- !u!1 &2368777037601820044
 GameObject:

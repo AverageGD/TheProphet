@@ -80,7 +80,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69337294caafac645960cc38f8604c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerCorpse: {fileID: 1959132560109540969, guid: 0a3041ebd6e71e94fbd79701217accf4, type: 3}
   id: 29
+  roomSprite: {fileID: 0}
+  roomSpriteCoordinates: {x: 0, y: 0}
 --- !u!1 &2420390505008893218
 GameObject:
   m_ObjectHideFlags: 0

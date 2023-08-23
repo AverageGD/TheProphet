@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RoomInfo : MonoBehaviour
 {
+    [SerializeField] private GameObject _playerCorpse;
+
     public short id;
     public Sprite roomSprite;
     public Vector2 roomSpriteCoordinates;
@@ -9,7 +11,14 @@ public class RoomInfo : MonoBehaviour
     private void Start()
     {
         AllRoomsContainer.instance.VisitRoom(id);
+
         if (RoomsUIController.instance != null)
             RoomsUIController.instance.ListRooms();
+
+        if (SaveManager.instance.DeathRoomID != -1 && id == SaveManager.instance.DeathRoomID)
+        {
+            GameObject playerCorpseClone = Instantiate(_playerCorpse, transform);
+        }
+            
     }
 }

@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69337294caafac645960cc38f8604c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerCorpse: {fileID: 1959132560109540969, guid: 0a3041ebd6e71e94fbd79701217accf4, type: 3}
   id: 25
   roomSprite: {fileID: 21300000, guid: ce3c27cda37cecf4983bf5fc1c0b0676, type: 3}
   roomSpriteCoordinates: {x: -663, y: 50}

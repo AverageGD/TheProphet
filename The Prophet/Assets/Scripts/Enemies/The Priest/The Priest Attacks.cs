@@ -58,7 +58,10 @@ public class ThePriestAttacks : MonoBehaviour
 
         for (int i = 0; i < numberOfBalls; i++)
         {
-            short direction = (short)Mathf.Sign(CharacterController2D.instance.transform.position.x - transform.position.x);
+            short direction = 1;
+
+            if (CharacterController2D.instance != null)
+            direction = (short)Mathf.Sign(CharacterController2D.instance.transform.position.x - transform.position.x);
 
             if (direction == 1)
             {

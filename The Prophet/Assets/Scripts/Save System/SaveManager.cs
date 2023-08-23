@@ -7,6 +7,23 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance;
 
     public short roomID = 13;
+    public Vector2 playerCorpsePosition;
+
+    private short deathRoomID = -1;
+    private int corpseCurrency;
+
+
+    public short DeathRoomID
+    {
+        get { return deathRoomID; }
+
+        private set { deathRoomID = value; }
+    }
+    public int CorpseCurrency
+    {
+        get { return corpseCurrency; }
+        private set { corpseCurrency = value; }
+    }
 
 
     private void Start()
@@ -18,6 +35,7 @@ public class SaveManager : MonoBehaviour
         LoadPlayerInventory();
         LoadPlayerUpgrades();
         LoadVisitedRooms();
+        LoadDeathInfo();
 
     }
 
@@ -161,6 +179,28 @@ public class SaveManager : MonoBehaviour
         {
             AllRoomsContainer.instance.visitedRooms.Add(PlayerPrefs.GetInt("Room" + i));
         }
+    }
+
+    public void SaveDeathInfo(int roomID)
+    {
+        PlayerPrefs.SetInt("DeathRoomID", roomID);
+
+        DeathRoomID = (short)roomID;
+
+        PlayerPrefs.SetInt("CorpseCurrency", PlayerCurrencyController.instance.currency);
+
+        PlayerPrefs.SetFloat("LastSafePositionX", CharacterController2D.instance.lastSafePosition.x);
+
+        PlayerPrefs.SetFloat("LastSafePositionY", CharacterController2D.instance.lastSafePosition.y);
+
+        PlayerPrefs.Save();
+    }
+    public void LoadDeathInfo()
+    {
+        DeathRoomID = (short)PlayerPrefs.GetInt("DeathRoomID");
+        CorpseCurrency = PlayerPrefs.GetInt("CorpseCurrency");
+
+        playerCorpsePosition = new Vector2(PlayerPrefs.GetFloat("LastSafePositionX"), PlayerPrefs.GetFloat("LastSafePositionY"));
     }
 
     private struct PlayerData

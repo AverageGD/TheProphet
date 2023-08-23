@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class CandleLightController : MonoBehaviour
+public class LightBlinkController : MonoBehaviour
 {
     [SerializeField] private float _outerRadiusMinimum;
     [SerializeField] private float _outerRadiusMaximum;

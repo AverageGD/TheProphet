@@ -10,7 +10,6 @@ public class EnemyHealthController : MonoBehaviour
     [SerializeField] private float _currencyMinimum;
     [SerializeField] private float _currencyMaximum;
 
-    public float currencyMultiplier;
     public float health;
     public UnityEvent OnDeath;
 
@@ -54,7 +53,7 @@ public class EnemyHealthController : MonoBehaviour
         yield return new WaitForSeconds(_deathTiming / 2);
 
 
-        PlayerCurrencyController.instance.AddCurrency((int)(currencyMultiplier * Random.Range(_currencyMinimum, _currencyMaximum)));
+        PlayerCurrencyController.instance.AddCurrency((int)( PlayerCurrencyController.instance.currencyMultiplier * Random.Range(_currencyMinimum, _currencyMaximum)));
 
         while (spriteRenderer.color.a > 0)
         {
