@@ -60,15 +60,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Watch Future",
-                    "type": "Button",
-                    "id": "e7c821f1-0f2b-4b6f-a6af-8f1b480e90bd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Inventory",
                     "type": "Button",
                     "id": "75c4404c-ac6f-4547-a20b-9980602218ce",
@@ -99,6 +90,15 @@
                     "name": "Restart Game",
                     "type": "Button",
                     "id": "d9046a8d-78e7-4e98-97b7-9a3047c0dfb7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Rewind Action",
+                    "type": "Button",
+                    "id": "5cb0cdd3-8d7c-4ebe-b01e-4533ef52b831",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -240,28 +240,6 @@
                 },
                 {
                     "name": "",
-                    "id": "3b956faf-3f13-49db-ab2a-144fd58f50bf",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Watch Future",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dab32585-1bc5-48b3-a195-c65bfc450188",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Watch Future",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3de5eea7-936a-4c7c-9681-b33623d067ed",
                     "path": "<Keyboard>/#(I)",
                     "interactions": "",
@@ -345,6 +323,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Restart Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fda456cc-620c-4e9e-9ac6-573ab12ed019",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rewind Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb50d414-5a6f-4762-8ca1-4dfb58404378",
+                    "path": "<Keyboard>/#(X)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rewind Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

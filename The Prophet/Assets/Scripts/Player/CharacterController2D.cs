@@ -320,21 +320,6 @@ public class CharacterController2D : MonoBehaviour
     }
     #endregion
 
-    #region LookToTheFuture
-    public void LookToTheFutureInvoker()
-    {
-        StartCoroutine(LookToTheFuture());
-    }
-
-    private IEnumerator LookToTheFuture()
-    {
-        Time.timeScale = 0.3f;
-        yield return new WaitForSecondsRealtime(5);
-
-        Time.timeScale = 1;
-    }
-    #endregion //Is NOT finished
-
     public void InteractionInvoker() // Calls when player Interacts with enviroment
     {
         if (PlayerHealthController.instance.isHealing)

@@ -56,6 +56,13 @@ public class PlayerHealthController : MonoBehaviour
 
         HealPotionsBarController.instance.UpdateHealPotions();
     }
+    public void SetHealth(float value)
+    {
+        health = value;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        StopAllCoroutines();
+        StartCoroutine(UpdateHealthBarUI());
+    }
 
     private IEnumerator UpdateHealthBarUI()
     {

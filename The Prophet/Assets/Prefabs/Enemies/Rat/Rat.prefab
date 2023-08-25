@@ -436,7 +436,6 @@ MonoBehaviour:
   _deathTiming: 0.5
   _currencyMinimum: 40
   _currencyMaximum: 60
-  currencyMultiplier: 1
   health: 0
   OnDeath:
     m_PersistentCalls:

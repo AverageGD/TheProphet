@@ -138,6 +138,9 @@ MonoBehaviour:
     - Hi there! Looking for something?
   _delayTime: 0.2
   dialogueIndex: 0
+  OnDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &8925108024188263184
 CircleCollider2D:
   m_ObjectHideFlags: 0

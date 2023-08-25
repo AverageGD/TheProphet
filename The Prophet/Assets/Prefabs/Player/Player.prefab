@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 1394037841690377520}
   - component: {fileID: 6517960094176525490}
   - component: {fileID: 81307722388245151}
+  - component: {fileID: 793973027763745229}
   - component: {fileID: 6296504758403754760}
   m_Layer: 6
   m_Name: Player
@@ -169,7 +170,6 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 2605065717963589662}
   _animator: {fileID: 81307722388245151}
   _playerGhost: {fileID: 1986832492298096555, guid: a5b0afc55db1ed640a3a149e2c1e2871, type: 3}
-  upgradeLevel: 22
   lastSafePosition: {x: 0, y: 0}
 --- !u!114 &602758095603627752
 MonoBehaviour:
@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c75cadb1237a546af6d31592c59009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxMana: 0
   _manaBarUI: {fileID: 0}
+  maxMana: 0
 --- !u!114 &9167658657191060510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,11 +197,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ec46634cc74f946b38927ec43e57c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 0
   _groundCheckDistance: 0
   _healthBarUI: {fileID: 0}
+  health: 0
   maxHealTriesCount: 0
+  currentHealTriesCount: 0
   recoverableHealth: 0
+  maxHealth: 0
+  isHealing: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -333,6 +336,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &793973027763745229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935279571419285620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1853014c10a6eb46a8363fdc11758e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackObjectActiveState: 0
+  trackTransform: 0
+  trackVelocity: 1
+  trackAnimator: 1
+  trackAudio: 0
+  trackHealth: 1
+  trackSpriteRenderer: 1
+  trackParticles:
+    enabled: 0
+    value:
+      particleTrackingLimit: 0
+      particleRestartFrom: 0
+      particleSystems: []
+  OnRewind:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTrack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6296504758403754760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360341600c29a9343a386deab97eeb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currency: 0
+  currencyMultiplier: 0
 --- !u!1 &6967970778722298141
 GameObject:
   m_ObjectHideFlags: 0

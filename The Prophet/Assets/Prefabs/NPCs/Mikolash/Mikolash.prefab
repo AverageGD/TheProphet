@@ -137,6 +137,9 @@ MonoBehaviour:
     - Be cautious my friend - this place holds dangers that go beyond time and space.
   _delayTime: 0.2
   dialogueIndex: 0
+  OnDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &8757870194707960526
 CircleCollider2D:
   m_ObjectHideFlags: 0
