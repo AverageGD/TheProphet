@@ -15,12 +15,14 @@ public class UpgradeButtonController : MonoBehaviour
 
     private void Update()
     {
-        isPurchased = _upgradeAbility.isPurchased;
+        isPurchased = UpgradeSystemManager.instance.CanUseAbility(_upgradeAbility.name);
         if (isPurchased)
         {
+            _upgradeAbility.isPurchased = true;
             GetComponent<Image>().sprite = _purchasedUpgrade;
         } else
         {
+            _upgradeAbility.isPurchased = false;
             GetComponent<Image>().sprite = _lockedUpgrade;
         }
     }

@@ -43,6 +43,7 @@ public class PlayerManaController : MonoBehaviour
 
     private IEnumerator UpdateManaBarUI()
     {
+        _manaBarUI.maxValue = maxMana;
 
         float manaBarUIChangingVelocity = 0;
 

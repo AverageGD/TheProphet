@@ -8,5 +8,5 @@ public class TheLoversUpgrade : UpgradeAbility
         base.Activate();
 
         Debug.Log("The Lovers are purchased and now are working");
-    }
+    }  
 }

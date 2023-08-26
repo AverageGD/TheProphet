@@ -66,6 +66,7 @@ public class PlayerHealthController : MonoBehaviour
 
     private IEnumerator UpdateHealthBarUI()
     {
+        _healthBarUI.maxValue = maxHealth;
 
         float healthBarUIChangingVelocity = 0;
 

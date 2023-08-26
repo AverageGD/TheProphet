@@ -29,7 +29,7 @@ public class CurrencyUIController : MonoBehaviour
     {
         int newCurrency = PlayerCurrencyController.instance.currency;
 
-        while (Convert.ToInt16(currencyWindowText.text) < newCurrency)
+        while (Convert.ToInt16(currencyWindowText.text) != newCurrency)
         {
             currencyWindowText.text = Convert.ToString((Convert.ToInt16(currencyWindowText.text) + n));
 

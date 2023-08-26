@@ -58,6 +58,7 @@ public class CharacterController2D : MonoBehaviour
     private float fallSpeedYDampingChangeTreshold;
     private Transform currentLadder;
     private float lastPlayerGhostSpawnTime;
+    private GameObject dashDamage;
 
     [Header("Other")]
 
@@ -74,6 +75,9 @@ public class CharacterController2D : MonoBehaviour
         _spriteRenderer.flipX = false;
 
         fallSpeedYDampingChangeTreshold = CameraManager.instance._fallSpeedYDampingChangeTreshold;
+
+        dashDamage = transform.Find("DashDamage").gameObject;
+        dashDamage.GetComponent<AbilityDamageController>().damage = (float)damage / 2;
     }
 
     private void Update()
@@ -280,6 +284,10 @@ public class CharacterController2D : MonoBehaviour
         canDash = false;
         isDashing = true;
 
+
+        if (UpgradeSystemManager.instance.CanUseAbility("The Hermit"))
+            dashDamage.SetActive(true);
+
         isClimbingLadder = false;
         currentLadder = null;
         isLadder = false;
@@ -302,6 +310,9 @@ public class CharacterController2D : MonoBehaviour
 
         rigidBody.gravityScale = origGravity; //returns default gravity scale
         gameObject.layer = LayerMask.NameToLayer("Player"); //returns player's default layer
+
+        dashDamage.SetActive(false);
+
         isDashing = false;
 
         yield return new WaitForSeconds(1.5f);
@@ -318,6 +329,7 @@ public class CharacterController2D : MonoBehaviour
             Destroy(playerGhostClone, 0.4f);
         }
     }
+
     #endregion
 
     public void InteractionInvoker() // Calls when player Interacts with enviroment
