@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 486eef3e9076a4943a86c85ed81be8ad, type: 3}
-  m_Name: Spore Ribbon Ability
+  m_Name: Rock Ribbon Ability
   m_EditorClassIdentifier: 
-  name: Spore Ribbon
+  name: Rock Ribbon
   coolDownTime: 2
-  activeTime: 0
+  activeTime: 1.1
   manaCost: 2
+  damage: 4
+  abilityObject: {fileID: 3441156711656350990, guid: 67e76fc6e7796a143b48f9101dea738b, type: 3}

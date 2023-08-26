@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RibbonHolder : MonoBehaviour
@@ -60,14 +61,19 @@ public class RibbonHolder : MonoBehaviour
 
     public void ActivateAbility() //When player clicka on the Ribbon's ability button(RMB or LB), engine calls this function
     {
+        if (state == RibbonState.ready && ribbonAbility != null && PlayerManaController.instance.Mana >= ribbonAbility.manaCost
+            && !PlayerHealthController.instance.isHealing)
+            StartCoroutine(ActivateAbilityAction());
+    }
 
-        if (state == RibbonState.ready && ribbonAbility != null && PlayerManaController.instance.Mana >= ribbonAbility.manaCost) //checks if ribbon is ready to use
-        {
-            animator.SetTrigger("Special Ability");
-            GameManager.instance.FreezeRigidbodyInvoker(0.3f, rigidBody);
+    private IEnumerator ActivateAbilityAction()
+    {
+        animator.SetTrigger("Special Ability");
+        GameManager.instance.FreezeRigidbodyInvoker(0.3f, rigidBody);
+        state = RibbonState.active; //changes the state to active
 
-            state = RibbonState.active; //changes the state to active
-            ribbonAbility.Activate(); //calls ribbon's function
-        }
+        yield return new WaitForSeconds(0.2f);
+
+        ribbonAbility.Activate(); //calls ribbon's function
     }
 }

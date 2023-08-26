@@ -198,8 +198,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -2.00125, y: 6.6519504, z: 0}
-    m_Extent: {x: 8.07965, y: 10.93985, z: 0}
+    m_Center: {x: -2.0109003, y: 6.6525497, z: 0}
+    m_Extent: {x: 8.0792, y: 10.93445, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -7334,6 +7334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mikolash
       objectReference: {fileID: 0}
+    - target: {fileID: 321186204955076181, guid: a41f6eff634ceff448435d2c509fe687, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8243672646322070629, guid: a41f6eff634ceff448435d2c509fe687, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7344,7 +7348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8243672646322070629, guid: a41f6eff634ceff448435d2c509fe687, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -105.20267
+      value: -105.04
       objectReference: {fileID: 0}
     - target: {fileID: 8243672646322070629, guid: a41f6eff634ceff448435d2c509fe687, type: 3}
       propertyPath: m_LocalPosition.z
