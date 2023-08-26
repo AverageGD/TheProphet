@@ -29,6 +29,9 @@ public class UpgradeButtonController : MonoBehaviour
 
     public void TryToPurchaseUpgrade()
     {
+        if (transform.parent.parent.Find("TarotCard").gameObject.GetComponent<Image>().sprite != _tarotCard)
+            return;
+
         if (PlayerCurrencyController.instance.currency - _upgradeCost >= 0 && (_previousButton == null || _previousButton.isPurchased) && !isPurchased)
         {
             _upgradeAbility.isPurchased = true;

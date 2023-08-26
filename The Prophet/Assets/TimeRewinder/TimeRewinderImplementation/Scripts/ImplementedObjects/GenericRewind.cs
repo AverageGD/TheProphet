@@ -23,6 +23,9 @@ public class GenericRewind : RewindAbstract
     {
         OnRewind?.Invoke();
 
+        if (gameObject == null)
+            return;
+
         if (trackObjectActiveState)
             RestoreObjectActiveState(seconds);
         if (trackTransform)
@@ -44,6 +47,9 @@ public class GenericRewind : RewindAbstract
     public override void Track()
     {
         OnTrack?.Invoke();
+
+        if (gameObject == null)
+            return;
 
         if (trackObjectActiveState)
             TrackObjectActiveState();

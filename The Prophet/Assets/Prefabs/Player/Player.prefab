@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 81307722388245151}
   - component: {fileID: 793973027763745229}
   - component: {fileID: 6296504758403754760}
+  - component: {fileID: 2339359340288745309}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -169,7 +170,7 @@ Transform:
   - {fileID: 3420143101861084662}
   - {fileID: 5662033675876507637}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2605065717963589662
 SpriteRenderer:
@@ -519,8 +520,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360341600c29a9343a386deab97eeb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currency: 461
+  currency: 0
   currencyMultiplier: 1
+--- !u!114 &2339359340288745309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935279571419285620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f01518fffbef564080d8eae05681811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackTime: 0.2
+  hitDirectionForce: 10
+  constForce: 5
+  inputForce: 7.5
 --- !u!1 &6967970778722298141
 GameObject:
   m_ObjectHideFlags: 0

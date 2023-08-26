@@ -10,7 +10,12 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies' weapons
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealthController>().TakeDamage(damage);
+
+            Vector2 hitDirection = collision.transform.position - transform.position;
+            hitDirection.Normalize();
+            hitDirection = new Vector2(hitDirection.x, 0);
+
+            collision.gameObject.GetComponent<PlayerHealthController>().TakeDamage(damage, hitDirection, true);
 
             StatusEffectManager.instance.GivePlayerCorrespondingStatusEffect(_damageType);
 

@@ -143,7 +143,11 @@ public class RewindManager : MonoBehaviour
         }
         else 
         {
-            _rewindedObjects.ForEach(x => x.Track());
+            foreach (RewindAbstract rewindable in _rewindedObjects)
+            {
+                if (rewindable != null)
+                    rewindable.Track();
+            }
 
             if(TrackingEnabled)
                 HowManySecondsAvailableForRewind = Mathf.Min(HowManySecondsAvailableForRewind + Time.fixedDeltaTime, HowManySecondsToTrack);

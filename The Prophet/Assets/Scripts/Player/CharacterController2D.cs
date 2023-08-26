@@ -119,7 +119,7 @@ public class CharacterController2D : MonoBehaviour
             direction = -1;
         }
 
-        if (isClimbingLadder) return; //When player uses a ladder he should not do anything else
+        if (isClimbingLadder || Knockback.instance.IsBeingKnockedBack) return; //When player uses a ladder he should not do anything else
 
         TrySpawnPlayerGhost();
 
@@ -350,11 +350,14 @@ public class CharacterController2D : MonoBehaviour
 
     public void Jump()
     {
-        _animator.SetTrigger("Jump");
-        
+        if (isAttacking)
+            return;
+
         if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || ((UpgradeSystemManager.instance.CanUseAbility("The Hanged Man") && IsWallNear() || isClimbingLadder) && Time.time - lastJumpTime > 0.8f)
             && !PlayerHealthController.instance.isHealing) //checks if player is grounded, or is near to the wall to jump
         {
+            print(isAttacking);
+            _animator.SetTrigger("Jump");
             isClimbingLadder = false;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
             lastJumpTime = Time.time;

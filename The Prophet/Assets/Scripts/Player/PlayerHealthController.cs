@@ -78,7 +78,7 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 hitDirection, bool needKnockback)
     {
         if (animator != null)
             animator.SetBool("IsHealing", false);
@@ -87,6 +87,7 @@ public class PlayerHealthController : MonoBehaviour
         canHeal = true;
 
         VibrationController.instance.StartVibration(0.3f, 0.3f, 0.5f);
+
         if (gameObject != null)
             GameManager.instance.InvincibilityInvoker(gameObject, 1.5f, true);
 
@@ -100,7 +101,11 @@ public class PlayerHealthController : MonoBehaviour
         if (!isDead && health <= 0)
         {
             Die();
+            return;
         }
+
+        if (needKnockback)
+            Knockback.instance.KnockbackInvoker(hitDirection, Vector2.up, Input.GetAxisRaw("Horizontal"));
     }
 
     public void TryToHealInvoker()
