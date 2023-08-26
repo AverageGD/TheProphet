@@ -9958,6 +9958,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 852200232112032887, guid: 72547d269f8d7d942ba2ba57a65b8992, type: 3}
   m_PrefabInstance: {fileID: 5595578233437442093}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &7567336166599792029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2640209889143014832, guid: 72547d269f8d7d942ba2ba57a65b8992, type: 3}
+  m_PrefabInstance: {fileID: 5595578233437442093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8044405176151029634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10013,7 +10018,7 @@ PrefabInstance:
     - target: {fileID: 3312610959982232330, guid: 72547d269f8d7d942ba2ba57a65b8992, type: 3}
       propertyPath: _attackPoint
       value: 
-      objectReference: {fileID: 5404494397324423730}
+      objectReference: {fileID: 7567336166599792029}
     - target: {fileID: 8091592603386631363, guid: 72547d269f8d7d942ba2ba57a65b8992, type: 3}
       propertyPath: m_Name
       value: The Priest (1)
@@ -10027,11 +10032,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72547d269f8d7d942ba2ba57a65b8992, type: 3}
---- !u!4 &5404494397324423730 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2640209889143014832, guid: 72547d269f8d7d942ba2ba57a65b8992, type: 3}
-  m_PrefabInstance: {fileID: 8044405176151029634}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7237540213633891317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 852200232112032887, guid: 72547d269f8d7d942ba2ba57a65b8992, type: 3}
