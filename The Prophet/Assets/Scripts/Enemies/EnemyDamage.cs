@@ -5,6 +5,7 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies' weapons
     [SerializeField] private float damage;
     [SerializeField] private GameObject _enemy;
     [SerializeField] private DamageType _damageType;
+    [SerializeField] private bool _needKnockback = true;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +16,7 @@ public class EnemyDamage : MonoBehaviour //Universal script for enemies' weapons
             hitDirection.Normalize();
             hitDirection = new Vector2(hitDirection.x, 0);
 
-            collision.gameObject.GetComponent<PlayerHealthController>().TakeDamage(damage, hitDirection, true);
+            PlayerHealthController.instance.TakeDamage(damage, hitDirection, _needKnockback);
 
             StatusEffectManager.instance.GivePlayerCorrespondingStatusEffect(_damageType);
 

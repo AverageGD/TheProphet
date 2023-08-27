@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 8133932379778496930}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1542207545526559822
 SpriteRenderer:
@@ -154,7 +154,6 @@ MonoBehaviour:
   _deathTiming: 0.5
   _currencyMinimum: 50
   _currencyMaximum: 60
-  currencyMultiplier: 1
   health: 0
   OnDeath:
     m_PersistentCalls:

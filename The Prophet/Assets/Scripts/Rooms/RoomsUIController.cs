@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ public class RoomsUIController : MonoBehaviour
     [SerializeField] private GameObject _roomUI;
     [SerializeField] private Transform _map;
 
-    private bool isMapOpen;
+    public bool IsMapOpen { get; set; }
 
     private void Awake()
     {
@@ -19,9 +18,9 @@ public class RoomsUIController : MonoBehaviour
 
     public void TryToTurnOnOffMap()
     {
-        isMapOpen = !isMapOpen;
+        IsMapOpen = !IsMapOpen;
 
-        gameObject.SetActive(isMapOpen);
+        gameObject.SetActive(IsMapOpen);
 
         ListRooms();
     }

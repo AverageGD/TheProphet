@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
-    private bool isInventoryOpen = false;
+    public bool IsInventoryOpen {get; set;}
 
     private GameObject descriptionBox;
     public void TryToTurnOnOffInventory() //Turns inventory's UI on/off
@@ -11,9 +11,9 @@ public class InventoryController : MonoBehaviour
 
         descriptionBox.SetActive(false);
 
-        isInventoryOpen = !isInventoryOpen;
+        IsInventoryOpen = !IsInventoryOpen;
 
-        gameObject.SetActive(isInventoryOpen);
+        gameObject.SetActive(IsInventoryOpen);
     }
 
 }
