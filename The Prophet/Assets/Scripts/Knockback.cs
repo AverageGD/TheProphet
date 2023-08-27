@@ -73,7 +73,7 @@ public class Knockback : MonoBehaviour
             hitDirection.Normalize();
             hitDirection = new Vector2(hitDirection.x, 0);
 
-            KnockbackInvoker(-hitDirection, Vector2.up, Input.GetAxisRaw("Horizontal"));
+            KnockbackInvoker(-2 * hitDirection, Vector2.zero, Input.GetAxisRaw("Horizontal"));
         }
     }
 }

@@ -24,7 +24,7 @@ public class InventoryItemController : MonoBehaviour //This script is made for c
         descriptionBox.transform.Find("Name").GetComponent<Text>().text = itemName;
         descriptionBox.transform.Find("Description").GetComponent<Text>().text = itemDescription;
 
-        if (itemSlot == null) 
+        if (itemSlot == null)
             return;
 
         ItemSlot.Slots slot = itemSlot.slot;
@@ -56,7 +56,7 @@ public class InventoryItemController : MonoBehaviour //This script is made for c
     public void WearItem(ItemSlot.Slots slots) //if player wants to wear any item he needs only drag it to the corresponding slot
     {
 
-        switch(slots) //checks which slot player put an item to give value to the corresonding field
+        switch (slots) //checks which slot player put an item to give value to the corresonding field
         {
             case ItemSlot.Slots.ribbon1:
                 RibbonHolder.instance.ribbonAbility = ribbon;
