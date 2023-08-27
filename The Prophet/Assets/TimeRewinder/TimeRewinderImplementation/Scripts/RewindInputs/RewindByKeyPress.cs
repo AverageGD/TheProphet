@@ -27,7 +27,7 @@ public class RewindByKeyPress : MonoBehaviour
 
         RewindManager.Instance.StartRewindTimeBySeconds(rewindValue);
 
-        while (rewindValue < Mathf.Min(RewindManager.Instance.HowManySecondsAvailableForRewind, Time.time))
+        while (rewindValue <= Mathf.Min(RewindManager.Instance.HowManySecondsAvailableForRewind - 1, Time.fixedTime))
         {
 
             RewindManager.Instance.SetTimeSecondsInRewind(rewindValue);

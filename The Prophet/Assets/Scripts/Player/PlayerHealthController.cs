@@ -85,6 +85,7 @@ public class PlayerHealthController : MonoBehaviour
 
         OnHealEnd?.Invoke();
         canHeal = true;
+        isHealing = false;
 
         VibrationController.instance.StartVibration(0.3f, 0.3f, 0.5f);
 

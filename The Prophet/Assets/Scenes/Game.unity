@@ -1326,7 +1326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4065960116027654745, guid: 0cbd4304daa3da84cb52d37985a1714f, type: 3}
       propertyPath: <HowManySecondsToTrack>k__BackingField
-      value: 1.5
+      value: 5.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 351212382774887266, guid: 0cbd4304daa3da84cb52d37985a1714f, type: 3}
@@ -6518,18 +6518,6 @@ PrefabInstance:
       propertyPath: _manaBarUI
       value: 
       objectReference: {fileID: 4128223897545317516}
-    - target: {fileID: 882009315316353441, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339359340288745309, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: hitDirectionForce
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4773482487640630855, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: m_RootOrder
       value: 2

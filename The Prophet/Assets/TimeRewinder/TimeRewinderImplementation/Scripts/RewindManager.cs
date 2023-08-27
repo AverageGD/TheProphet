@@ -40,6 +40,8 @@ public class RewindManager : MonoBehaviour
     /// Call this method to rewind time by specified seconds instantly without snapshot preview. Usefull for one time instant rewinds.
     /// </summary>
     /// <param name="seconds">Parameter defining how many seconds should object rewind to from now (Parameter must be >=0).</param>
+    /// 
+
     public void InstantRewindTimeBySeconds(float seconds)
     {
         if(seconds>HowManySecondsAvailableForRewind)
