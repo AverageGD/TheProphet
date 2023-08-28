@@ -11,6 +11,7 @@ public class RewindByKeyPress : MonoBehaviour
     [SerializeField] float rewindIntensity = 0.02f;          //Variable to change rewind speed
     float rewindValue = 0;
 
+    public UnityEvent OnRewindStart;
     public UnityEvent OnRewind;
     public UnityEvent OnRewindEnd;
 
@@ -26,6 +27,8 @@ public class RewindByKeyPress : MonoBehaviour
         rewindValue += rewindIntensity;
 
         RewindManager.Instance.StartRewindTimeBySeconds(rewindValue);
+
+        OnRewindStart?.Invoke();
 
         while (rewindValue <= Mathf.Min(RewindManager.Instance.HowManySecondsAvailableForRewind - 1, Time.fixedTime))
         {
@@ -43,7 +46,7 @@ public class RewindByKeyPress : MonoBehaviour
         rewindValue = 0;
         isRewinding = false;
         OnRewindEnd?.Invoke();
-        isUsed = true;
+        isUsed = false;
     }
 
 

@@ -15,7 +15,8 @@ public class RoomFadeController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            roomFade.SetActive(true);
+            if (roomFade != null)
+                roomFade.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

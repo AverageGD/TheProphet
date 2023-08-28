@@ -23,6 +23,7 @@ public abstract class RewindAbstract : MonoBehaviour
         trackedFlips = new CircularBuffer<bool>();
         trackedTransformValues = new CircularBuffer<TransformValues>();
         trackedHealthSystems = new CircularBuffer<HealthSystemValues>();
+        trackedRoomsValues = new CircularBuffer<int>();
 
         if(body!=null||body2!=null)
             trackedVelocities = new CircularBuffer<VelocityValues>();
@@ -109,7 +110,7 @@ public abstract class RewindAbstract : MonoBehaviour
         if (body != null)
         {
             VelocityValues valuesToWrite;
-            valuesToWrite.velocity= new Vector3(-body.velocity.x, body.velocity.y, body.velocity.z);
+            valuesToWrite.velocity= new Vector3(-body.velocity.x, -body.velocity.y, -body.velocity.z);
             valuesToWrite.angularVelocity = body.angularVelocity;
             valuesToWrite.angularVelocity2D = 0;
             trackedVelocities.WriteLastValue(valuesToWrite);            
@@ -394,6 +395,28 @@ public abstract class RewindAbstract : MonoBehaviour
         bool flipX = trackedFlips.ReadFromBuffer(seconds);
 
         spriteRenderer.flipX = flipX;
+    }
+
+    #endregion
+
+    #region RoomID
+
+    CircularBuffer<int> trackedRoomsValues;
+    protected void TrackRoomID()
+    {
+        trackedRoomsValues.WriteLastValue(SaveManager.instance.roomID);
+    }
+
+    protected void RestoreRoomID(float seconds)
+    {
+        int valueToRead = trackedRoomsValues.ReadFromBuffer(seconds);
+
+        if (SaveManager.instance.roomID != valueToRead)
+        {
+            SaveManager.instance.roomID = (short)valueToRead;
+            AllRoomsContainer.instance.CreateRoom((short)valueToRead);
+        }
+        
     }
 
     #endregion

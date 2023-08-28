@@ -12,6 +12,7 @@ public class GenericRewind : RewindAbstract
     [SerializeField] bool trackAudio;
     [SerializeField] bool trackHealth;
     [SerializeField] bool trackSpriteRenderer;
+    [SerializeField] bool trackRoomID;
 
     [Tooltip("Enable checkbox on right side to track particles")]
     [SerializeField] OptionalParticleSettings trackParticles;
@@ -42,6 +43,8 @@ public class GenericRewind : RewindAbstract
             RestoreHealthSystem(seconds);
         if (trackSpriteRenderer)
             RestoreFlips(seconds);
+        if (trackRoomID)
+            RestoreRoomID(seconds);
     }
 
     public override void Track()
@@ -67,6 +70,8 @@ public class GenericRewind : RewindAbstract
             TrackHealthSystem();
         if (trackSpriteRenderer)
             TrackFlips();
+        if (trackRoomID)
+            TrackRoomID();
     }
     private void Start()
     {

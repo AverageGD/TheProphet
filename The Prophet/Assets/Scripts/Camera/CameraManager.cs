@@ -44,6 +44,14 @@ public class CameraManager : MonoBehaviour
             }
         }
         normYPanAmount = framingTransposer.m_YDamping;
+
+    }
+
+    private void Start()
+    {
+        currentCamera.GetComponent<CinemachineVirtualCamera>().enabled = false;
+        currentCamera.transform.position = CharacterController2D.instance.lastSafePosition;
+        currentCamera.GetComponent<CinemachineVirtualCamera>().enabled = true;
     }
 
     public void LerpYDamping(bool isPlayerFalling)

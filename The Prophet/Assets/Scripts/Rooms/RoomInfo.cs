@@ -21,4 +21,12 @@ public class RoomInfo : MonoBehaviour
         }
             
     }
+
+    private void FixedUpdate()
+    {
+        if (SaveManager.instance.roomID != id)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
