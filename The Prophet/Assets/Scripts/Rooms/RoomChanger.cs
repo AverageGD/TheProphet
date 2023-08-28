@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RoomChanger : MonoBehaviour
 {
-    [SerializeField] private GameObject _newRoom;
+    [SerializeField] private short _roomID;
 
     private Transform teleportationTarget;
     private GameObject currentRoom;
@@ -20,9 +20,9 @@ public class RoomChanger : MonoBehaviour
         {
             GameManager.instance.TeleportationInvoker(teleportationTarget.position, false);
 
-            Instantiate(_newRoom);
+            AllRoomsContainer.instance.CreateRoom(_roomID);
 
-            SaveManager.instance.roomID = _newRoom.GetComponent<RoomInfo>().id;
+            SaveManager.instance.roomID = _roomID;
 
             Destroy(currentRoom);
 

@@ -3835,6 +3835,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5672355391524834967}
     m_Modifications:
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
       objectReference: {fileID: 6224545915055411895, guid: 04eaf3e6ac8a5814ca28690c28bfd42b, type: 3}
@@ -3952,6 +3956,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5672355391524834967}
     m_Modifications:
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 

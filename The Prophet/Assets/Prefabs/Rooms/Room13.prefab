@@ -198,8 +198,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.9959002, y: 6.6619997, z: 0}
-    m_Extent: {x: 8.0787, y: 10.9351, z: 0}
+    m_Center: {x: -2.0009, y: 6.653, z: 0}
+    m_Extent: {x: 8.0715, y: 10.938999, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
@@ -6903,6 +6903,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7267281057866865970}
     m_Modifications:
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
       objectReference: {fileID: 5164184507305543958, guid: 85266d1b8f435bb419ad31048be9d33d, type: 3}
@@ -7020,6 +7024,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7267281057866865970}
     m_Modifications:
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
@@ -7306,6 +7314,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7267281057866865970}
     m_Modifications:
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 28
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 

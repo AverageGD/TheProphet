@@ -46,7 +46,7 @@ public class RewindByKeyPress : MonoBehaviour
         rewindValue = 0;
         isRewinding = false;
         OnRewindEnd?.Invoke();
-        isUsed = false;
+        isUsed = true;
     }
 
 

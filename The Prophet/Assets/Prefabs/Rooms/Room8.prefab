@@ -11020,6 +11020,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1046979611191783059}
     m_Modifications:
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
       objectReference: {fileID: 7397524699309886065, guid: 899287b06bddc3d4c94ae825175fe2fd, type: 3}

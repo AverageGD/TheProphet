@@ -11712,7 +11712,7 @@ Transform:
   - {fileID: 8790177410797840278}
   - {fileID: 483340824530546687}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1677909151300327873
 MonoBehaviour:
@@ -12183,6 +12183,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 483340824530546687}
     m_Modifications:
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
       objectReference: {fileID: 8589350209026159384, guid: e72a6fb4e3f775d4e97c9090d2f4a7ef, type: 3}
@@ -12296,6 +12300,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 483340824530546687}
     m_Modifications:
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 

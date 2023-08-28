@@ -4694,7 +4694,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 361834811331764770}
-  - {fileID: 2765173795387206556}
+  - {fileID: 328387624053354609}
   - {fileID: 1399019975627922781}
   m_Father: {fileID: 7914745927060425880}
   m_RootOrder: -1
@@ -12805,6 +12805,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3300967234058001973}
     m_Modifications:
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
       objectReference: {fileID: 7397524699309886065, guid: 899287b06bddc3d4c94ae825175fe2fd, type: 3}
@@ -12822,7 +12826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4370141199003634934, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Size.y
-      value: 6.2034836
+      value: 6.836281
       objectReference: {fileID: 0}
     - target: {fileID: 4370141199003634934, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Offset.x
@@ -12830,7 +12834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4370141199003634934, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Offset.y
-      value: 0.9793892
+      value: 1.2957878
       objectReference: {fileID: 0}
     - target: {fileID: 5372680937036611600, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12889,8 +12893,16 @@ PrefabInstance:
       value: 0.360569
       objectReference: {fileID: 0}
     - target: {fileID: 6585664564603306172, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_Size.y
+      value: 6.8210926
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585664564603306172, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Offset.x
       value: 0.4027462
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585664564603306172, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.4767294
       objectReference: {fileID: 0}
     - target: {fileID: 6694631689372527195, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Name
@@ -13057,7 +13069,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 493c518e7f7d97048abb835fc4bb6ec2, type: 3}
---- !u!4 &2765173795387206556 stripped
+--- !u!4 &328387624053354609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5969469126527097585, guid: 493c518e7f7d97048abb835fc4bb6ec2, type: 3}
   m_PrefabInstance: {fileID: 6222138805015194240}
@@ -13070,6 +13082,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3300967234058001973}
     m_Modifications:
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
@@ -13188,6 +13204,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3300967234058001973}
     m_Modifications:
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 

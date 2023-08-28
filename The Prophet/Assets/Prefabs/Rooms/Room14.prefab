@@ -12234,8 +12234,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -2.5983505, y: 0.6763501, z: 0}
-    m_Extent: {x: 29.06045, y: 12.815849, z: 0}
+    m_Center: {x: -2.6009502, y: 0.67124987, z: 0}
+    m_Extent: {x: 29.06955, y: 12.81675, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1.41
@@ -16468,6 +16468,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4742364846113276015}
     m_Modifications:
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 

@@ -3397,6 +3397,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2943884166170152061}
     m_Modifications:
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: _roomID
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _newRoom
       value: 
       objectReference: {fileID: 1399272019125529189, guid: 3cccac476e4bd674e9a38e4124f544ca, type: 3}
