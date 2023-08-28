@@ -138,7 +138,7 @@ public class CharacterController2D : MonoBehaviour
 
         _wallChecker.localPosition = new Vector2(direction * 0.48f, _wallChecker.localPosition.y); //determines the local position of wallChecker point by depending on direction
 
-        _safePositionChecker.localPosition = new Vector2(direction * 1.5f, _safePositionChecker.localPosition.y); //determines the local position of safePositionChecker point by depending on direction
+        _safePositionChecker.localPosition = new Vector2(direction * 2f, _safePositionChecker.localPosition.y); //determines the local position of safePositionChecker point by depending on direction
 
 
         if (rigidBody.velocity.y < fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)

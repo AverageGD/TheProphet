@@ -7,4 +7,8 @@ public class AmuletAbility : ScriptableObject
     public virtual void Activate()
     {
     }
+
+    public virtual void Deactivate()
+    {
+    }
 }

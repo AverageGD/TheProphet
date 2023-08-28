@@ -71,7 +71,7 @@ public class Knockback : MonoBehaviour
         {
             Vector2 hitDirection = collision.transform.position - transform.position;
             hitDirection.Normalize();
-            hitDirection = new Vector2(hitDirection.x, 0);
+            
 
             KnockbackInvoker(-2 * hitDirection, Vector2.zero, Input.GetAxisRaw("Horizontal"));
         }

@@ -23,7 +23,7 @@ public class PlayerHealthController : MonoBehaviour
     public float recoverableHealth;
     public float maxHealth;
     public bool isHealing;
-
+    public bool isHeartOfTheRomaUsed;
    
 
     public UnityEvent OnDeath;
@@ -152,9 +152,13 @@ public class PlayerHealthController : MonoBehaviour
 
         print("Dead");
 
-        SaveManager.instance.SaveDeathInfo(SaveManager.instance.roomID);
+        if (isHeartOfTheRomaUsed && Random.Range(0, 4) != 0)
+        {
+            SaveManager.instance.SaveDeathInfo(SaveManager.instance.roomID);
 
-        PlayerCurrencyController.instance.currency = 0;
+            PlayerCurrencyController.instance.currency = 0;
+
+        }
 
         SaveManager.instance.SavePlayerCurrency();
 

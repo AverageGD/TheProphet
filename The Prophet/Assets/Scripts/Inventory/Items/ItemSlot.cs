@@ -22,6 +22,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler //Here is described logic fo
             foreach (Transform child in transform)
             {
                 child.GetComponent<InventoryItemController>().isWearing = false;
+                if (child.GetComponent<InventoryItemController>().amulet != null)
+                    child.GetComponent<InventoryItemController>().amulet.Deactivate();
+
                 InventoryManager.instance.ResetWearedIems(child.GetComponent<InventoryItemController>().id, false);
                 Destroy(child);
             }
@@ -33,7 +36,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler //Here is described logic fo
 
             dragDrop.canvasGroup.blocksRaycasts = true;
             dragDrop.enabled = false;
+
             inventoryItemController.isWearing = true;
+
+            if (inventoryItemController.amulet != null)
+                inventoryItemController.amulet.Activate();
+
             InventoryManager.instance.ResetWearedIems(inventoryItemController.id, true);
 
             eventDataClone.transform.position = transform.position;

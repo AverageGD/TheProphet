@@ -7,13 +7,11 @@ public class AmuletHolder : MonoBehaviour
     public AmuletAbility firstAmuletAbility;
     public AmuletAbility secondAmuletAbility;
 
-    void Start()
+    private void Start()
     {
-        instance = this;
-    }
+        if (instance == null)
+            instance = this;
 
-    void Update()
-    {
         if (firstAmuletAbility != null)
         {
             firstAmuletAbility.Activate();
@@ -24,4 +22,5 @@ public class AmuletHolder : MonoBehaviour
             secondAmuletAbility.Activate();
         }
     }
+
 }

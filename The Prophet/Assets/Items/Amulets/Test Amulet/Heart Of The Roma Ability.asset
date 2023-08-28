@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0117c26b4f36aab46b8d73368eeae02c, type: 3}
-  m_Name: Test Amulet Ability
+  m_Name: Heart Of The Roma Ability
   m_EditorClassIdentifier: 
-  name: Test Amulet
+  name: Heart Of The Roma
