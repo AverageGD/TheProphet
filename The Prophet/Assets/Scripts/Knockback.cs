@@ -70,10 +70,12 @@ public class Knockback : MonoBehaviour
         if (collision.transform.CompareTag("Enemy"))
         {
             Vector2 hitDirection = collision.transform.position - transform.position;
+            hitDirection = new Vector2(hitDirection.x, 0);
             hitDirection.Normalize();
-            
 
-            KnockbackInvoker(-2 * hitDirection, Vector2.zero, Input.GetAxisRaw("Horizontal"));
+            PlayerHealthController.instance.TakeDamage(0.5f, Vector2.right, false);
+
+            KnockbackInvoker(-2 * hitDirection, Vector2.down, Input.GetAxisRaw("Horizontal"));
         }
     }
 }

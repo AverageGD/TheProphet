@@ -23,12 +23,15 @@ public class TheLoversProjectileController : MonoBehaviour
             smoothTime = smoothTimeAttack;
         } else
         {
-            target = CharacterController2D.instance.transform;
+            if (CharacterController2D.instance != null)
+                target = CharacterController2D.instance.transform;
             smoothTime = smoothTimeIdle;
         }
 
-        if (target != null)
-            transform.position = Vector2.SmoothDamp(transform.position, target.position, ref currentVelocity, smoothTime);
+        if (target == null)
+            return;
+
+        transform.position = Vector2.SmoothDamp(transform.position, target.position, ref currentVelocity, smoothTime);
 
         Vector2 directionToTarget = (target.position - transform.position).normalized;
 
