@@ -14,5 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: The Lovers
   id: 8
-  description: Emits a cadaverous smell that causes passive damage.
+  description: 'One of the night spells of Valea Soarelui.
+
+    Quickly shoots a
+    barely discernible projectile. It is created automatically.
+
+    The prophets
+    leading a hermit lifestyle were murderers and, they say, often hunted their own
+    brethren.'
   isPurchased: 1
+  _radius: 7
+  _smoothTimeIdle: 0.25
+  _smoothTimeAttack: 0.1
+  _damage: 1
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _projectile: {fileID: 8898772998681809021, guid: db06151fd060f144d82cdbb3203cc1ac, type: 3}
+  _projectileMaxCount: 1
