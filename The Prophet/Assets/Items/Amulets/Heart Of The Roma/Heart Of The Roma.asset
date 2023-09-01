@@ -19,7 +19,7 @@ MonoBehaviour:
 
 
 '
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f37a0b051fbbfe64397de2a700333062, type: 3}
   itemType: 1
   ribbonAbility: {fileID: 0}
   amuletAbility: {fileID: 11400000, guid: 27565de9db9be6d46af37fe48794db17, type: 2}

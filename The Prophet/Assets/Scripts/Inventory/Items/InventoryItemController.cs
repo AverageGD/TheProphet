@@ -27,7 +27,8 @@ public class InventoryItemController : MonoBehaviour //This script is made for c
         if (itemSlot == null)
             return;
 
-        amulet.Deactivate();
+        amulet?.Deactivate();
+
         ItemSlot.Slots slot = itemSlot.slot;
         isWearing = false;
         InventoryManager.instance.ResetWearedIems(id, false);

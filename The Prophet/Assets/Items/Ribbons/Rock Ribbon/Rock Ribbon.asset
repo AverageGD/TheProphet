@@ -18,8 +18,8 @@ MonoBehaviour:
     dead-ends.
 
 '
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: eb15fecb8eb9d2b44ac81172f3a43a25, type: 3}
   itemType: 0
   ribbonAbility: {fileID: 11400000, guid: 9b2b0f1e6c7e8bd42ace071626dba20e, type: 2}
   amuletAbility: {fileID: 0}
-  isWearing: 0
+  isWearing: 1

@@ -16,10 +16,10 @@ MonoBehaviour:
   itemName: Gold Goblet
   description: 'Increases receiving currency.
 
-    
+
 
 '
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7793cbbf97dd00547977060f7c8fb54a, type: 3}
   itemType: 1
   ribbonAbility: {fileID: 0}
   amuletAbility: {fileID: 11400000, guid: 5db94e834f6d7344d9598ce96a480985, type: 2}

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class CopperPotAbility : AmuletAbility
+public class MedalionulVisatoruluiAbility : AmuletAbility
 {
     public override void Activate()
     {

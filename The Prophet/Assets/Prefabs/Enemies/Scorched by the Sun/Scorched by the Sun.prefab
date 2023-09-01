@@ -291,8 +291,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.38296103, y: -2.282801}
-  m_Size: {x: 2.2816777, y: 3.8812752}
+  m_Offset: {x: -0.38296103, y: -2.1029105}
+  m_Size: {x: 2.2816777, y: 4.2410564}
   m_Direction: 0
 --- !u!95 &4047847825270167822
 Animator:
@@ -418,6 +418,7 @@ MonoBehaviour:
   damage: 1
   _enemy: {fileID: 52179146741610744}
   _damageType: 0
+  _needKnockback: 1
 --- !u!1 &2368777037601820044
 GameObject:
   m_ObjectHideFlags: 0

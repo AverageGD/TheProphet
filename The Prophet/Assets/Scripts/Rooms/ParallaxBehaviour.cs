@@ -11,6 +11,7 @@ public class ParallaxBehaviour : MonoBehaviour
 
     private void Start()
     {
+
         if (!_followingTarget)
         {
             _followingTarget = Camera.main.transform;
@@ -33,4 +34,5 @@ public class ParallaxBehaviour : MonoBehaviour
 
         transform.position += deltaDistance * _parallaxStrength;
     }
+
 }

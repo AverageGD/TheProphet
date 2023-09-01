@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 619c142573d6fa64ba4315baeea41dc6, type: 3}
-  m_Name: Copper Pot
+  m_Name: Medalionul Visatorului
   m_EditorClassIdentifier: 
   id: 3
-  itemName: Copper Pot
+  itemName: Medalionul Visatorului
   description: Increases player's max HP by 5%.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 33e68223d9087d148b0388a4fe391d5a, type: 3}
   itemType: 1
   ribbonAbility: {fileID: 0}
   amuletAbility: {fileID: 11400000, guid: 89c47a978a0ad2942bcc3645ab6b1a41, type: 2}
