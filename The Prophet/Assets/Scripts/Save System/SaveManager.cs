@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ public class SaveManager : MonoBehaviour
         LoadPlayerUpgrades();
         LoadVisitedRooms();
         LoadDeathInfo();
+        LoadGateConditions();
 
     }
 
@@ -197,6 +199,32 @@ public class SaveManager : MonoBehaviour
         CorpseCurrency = PlayerPrefs.GetInt("CorpseCurrency");
 
         playerCorpsePosition = new Vector2(PlayerPrefs.GetFloat("LastSafePositionX"), PlayerPrefs.GetFloat("LastSafePositionY"));
+    }
+
+    public void SaveGateCondition()
+    {
+        int gatesDataLength = GatesController.instance.gates.Count;
+
+        int iteration = 0;
+
+        foreach (bool gate in GatesController.instance.gates)
+        {
+            PlayerPrefs.SetInt("Gate" + iteration, Convert.ToInt16(gate));
+            iteration++;
+        }
+
+
+        PlayerPrefs.Save();
+    }
+    private void LoadGateConditions()
+    {
+        int gatesDataLength = GatesController.instance.gates.Count;
+
+        for (int i = 0; i < gatesDataLength; i++)
+        {
+            GatesController.instance.gates[i] = Convert.ToBoolean(PlayerPrefs.GetInt("Gate" + i));
+        }
+
     }
 
     private struct PlayerData

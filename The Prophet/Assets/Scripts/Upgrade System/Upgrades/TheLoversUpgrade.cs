@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -50,7 +49,8 @@ public class TheLoversUpgrade : UpgradeAbility
                 Debug.Log("Spawn Projectile");
                 TheLoversProjectileController theLoversProjectileController = projectileClone.GetComponent<TheLoversProjectileController>();
 
-                projectileClone.transform.position = CharacterController2D.instance.transform.position;
+                if (CharacterController2D.instance != null)
+                    projectileClone.transform.position = CharacterController2D.instance.transform.position;
 
                 theLoversProjectileController.radius = _radius;
                 theLoversProjectileController.smoothTimeAttack = _smoothTimeAttack;

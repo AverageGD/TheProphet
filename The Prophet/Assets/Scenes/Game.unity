@@ -331,6 +331,7 @@ Transform:
   - {fileID: 924301527}
   - {fileID: 748012393}
   - {fileID: 485913232}
+  - {fileID: 1910443503}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -766,7 +767,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.428571
+  orthographic size: 6.6757693
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1337,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4065960116027654745, guid: 0cbd4304daa3da84cb52d37985a1714f, type: 3}
       propertyPath: <HowManySecondsToTrack>k__BackingField
-      value: 5.5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 351212382774887266, guid: 0cbd4304daa3da84cb52d37985a1714f, type: 3}
@@ -3875,6 +3876,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e80e5bc03f3f5429ead41492ca4aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1910443502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910443503}
+  - component: {fileID: 1910443504}
+  m_Layer: 0
+  m_Name: GatesController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1910443503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910443502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 489078087}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910443504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910443502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e286573ed787a8649b08323c42ed0817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gates: 0000
 --- !u!1 &1943204876
 GameObject:
   m_ObjectHideFlags: 0
