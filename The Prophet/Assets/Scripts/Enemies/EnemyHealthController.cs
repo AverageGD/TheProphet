@@ -1,24 +1,21 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class EnemyHealthController : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _deathTiming;
-    [SerializeField] private float _currencyMinimum;
-    [SerializeField] private float _currencyMaximum;
+    [SerializeField] protected float _maxHealth;
+    [SerializeField] protected float _deathTiming;
+    [SerializeField] protected float _currencyMinimum;
+    [SerializeField] protected float _currencyMaximum;
 
     public float health;
     public UnityEvent OnDeath;
 
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
-
-    
-
-    private void Start()
+    protected Animator animator;
+    protected SpriteRenderer spriteRenderer;
+  
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -26,7 +23,7 @@ public class EnemyHealthController : MonoBehaviour
 
         animator.SetFloat("Health", _maxHealth);
     }
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
 
@@ -39,7 +36,7 @@ public class EnemyHealthController : MonoBehaviour
         }
     }
 
-    private IEnumerator Die()
+    protected IEnumerator Die()
     {
         OnDeath?.Invoke();
 

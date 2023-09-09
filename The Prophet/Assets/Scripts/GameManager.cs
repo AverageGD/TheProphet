@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private LayerMask _groundLayer;
 
+
+    public Slider bossHealthBarUI;
+    public GameObject bossHealthBarBorder;
 
     public GameObject roomFade;
 
