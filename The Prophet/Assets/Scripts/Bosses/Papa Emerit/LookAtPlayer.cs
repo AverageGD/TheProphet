@@ -12,7 +12,13 @@ public class LookAtPlayer : Node
 
     public override NodeState Evaluate()
     {
-        if (transform.position.x - CharacterController2D.instance.transform.position.x > 0)
+        if ((bool)parent.GetData("IsMeleeAttacking"))
+        {
+            state = NodeState.Failure;
+            return state;
+        }
+
+        if (CharacterController2D.instance != null && transform.position.x - CharacterController2D.instance.transform.position.x > 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         } else

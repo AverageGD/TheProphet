@@ -21,8 +21,11 @@ public class GateTrigger : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            bossHealthBarUI.SetActive(true);
-            bossHealthBarBorder.SetActive(true);
+            if (_isBossFight)
+            {
+                bossHealthBarUI.SetActive(true);
+                bossHealthBarBorder.SetActive(true);
+            }
             GatesController.instance.gates[_gateId] = _condition;
             Destroy(gameObject);
         }

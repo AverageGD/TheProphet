@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class BossHealthController : EnemyHealthController
 {
-    [SerializeField] private int _maxPhasesCount;
+    [SerializeField] private int _maxStagesCount;
 
-    private int currentPhaseNumber = 0;
+    public int currentStageNumber = 0;
     private Slider _healthBarUI;
 
     protected override void Start()
@@ -27,7 +27,7 @@ public class BossHealthController : EnemyHealthController
 
         animator.SetFloat("Health", health);
 
-        if (health <= 0 && currentPhaseNumber == _maxPhasesCount)
+        if (health <= 0 && currentStageNumber == _maxStagesCount - 1)
             StartCoroutine(Die());
         else if (health <= 0)
         {
@@ -37,7 +37,7 @@ public class BossHealthController : EnemyHealthController
 
     private void ChangePhase()
     {
-        currentPhaseNumber++;
+        currentStageNumber++;
 
         SetHealth(_maxHealth);
     }
