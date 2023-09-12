@@ -4,16 +4,17 @@ using BehaviorTree;
 public class CheckStage : Node
 {
     private int targetStageNumber;
-    private int currentStageNumber;
+    private BossHealthController bossHealthController;
 
-    public CheckStage(int stageNumber, int currentStageNumber)
+    public CheckStage(int stageNumber, BossHealthController bossHealthController)
     {
         this.targetStageNumber = stageNumber;
-        this.currentStageNumber = currentStageNumber;
+        this.bossHealthController = bossHealthController;
+
     }
     public override NodeState Evaluate()
     {
-        if (targetStageNumber >= currentStageNumber)
+        if (targetStageNumber <= bossHealthController.currentStageNumber)
         {
             state = NodeState.Success;
 

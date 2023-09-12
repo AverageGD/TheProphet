@@ -6,7 +6,7 @@ public class CheckTime : Node
     private float coolDown;
     private string name;
 
-    private bool firstTime;
+    private bool firstTime = true;
 
     public CheckTime(float coolDown, string name)
     {
