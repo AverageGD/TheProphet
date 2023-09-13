@@ -36,7 +36,7 @@ public class PapaEmeritBTree : BTree
             {
                 new CheckStage(0, bossHealthController),
                 new CheckTime(_teleportationCoolDown, "LastTeleport"),
-                new CheckHealth((x) => x % 10 == 0, bossHealthController),
+                new CheckHealth((x) => x % 5 == 0, bossHealthController),
                 new PapaEmeritTeleport(_spriteRenderer, _transform)
             }),
 

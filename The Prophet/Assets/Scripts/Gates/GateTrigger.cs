@@ -25,13 +25,16 @@ public class GateTrigger : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             OnTriggerEnter?.Invoke();
-
-            if (_isBossFight)
-            {
-                bossHealthBarUI.SetActive(true);
-                bossHealthBarBorder.SetActive(true);
-            }
             GatesController.instance.gates[_gateId] = _condition;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (_isBossFight && collision.transform.CompareTag("Player"))
+        {
+            bossHealthBarUI.SetActive(true);
+            bossHealthBarBorder.SetActive(true);
         }
     }
 }
