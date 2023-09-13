@@ -12,7 +12,7 @@ public class HolyHammerSpawn : Node
 
     public override NodeState Evaluate()
     {
-        parent.parent.SetData("LastHolyHammer", Time.time);
+        parent.parent.SetData("LastHolyHammerAttack", Time.time);
         GameObject holyHammerClone = Object.Instantiate(holyHammer);
 
         holyHammerClone.transform.position = new Vector2(holyHammerClone.transform.position.x, -103);

@@ -1767,9 +1767,9 @@ CompositeCollider2D:
       - X: -622932800
         Y: -1028877568
       - X: -622932800
-        Y: -1158109440
+        Y: -1191595520
       - X: -238719024
-        Y: -1158109440
+        Y: -1191595520
   - m_Collider: {fileID: 861769496}
     m_ColliderPaths:
     - - X: -946983936
@@ -1900,10 +1900,10 @@ CompositeCollider2D:
       - {x: -77.10341, y: -90.04518}
       - {x: -94.625, y: -90.04522}
       - {x: -94.62497, y: -118.655106}
-    - - {x: -23.871931, y: -115.81094}
+    - - {x: -23.871931, y: -119.15955}
       - {x: -23.871931, y: -102.88776}
       - {x: -62.29328, y: -102.88779}
-      - {x: -62.293247, y: -115.81094}
+      - {x: -62.293247, y: -119.15955}
     - - {x: -62.796284, y: -115.669044}
       - {x: -62.796284, y: -103.701294}
       - {x: -73.755066, y: -103.701324}
@@ -2848,7 +2848,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: -43.082592, y: -109.34935}
+  m_Offset: {x: -43.082592, y: -111.02365}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2859,7 +2859,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 38.42138, y: 12.923187}
+  m_Size: {x: 38.42138, y: 16.271797}
   m_EdgeRadius: 0
 --- !u!61 &861769496
 BoxCollider2D:
@@ -6990,6 +6990,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 46b8a20b6dc78fb4bb75e35c8b94c523, type: 3}
+    - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4773482487640630855, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: m_RootOrder
       value: 2

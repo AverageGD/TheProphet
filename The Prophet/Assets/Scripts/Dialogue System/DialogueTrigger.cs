@@ -5,11 +5,12 @@ public class DialogueTrigger : Interactable
 {
     [SerializeField] private Dialogue[] _dialogues;
     [SerializeField] private float _delayTime;
+    [SerializeField] private bool _needToAutomaticallyCallDialogueEnd = false;
 
     public int dialogueIndex = 0;
     public UnityEvent OnDialogueEnd;
 
-    private float lastClickTime;
+    private float lastClickTime = 0;
     private int indexOfCurrentSentence = 0;
     
 
@@ -49,6 +50,8 @@ public class DialogueTrigger : Interactable
             return;
 
         indexOfCurrentSentence = 0;
+        if (_needToAutomaticallyCallDialogueEnd)
+            OnDialogueEnd?.Invoke();
 
         DialogueManager.instance.EndDialogue();
     }

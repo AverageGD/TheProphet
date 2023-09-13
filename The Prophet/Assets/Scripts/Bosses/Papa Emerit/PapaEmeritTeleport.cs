@@ -19,7 +19,7 @@ public class PapaEmeritTeleport : Node
 
         GameManager.instance.StartCoroutine(Teleport());
 
-        state = NodeState.Success;
+        state = NodeState.Running;
 
         return state;
     }
@@ -29,7 +29,7 @@ public class PapaEmeritTeleport : Node
 
         Debug.Log("Start TP");
 
-        while (spriteRenderer.color.a > 0)
+        while (spriteRenderer != null && spriteRenderer.color.a > 0)
         {
             Color tmp = spriteRenderer.color;
             tmp.a = spriteRenderer.color.a - Time.deltaTime;
@@ -40,7 +40,7 @@ public class PapaEmeritTeleport : Node
 
         transform.position = new Vector2(Random.Range(-60, -34), transform.position.y);
 
-        while (spriteRenderer.color.a < 100)
+        while (spriteRenderer != null && spriteRenderer.color.a < 100)
         {
             Color tmp = spriteRenderer.color;
             tmp.a = spriteRenderer.color.a + Time.deltaTime;
@@ -49,5 +49,8 @@ public class PapaEmeritTeleport : Node
             yield return null;
         }
 
+        Debug.Log("End TP");
+
+        state = NodeState.Success;
     }
 }

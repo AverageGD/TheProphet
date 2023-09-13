@@ -15,7 +15,7 @@ public class HolyHammerFollow : MonoBehaviour
             enabled = false;
         }
         if (CharacterController2D.instance != null)
-            transform.position = new Vector2(Mathf.SmoothDamp(transform.position.x, CharacterController2D.instance.transform.position.x, ref currentVelocity, 0.02f),
+            transform.position = new Vector2(Mathf.SmoothDamp(transform.position.x, CharacterController2D.instance.transform.position.x, ref currentVelocity, 0.15f),
             transform.position.y);
     }
 }

@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GateTrigger : MonoBehaviour
 {
     [SerializeField] private int _gateId;
     [SerializeField] private bool _condition;
     [SerializeField] private bool _isBossFight;
+
+    public UnityEvent OnTriggerEnter;
 
     private GameObject bossHealthBarUI;
     private GameObject bossHealthBarBorder;
@@ -21,13 +24,14 @@ public class GateTrigger : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
+            OnTriggerEnter?.Invoke();
+
             if (_isBossFight)
             {
                 bossHealthBarUI.SetActive(true);
                 bossHealthBarBorder.SetActive(true);
             }
             GatesController.instance.gates[_gateId] = _condition;
-            Destroy(gameObject);
         }
     }
 }

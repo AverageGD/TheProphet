@@ -26,6 +26,13 @@ public class DeathScreen : MonoBehaviour
 
         silhouetteClone.GetComponent<SpriteRenderer>().sprite = spriteRenderer.sprite;
 
+        silhouetteClone.GetComponent<SpriteRenderer>().drawMode = spriteRenderer.drawMode;
+
+        if (spriteRenderer.drawMode == SpriteDrawMode.Tiled)
+        {
+            silhouetteClone.GetComponent<SpriteRenderer>().size = new Vector2(spriteRenderer.size.x, spriteRenderer.size.y);
+        }
+
         if (spriteRenderer.flipX || transform.rotation.y != 0f)
         {
             silhouetteClone.GetComponent<SpriteRenderer>().flipX = true;

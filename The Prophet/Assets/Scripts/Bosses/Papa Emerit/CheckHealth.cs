@@ -4,17 +4,17 @@ using BehaviorTree;
 public class CheckHealth : Node
 {
     public ComparatorCriteria criteria;
-    public float health;
+    public BossHealthController bossHealthController;
 
-    public CheckHealth(ComparatorCriteria criteria, float health)
+    public CheckHealth(ComparatorCriteria criteria, BossHealthController bossHealthController)
     {
         this.criteria = criteria;
-        this.health = health;
+        this.bossHealthController = bossHealthController;
     }
 
     public override NodeState Evaluate()
     {
-        if (criteria != null && criteria(health))
+        if (criteria != null && criteria(bossHealthController.health))
         {
             state = NodeState.Success;
         } else

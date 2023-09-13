@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6766270103888237837
 Animator:
@@ -204,8 +204,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.14564991, y: 0.082653046, z: 0}
-    m_Extent: {x: 3.85025, y: 69.41225, z: 0}
+    m_Center: {x: -0.14639986, y: 0.07929993, z: 0}
+    m_Extent: {x: 3.8572998, y: 69.4163, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
