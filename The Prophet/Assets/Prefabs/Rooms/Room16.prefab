@@ -66,7 +66,7 @@ Transform:
   - {fileID: 6891442537377330937}
   - {fileID: 3491418852531012359}
   - {fileID: 7045787779516576533}
-  - {fileID: 7440648377264732572}
+  - {fileID: 6202129297875805576}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3237,7 +3237,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696b09ab781bc864791665a41f6bec3c, type: 3}
---- !u!4 &7440648377264732572 stripped
+--- !u!4 &6202129297875805576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3553373068050914323, guid: 696b09ab781bc864791665a41f6bec3c, type: 3}
   m_PrefabInstance: {fileID: 7440648377264732571}

@@ -156,6 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0.5
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 3902363820200354862}
   _damageType: 0
   _needKnockback: 0

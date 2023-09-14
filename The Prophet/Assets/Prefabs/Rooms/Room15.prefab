@@ -1441,6 +1441,7 @@ MonoBehaviour:
     sentences:
     - '*Elevator doesn''t work*'
   _delayTime: 0.2
+  _needToAutomaticallyCallDialogueEnd: 0
   dialogueIndex: 0
   OnDialogueEnd:
     m_PersistentCalls:

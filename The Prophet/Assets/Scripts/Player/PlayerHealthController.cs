@@ -152,7 +152,7 @@ public class PlayerHealthController : MonoBehaviour
 
         print("Dead");
 
-        if (isHeartOfTheRomaUsed && Random.Range(0, 4) != 0)
+        if ((isHeartOfTheRomaUsed && Random.Range(0, 4) != 0) || !isHeartOfTheRomaUsed)
         {
             SaveManager.instance.SaveDeathInfo(SaveManager.instance.roomID);
 
