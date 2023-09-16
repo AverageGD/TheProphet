@@ -28,6 +28,7 @@ public class PapaEmeritTeleport : Node
     {
 
         Debug.Log("Start TP");
+        Debug.Log(parent.parent.GetData("LastTeleport"));
 
         while (spriteRenderer != null && spriteRenderer.color.a > 0)
         {

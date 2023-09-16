@@ -36,7 +36,7 @@ public class ThePriestAttacks : MonoBehaviour
         if (isPlayerNear)
             animator.SetBool("IsWalking", false);
 
-        if (canAttack)
+        if (canAttack && GetComponent<EnemyHealthController>().health > 0)
         {
             if (isPlayerVeryNear)
                 StartCoroutine(MeleeAttack());

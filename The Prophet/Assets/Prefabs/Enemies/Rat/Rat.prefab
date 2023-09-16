@@ -48,6 +48,7 @@ MonoBehaviour:
   damage: 1
   _enemy: {fileID: 2610926429710531108}
   _damageType: 1
+  _needKnockback: 1
 --- !u!60 &5870471073267842340
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ Transform:
   - {fileID: 704217909725506656}
   - {fileID: 4429272886666193461}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7340265809329817057
 SpriteRenderer:
@@ -492,6 +493,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
         m_MethodName: set_gravityScale
         m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 743616770238785992}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

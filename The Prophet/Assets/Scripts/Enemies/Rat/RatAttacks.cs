@@ -28,7 +28,7 @@ public class RatAttacks : MonoBehaviour
     {
         isPlayerVeryNear = Physics2D.OverlapCircle(transform.position, _attackDistance, _playerLayer); //checks if player is near enought to strike him
 
-        if (canAttack && isPlayerVeryNear) //if player is very near and enemy can attack, then he starts the attack
+        if (canAttack && isPlayerVeryNear && GetComponent<EnemyHealthController>().health > 0) //if player is very near and enemy can attack, then he starts the attack
         {
             StartCoroutine(Attack());
         }
