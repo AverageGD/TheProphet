@@ -369,6 +369,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  worldCanvas: {fileID: 1686953529}
   bossHealthBarUI: {fileID: 451781610}
   bossHealthBarBorder: {fileID: 1491016587}
   roomFade: {fileID: 7542854501633711155}
@@ -424,6 +425,7 @@ Transform:
   - {fileID: 748012393}
   - {fileID: 485913232}
   - {fileID: 1910443503}
+  - {fileID: 1669349615}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3227,7 +3229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.5660378, g: 0.0026699959, b: 0.0026699959, a: 1}
+  m_Color: {r: 0.5647059, g: 0.003921569, b: 0.003921569, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3982,6 +3984,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roomUI: {fileID: 6669773720454311185, guid: 4cc63d5248ddf9f44a858fa5bce78860, type: 3}
   _map: {fileID: 1653216830}
+--- !u!1 &1669349614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1669349615}
+  - component: {fileID: 1669349616}
+  m_Layer: 0
+  m_Name: BossManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1669349615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669349614}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 489078087}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1669349616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669349614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f986c09d2de32d45a2a0586e361b122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatenBosses: 
 --- !u!1 &1686953529
 GameObject:
   m_ObjectHideFlags: 0
@@ -4191,7 +4238,7 @@ GameObject:
   - component: {fileID: 1910443503}
   - component: {fileID: 1910443504}
   m_Layer: 0
-  m_Name: GatesController
+  m_Name: GatesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6962,46 +7009,6 @@ PrefabInstance:
       propertyPath: _manaBarUI
       value: 
       objectReference: {fileID: 4128223897545317516}
-    - target: {fileID: 793973027763745229, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: trackRoomID
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 793973027763745229, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: trackVelocity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 793973027763745229, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: trackTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 793973027763745229, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: OnRewind.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 793973027763745229, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: OnRewind.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394037841690377520, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 46b8a20b6dc78fb4bb75e35c8b94c523, type: 3}
-    - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2605065717963589662, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4773482487640630855, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7049,10 +7056,6 @@ PrefabInstance:
     - target: {fileID: 4935279571419285620, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517960094176525490, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167658657191060510, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: _healthBarUI

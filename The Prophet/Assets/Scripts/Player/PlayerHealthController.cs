@@ -9,6 +9,7 @@ public class PlayerHealthController : MonoBehaviour
 
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private Slider _healthBarUI;
+    [SerializeField] private Color _deathScreenCustomColor;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -164,6 +165,7 @@ public class PlayerHealthController : MonoBehaviour
 
         OnDeath?.Invoke();
 
+        DeathScreen.instance.gameObject.GetComponent<Image>().color = _deathScreenCustomColor;
         DeathScreen.instance.CreateSilhouette(transform, spriteRenderer);
 
         GlobalFade.instance.FadeIn();

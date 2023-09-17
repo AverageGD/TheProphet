@@ -36,7 +36,7 @@ public class EnemyHealthController : MonoBehaviour
         }
     }
 
-    protected IEnumerator Die()
+    protected virtual IEnumerator Die()
     {
         OnDeath?.Invoke();
 

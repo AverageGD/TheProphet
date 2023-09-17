@@ -199,16 +199,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d817e37fd4f56428a9a274a616744b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 75
+  _maxHealth: 70
   _deathTiming: 0
   _currencyMinimum: 0
   _currencyMaximum: 0
   health: 0
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7388185774167121809}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _maxStagesCount: 2
+  _deathScreenCustomColor: {r: 0.32156864, g: 0.21960784, b: 0.7176471, a: 1}
   currentStageNumber: 0
+  id: 1
 --- !u!114 &7388185774167121809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 8901487930336154583}
   _meleeAttackPoint: {fileID: 8392199867900386503}
+  _bossElements: {fileID: 0}
   _sickle: {fileID: 4338299952630057486, guid: 3d32bbbe56732fb47babdd7a6bbe3e69, type: 3}
   _ray: {fileID: 419824850197337395, guid: db16600a8fb8cf6488f035a53498a1f8, type: 3}
   _holyHammer: {fileID: 405823384284997884, guid: a7348fc7f95c0a64a9f35f03f013516f, type: 3}
@@ -324,34 +339,34 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 3692277919616822230}
     m_ColliderPaths:
-    - - X: 6623413
+    - - X: -1370574
         Y: 14439051
-      - X: 1370574
+      - X: -6623413
         Y: 14439051
-      - X: 1370574
+      - X: -6623413
         Y: 1246833
-      - X: 6623413
+      - X: -1370574
         Y: 1246833
   - m_Collider: {fileID: 2728441652442570077}
     m_ColliderPaths:
-    - - X: 7677909
+    - - X: 10158395
         Y: 5517845
-      - X: -10158395
+      - X: -7677909
         Y: 5517845
-      - X: -10158395
+      - X: -7677909
         Y: -16800000
-      - X: 7677909
+      - X: 10158395
         Y: -16800000
   m_CompositePaths:
     m_Paths:
-    - - {x: 0.7677616, y: -1.6800001}
-      - {x: 0.7677616, y: 0.5517845}
-      - {x: 0.6623413, y: 0.5518139}
-      - {x: 0.66231203, y: 1.4439051}
-      - {x: 0.13705741, y: 1.4438758}
-      - {x: 0.13702801, y: 0.5517845}
-      - {x: -1.0158395, y: 0.5517552}
-      - {x: -1.0158103, y: -1.6800001}
+    - - {x: 1.0158103, y: -1.6800001}
+      - {x: 1.0158103, y: 0.5517845}
+      - {x: -0.13705741, y: 0.5518139}
+      - {x: -0.1370867, y: 1.4439051}
+      - {x: -0.6623413, y: 1.4438758}
+      - {x: -0.6623707, y: 0.5517845}
+      - {x: -0.7677909, y: 0.5517552}
+      - {x: -0.7677616, y: -1.6800001}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

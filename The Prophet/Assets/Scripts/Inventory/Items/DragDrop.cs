@@ -35,6 +35,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         Debug.Log("OnEndDrag");
 
+        InventoryManager.instance.ListItems();
         rectTransform.anchoredPosition = startPosition;
         canvasGroup.blocksRaycasts = true;
     }

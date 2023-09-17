@@ -6,11 +6,13 @@ public class RayOfLightAttack : Node
 {
     private int rayMaxCount;
     private GameObject ray;
+    private Transform bossElements;
 
-    public RayOfLightAttack(int rayMaxCount, GameObject ray)
+    public RayOfLightAttack(int rayMaxCount, GameObject ray, Transform bossElements)
     {
         this.rayMaxCount = rayMaxCount;
         this.ray = ray;
+        this.bossElements = bossElements;
     }
 
     public override NodeState Evaluate()
@@ -30,7 +32,7 @@ public class RayOfLightAttack : Node
 
         while (rayCount < rayMaxCount)
         {
-            GameObject rayClone = Object.Instantiate(ray);
+            GameObject rayClone = Object.Instantiate(ray, bossElements);
 
             if (CharacterController2D.instance != null)
                 rayClone.transform.position = CharacterController2D.instance.transform.position;

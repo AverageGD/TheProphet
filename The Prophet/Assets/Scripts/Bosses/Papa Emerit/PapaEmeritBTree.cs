@@ -7,6 +7,7 @@ public class PapaEmeritBTree : BTree
     [SerializeField] private Transform _transform;
 
     [SerializeField] private Transform _meleeAttackPoint;
+    [SerializeField] private Transform _bossElements;
     [SerializeField] private GameObject _sickle;
     [SerializeField] private GameObject _ray;
     [SerializeField] private GameObject _holyHammer;
@@ -60,7 +61,7 @@ public class PapaEmeritBTree : BTree
             {
                 new CheckStage(0, bossHealthController),
                 new CheckTime(_rayOfLightAttackCoolDown, "LastRayOfLightAttack"),
-                new RayOfLightAttack(_rayMaxCount, _ray)
+                new RayOfLightAttack(_rayMaxCount, _ray, _bossElements)
 
             }),
 

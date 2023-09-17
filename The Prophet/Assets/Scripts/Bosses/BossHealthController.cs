@@ -5,17 +5,24 @@ using UnityEngine.UI;
 public class BossHealthController : EnemyHealthController
 {
     [SerializeField] private int _maxStagesCount;
+    [SerializeField] private Color _deathScreenCustomColor;
 
     public int currentStageNumber = 0;
-    private Slider _healthBarUI;
+    public int id;
+
+    private GameObject worldCanvas;
+    private Slider healthBarUI;
+    private GameObject bossHealthBarBorder;
 
     protected override void Start()
     {
         base.Start();
 
-        _healthBarUI = GameManager.instance.bossHealthBarUI;
-        _healthBarUI.maxValue = _maxHealth;
-        _healthBarUI.value = health;
+        healthBarUI = GameManager.instance.bossHealthBarUI;
+        healthBarUI.maxValue = _maxHealth;
+        healthBarUI.value = health;
+        bossHealthBarBorder = GameManager.instance.bossHealthBarBorder;
+        worldCanvas = GameManager.instance.worldCanvas;
     }
 
     public override void TakeDamage(float damage)
@@ -44,13 +51,13 @@ public class BossHealthController : EnemyHealthController
 
     private IEnumerator UpdateHealthBarUI()
     {
-        _healthBarUI.maxValue = _maxHealth;
+        healthBarUI.maxValue = _maxHealth;
 
         float healthBarUIChangingVelocity = 0;
 
-        while (_healthBarUI.value != health)
+        while (healthBarUI.value != health)
         {
-            _healthBarUI.value = Mathf.SmoothDamp(_healthBarUI.value, health, ref healthBarUIChangingVelocity, 0.2f);
+            healthBarUI.value = Mathf.SmoothDamp(healthBarUI.value, health, ref healthBarUIChangingVelocity, 0.2f);
 
             yield return null;
         }
@@ -62,5 +69,41 @@ public class BossHealthController : EnemyHealthController
         health = Mathf.Clamp(health, 0, _maxHealth);
         StopAllCoroutines();
         StartCoroutine(UpdateHealthBarUI());
+    }
+
+    protected override IEnumerator Die()
+    {
+        OnDeath?.Invoke();
+
+        gameObject.layer = LayerMask.NameToLayer("Invincible");
+
+        worldCanvas.SetActive(true);
+
+        healthBarUI.gameObject.SetActive(false);
+        bossHealthBarBorder.SetActive(false);
+
+        DeathScreen.instance.gameObject.GetComponent<Image>().color = _deathScreenCustomColor;
+
+        DeathScreen.instance.CreateSilhouette(transform, spriteRenderer);
+
+        yield return new WaitForSeconds(0.5f);
+
+        LocalFade.instance.LocalFadeInvoker();
+
+        yield return new WaitForSeconds(1f);
+
+        foreach (Transform child in worldCanvas.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        worldCanvas.SetActive(false);
+        
+        PlayerCurrencyController.instance.AddCurrency((int)(PlayerCurrencyController.instance.currencyMultiplier * Random.Range(_currencyMinimum, _currencyMaximum)));
+
+        BossManager.instance.beatenBosses.Add(id);
+        SaveManager.instance.SaveBeatenBosses();
+
+        Destroy(transform.parent.gameObject);
     }
 }

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
 
 
+    public GameObject worldCanvas;
     public Slider bossHealthBarUI;
     public GameObject bossHealthBarBorder;
 

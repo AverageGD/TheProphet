@@ -37,6 +37,7 @@ public class SaveManager : MonoBehaviour
         LoadVisitedRooms();
         LoadDeathInfo();
         LoadGateConditions();
+        LoadBeatenBosses();
 
     }
 
@@ -225,6 +226,33 @@ public class SaveManager : MonoBehaviour
             GatesController.instance.gates[i] = Convert.ToBoolean(PlayerPrefs.GetInt("Gate" + i));
         }
 
+    }
+
+    public void SaveBeatenBosses()
+    {
+        int bossesDataLength = BossManager.instance.beatenBosses.Count;
+
+        int iteration = 0;
+
+        foreach (int bossId in BossManager.instance.beatenBosses)
+        {
+            PlayerPrefs.SetInt("Boss" + iteration, bossId);
+            iteration++;
+        }
+
+        PlayerPrefs.SetInt("BossesDataLength", bossesDataLength);
+
+        PlayerPrefs.Save();
+    }
+
+    private void LoadBeatenBosses()
+    {
+        int bossesDataLength = PlayerPrefs.GetInt("BossesDataLength");
+
+        for (int i = 0; i < bossesDataLength; i++)
+        {
+            BossManager.instance.beatenBosses.Add(PlayerPrefs.GetInt("Boss" + i));
+        }
     }
 
     private struct PlayerData

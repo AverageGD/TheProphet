@@ -15,12 +15,6 @@ public class SellingItemPickUp : ItemPickUp
         base.Interact();
     }
 
-    private void Update()
-    {
-        if (InventoryManager.instance.Contains(item.id))
-            Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
