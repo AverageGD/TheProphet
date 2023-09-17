@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
 
 
     public GameObject worldCanvas;
-    public Slider bossHealthBarUI;
-    public GameObject bossHealthBarBorder;
+    public Transform bossInfo;
 
     public GameObject roomFade;
 

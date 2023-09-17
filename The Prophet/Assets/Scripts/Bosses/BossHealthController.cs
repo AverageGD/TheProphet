@@ -18,10 +18,10 @@ public class BossHealthController : EnemyHealthController
     {
         base.Start();
 
-        healthBarUI = GameManager.instance.bossHealthBarUI;
+        healthBarUI = GameManager.instance.bossInfo.Find("BossHealthBar").GetComponent<Slider>();
+        bossHealthBarBorder = GameManager.instance.bossInfo.Find("BossBorder").gameObject;
         healthBarUI.maxValue = _maxHealth;
         healthBarUI.value = health;
-        bossHealthBarBorder = GameManager.instance.bossHealthBarBorder;
         worldCanvas = GameManager.instance.worldCanvas;
     }
 

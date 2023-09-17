@@ -1,23 +1,22 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class GateTrigger : MonoBehaviour
 {
     [SerializeField] private int _gateId;
     [SerializeField] private bool _condition;
     [SerializeField] private bool _isBossFight;
+    [SerializeField] private string _bossName;
 
     public UnityEvent OnTriggerEnter;
 
-    private GameObject bossHealthBarUI;
-    private GameObject bossHealthBarBorder;
+    private GameObject bossInfo;
 
     private void Start()
     {
         GatesController.instance.gates[_gateId] = !_condition;
-
-        bossHealthBarUI = GameManager.instance.bossHealthBarUI.gameObject;
-        bossHealthBarBorder = GameManager.instance.bossHealthBarBorder;
+        bossInfo = GameManager.instance.bossInfo.gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,8 +32,9 @@ public class GateTrigger : MonoBehaviour
     {
         if (_isBossFight && collision.transform.CompareTag("Player"))
         {
-            bossHealthBarUI.SetActive(true);
-            bossHealthBarBorder.SetActive(true);
+            bossInfo.SetActive(true);
+
+            bossInfo.transform.Find("BossName").GetComponent<Text>().text = _bossName;
         }
     }
 }

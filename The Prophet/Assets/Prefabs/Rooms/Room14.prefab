@@ -13175,8 +13175,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -2.6024504, y: 0.67805004, z: 0}
-    m_Extent: {x: 29.06255, y: 12.82525, z: 0}
+    m_Center: {x: -2.6020498, y: 0.6824498, z: 0}
+    m_Extent: {x: 29.074749, y: 12.82085, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1.41
@@ -17505,6 +17505,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6067981882191591414}
     m_Modifications:
+    - target: {fileID: 3165888554523129458, guid: a26917d785504624b8c06b5f7c0056f9, type: 3}
+      propertyPath: _bossName
+      value: Papa Emerit
+      objectReference: {fileID: 0}
     - target: {fileID: 3165888554523129458, guid: a26917d785504624b8c06b5f7c0056f9, type: 3}
       propertyPath: OnTriggerEnter.m_PersistentCalls.m_Calls.Array.size
       value: 1
