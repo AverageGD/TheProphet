@@ -103,6 +103,8 @@ public class BossHealthController : EnemyHealthController
 
         BossManager.instance.beatenBosses.Add(id);
         SaveManager.instance.SaveBeatenBosses();
+        OSTManager.instance.needAmbient = true;
+
 
         Destroy(transform.parent.gameObject);
     }

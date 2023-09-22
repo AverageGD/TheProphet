@@ -24,6 +24,7 @@ public class GateTrigger : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             OnTriggerEnter?.Invoke();
+            OSTManager.instance.needAmbient = false;
             GatesController.instance.gates[_gateId] = _condition;
         }
     }

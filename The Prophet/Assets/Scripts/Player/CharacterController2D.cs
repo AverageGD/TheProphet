@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -40,6 +40,11 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _playerGhost;
 
+    [Header("Audio")]
+
+    [SerializeField] private AudioContainer _footstepAudioContainer;
+    [SerializeField] private AudioContainer _jumpAudioContainer;
+    [SerializeField] private AudioContainer _attackAudioContainer;
 
     private float verticalAxis;
     private bool isLadder;
@@ -59,6 +64,10 @@ public class CharacterController2D : MonoBehaviour
     private Transform currentLadder;
     private float lastPlayerGhostSpawnTime;
     private GameObject dashDamage;
+    private AudioSource audioSource;
+
+    private float stepSoundElapsedTime = 0f;
+    private int stepSoundClipIndex;
 
     [Header("Other")]
 
@@ -69,6 +78,7 @@ public class CharacterController2D : MonoBehaviour
         if (instance == null)
             instance = this;
 
+        audioSource = GetComponent<AudioSource>();
         rigidBody = GetComponent<Rigidbody2D>();
     
         direction = 1;
@@ -85,6 +95,24 @@ public class CharacterController2D : MonoBehaviour
         _animator.SetBool("IsGrounded", GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance));
         _animator.SetBool("IsClimbingLadder", isClimbingLadder);
         _animator.SetBool("IsWallSliding", IsWallNear());
+
+        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) && stepSoundElapsedTime > 0.4f
+            && horizontalAxis != 0)
+        {
+            stepSoundElapsedTime = 0;
+            audioSource.clip = _footstepAudioContainer.audioClips[stepSoundClipIndex];
+            audioSource.volume = _footstepAudioContainer.volume; 
+            audioSource.pitch = _footstepAudioContainer.pitch;
+
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            stepSoundClipIndex++;
+        }
+
+        stepSoundElapsedTime += Time.deltaTime;
+        stepSoundClipIndex %= _footstepAudioContainer.audioClips.Count;
 
         if (IsWallNear() && !GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance)) //if the player is near to wall but is not grounded, that means he is wallsliding
         {
@@ -224,9 +252,15 @@ public class CharacterController2D : MonoBehaviour
 
         GameManager.instance.FreezeRigidbodyInvoker(0.2f, rigidBody);
 
+
         short maxNumberOfAttacks = (short)(UpgradeSystemManager.instance.CanUseAbility("The Fool") ? 4 : 3);
 
         currentNumberOfAttacks++;
+
+        audioSource.volume = _attackAudioContainer.volume;
+        audioSource.pitch = _attackAudioContainer.pitch;
+        audioSource.clip = _attackAudioContainer.audioClips[Random.Range(0, 3)];
+        audioSource.Play();
 
         if (currentNumberOfAttacks > maxNumberOfAttacks)
         {
@@ -262,8 +296,11 @@ public class CharacterController2D : MonoBehaviour
 
         yield return new WaitForSeconds(0.25f);
 
-        canAttack = true;
         isAttacking = false;
+
+        yield return new WaitForSeconds(0.06f);
+
+        canAttack = true;
     }
     #endregion 
 
@@ -356,7 +393,12 @@ public class CharacterController2D : MonoBehaviour
         if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) || ((UpgradeSystemManager.instance.CanUseAbility("The Hanged Man") && IsWallNear() || isClimbingLadder) && Time.time - lastJumpTime > 0.8f)
             && !PlayerHealthController.instance.isHealing) //checks if player is grounded, or is near to the wall to jump
         {
-            print(isAttacking);
+            audioSource.volume = _jumpAudioContainer.volume;
+            audioSource.pitch = _jumpAudioContainer.pitch;
+
+            audioSource.clip = _jumpAudioContainer.audioClips[0];
+            audioSource.Play();
+
             _animator.SetTrigger("Jump");
             isClimbingLadder = false;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
@@ -379,7 +421,6 @@ public class CharacterController2D : MonoBehaviour
             lastSafePosition = transform.position;
         }
     }
-
 
     #region LadderDetectingLogics
     private void OnTriggerEnter2D(Collider2D collision)

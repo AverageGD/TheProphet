@@ -464,6 +464,7 @@ Transform:
   - {fileID: 485913232}
   - {fileID: 1910443503}
   - {fileID: 1669349615}
+  - {fileID: 1072505255}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1664,9 +1665,9 @@ CompositeCollider2D:
       - X: -257433040
         Y: -245338512
       - X: -257433040
-        Y: -363976448
+        Y: -351524928
       - X: -65714320
-        Y: -363976448
+        Y: -351524928
   - m_Collider: {fileID: 861769479}
     m_ColliderPaths:
     - - X: -313194016
@@ -1905,10 +1906,10 @@ CompositeCollider2D:
       - {x: -141.24905, y: -24.221825}
       - {x: -149.55975, y: -24.221853}
       - {x: -149.55974, y: -34.449448}
-    - - {x: -6.571461, y: -36.397644}
+    - - {x: -6.571461, y: -35.152493}
       - {x: -6.571461, y: -24.533852}
       - {x: -25.743305, y: -24.53388}
-      - {x: -25.743275, y: -36.397644}
+      - {x: -25.743275, y: -35.152493}
     - - {x: -31.319431, y: -35.905556}
       - {x: -31.319431, y: -24.575165}
       - {x: -44.3382, y: -24.575193}
@@ -2230,7 +2231,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: -16.157368, y: -30.465748}
+  m_Offset: {x: -16.157368, y: -29.843172}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2241,7 +2242,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.171871, y: 11.8637905}
+  m_Size: {x: 19.171871, y: 10.618641}
   m_EdgeRadius: 0
 --- !u!61 &861769481
 BoxCollider2D:
@@ -3309,6 +3310,170 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060882176}
   m_CullTransparentMesh: 1
+--- !u!1 &1072505254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1072505255}
+  - component: {fileID: 1072505256}
+  - component: {fileID: 1072505258}
+  - component: {fileID: 1072505257}
+  m_Layer: 0
+  m_Name: OSTManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1072505255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072505254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 489078087}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1072505256
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072505254}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e5eda0872fd071e419a901992639afd5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.04
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 159
+  DopplerLevel: 1
+  MinDistance: 150.39911
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1072505257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072505254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec13af9d6b037438e83e11d311f05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ambientContainer: {fileID: 1072505258}
+  needAmbient: 1
+--- !u!114 &1072505258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072505254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e31318dd6c50bd4e9b6994ecaa5f868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: 0.04
+  pitch: 1
+  audioClips:
+  - {fileID: 8300000, guid: e5eda0872fd071e419a901992639afd5, type: 3}
+  - {fileID: 8300000, guid: 727729b7e28ce264d9213e06429688ef, type: 3}
+  - {fileID: 8300000, guid: ad724cf661eae584ca539207b2695129, type: 3}
+  - {fileID: 8300000, guid: c007ed43ec9c7c847b89b77c41fb78bd, type: 3}
+  - {fileID: 8300000, guid: ddb18c8921091bc45be7c0005b810027, type: 3}
 --- !u!1 &1083639471
 GameObject:
   m_ObjectHideFlags: 0
@@ -7265,10 +7430,6 @@ PrefabInstance:
       propertyPath: _healthBarUI
       value: 
       objectReference: {fileID: 1590575521950670555}
-    - target: {fileID: 9167658657191060510, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
-      propertyPath: _deathScreenCustomColor.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9167658657191060510, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
