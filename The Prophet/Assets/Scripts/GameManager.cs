@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+    }
+
+    private void Start()
+    {
+        TurnCursorOff();
     }
 
     #region Teleportation logics
@@ -128,4 +134,9 @@ public class GameManager : MonoBehaviour
     {
         return Physics2D.OverlapCircle(groundChecker.position, groundCheckDistance, _groundLayer);
     }
+
+    public void TurnCursorOn() => Cursor.visible = true;
+
+    public void TurnCursorOff() => Cursor.visible = false;
+
 }

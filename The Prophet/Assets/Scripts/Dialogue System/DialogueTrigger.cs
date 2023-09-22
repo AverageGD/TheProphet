@@ -54,6 +54,7 @@ public class DialogueTrigger : Interactable
             OnDialogueEnd?.Invoke();
 
         DialogueManager.instance.EndDialogue();
+        GameManager.instance.TurnCursorOff();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

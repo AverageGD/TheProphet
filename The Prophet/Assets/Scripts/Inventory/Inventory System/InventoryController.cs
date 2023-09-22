@@ -9,9 +9,15 @@ public class InventoryController : MonoBehaviour
     {
         descriptionBox = transform.Find("DescriptionBox").gameObject;
 
+
         descriptionBox.SetActive(false);
 
         IsInventoryOpen = !IsInventoryOpen;
+
+        if (IsInventoryOpen)
+            GameManager.instance.TurnCursorOn();
+        else
+            GameManager.instance.TurnCursorOff();
 
         gameObject.SetActive(IsInventoryOpen);
     }
