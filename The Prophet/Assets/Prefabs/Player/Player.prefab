@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 3328645946307430552}
   - component: {fileID: 4920653434485442970}
   - component: {fileID: 8832425287672128962}
-  - component: {fileID: 5331885513191778915}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -269,7 +268,6 @@ MonoBehaviour:
   _playerGhost: {fileID: 1986832492298096555, guid: a5b0afc55db1ed640a3a149e2c1e2871, type: 3}
   _footstepAudioContainer: {fileID: 4920653434485442970}
   _jumpAudioContainer: {fileID: 8832425287672128962}
-  _attackAudioContainer: {fileID: 5331885513191778915}
   lastSafePosition: {x: 0, y: 0}
 --- !u!114 &602758095603627752
 MonoBehaviour:
@@ -685,25 +683,6 @@ MonoBehaviour:
   pitch: 1
   audioClips:
   - {fileID: 8300000, guid: 63fd47e535b39794894b05414cbe4948, type: 3}
---- !u!114 &5331885513191778915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4935279571419285620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e31318dd6c50bd4e9b6994ecaa5f868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: 0.01
-  pitch: 1
-  audioClips:
-  - {fileID: 8300000, guid: 3a5e29b3b27864b4cbbb6ba04ad78273, type: 3}
-  - {fileID: 8300000, guid: f1462db2aaeea894a965d30dd7648f7f, type: 3}
-  - {fileID: 8300000, guid: 88415b8c07588d444acea4bd0f597936, type: 3}
-  - {fileID: 8300000, guid: 3379116c253aefd488b5fb5cf19a94a5, type: 3}
 --- !u!1 &6967970778722298141
 GameObject:
   m_ObjectHideFlags: 0

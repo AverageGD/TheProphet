@@ -44,7 +44,6 @@ public class CharacterController2D : MonoBehaviour
 
     [SerializeField] private AudioContainer _footstepAudioContainer;
     [SerializeField] private AudioContainer _jumpAudioContainer;
-    [SerializeField] private AudioContainer _attackAudioContainer;
 
     private float verticalAxis;
     private bool isLadder;
@@ -256,11 +255,6 @@ public class CharacterController2D : MonoBehaviour
         short maxNumberOfAttacks = (short)(UpgradeSystemManager.instance.CanUseAbility("The Fool") ? 4 : 3);
 
         currentNumberOfAttacks++;
-
-        audioSource.volume = _attackAudioContainer.volume;
-        audioSource.pitch = _attackAudioContainer.pitch;
-        audioSource.clip = _attackAudioContainer.audioClips[Random.Range(0, 3)];
-        audioSource.Play();
 
         if (currentNumberOfAttacks > maxNumberOfAttacks)
         {
