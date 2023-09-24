@@ -5,7 +5,7 @@ public class RoomInfo : MonoBehaviour
     [SerializeField] private GameObject _playerCorpse;
 
     public short id;
-    public Sprite roomSprite;
+    public Sprite roomSpriteDefault;
     public Vector2 roomSpriteCoordinates;
 
     private void Start()

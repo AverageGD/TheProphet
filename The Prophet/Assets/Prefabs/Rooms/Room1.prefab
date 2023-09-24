@@ -4112,7 +4112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCorpse: {fileID: 1959132560109540969, guid: 0a3041ebd6e71e94fbd79701217accf4, type: 3}
   id: 14
-  roomSprite: {fileID: 21300000, guid: 8851dfabbe7d48546b8156ebf53344a3, type: 3}
+  roomSpriteDefault: {fileID: 21300000, guid: 8851dfabbe7d48546b8156ebf53344a3, type: 3}
+  roomSpriteVisited: {fileID: 21300000, guid: a77f9c47e75784644b04f1ddd1216003, type: 3}
   roomSpriteCoordinates: {x: 32, y: 442}
 --- !u!1 &2717324707806736206
 GameObject:
@@ -13081,6 +13082,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1998413161636395145}
     m_Modifications:
+    - target: {fileID: 2819634141052795298, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
+      propertyPath: Priority
+      value: 190
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819634141052795298, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
+      propertyPath: m_Volume
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819634141052795298, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
+      propertyPath: DopplerLevel
+      value: 3.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819634141052795298, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819634141052795298, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4567385399414468663, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -13151,18 +13172,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863320665782704353, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.10309267
+      value: 0.06505565
       objectReference: {fileID: 0}
     - target: {fileID: 6863320665782704353, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
+      value: 0.5283019
       objectReference: {fileID: 0}
     - target: {fileID: 6863320665782704353, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0
+      value: 0.012459949
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2819634141052795298, guid: c0f40e82d4517fb488b54c301b4031c8, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

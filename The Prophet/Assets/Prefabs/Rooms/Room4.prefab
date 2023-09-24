@@ -8337,7 +8337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCorpse: {fileID: 1959132560109540969, guid: 0a3041ebd6e71e94fbd79701217accf4, type: 3}
   id: 17
-  roomSprite: {fileID: 21300000, guid: b084a33bbe7f66b45a9aefdcd54489c0, type: 3}
+  roomSpriteDefault: {fileID: 21300000, guid: b084a33bbe7f66b45a9aefdcd54489c0, type: 3}
+  roomSpriteVisited: {fileID: 21300000, guid: 15730fb241263c74e8da0d97355cf6b5, type: 3}
   roomSpriteCoordinates: {x: -74, y: 260}
 --- !u!1 &8651132620040336495
 GameObject:

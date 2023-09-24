@@ -35,10 +35,14 @@ public class RoomsUIController : MonoBehaviour
 
         foreach (int id in AllRoomsContainer.instance.visitedRooms)
         {
+            if (AllRoomsContainer.instance.roomsDictionary[id].GetComponent<RoomInfo>().roomSpriteDefault == null)
+                return;
+
                 GameObject roomUIClone = Instantiate(_roomUI, transform);
 
                 roomUIClone.transform.localPosition = AllRoomsContainer.instance.roomsDictionary[id].GetComponent<RoomInfo>().roomSpriteCoordinates;
-                roomUIClone.GetComponent<Image>().sprite = AllRoomsContainer.instance.roomsDictionary[id].GetComponent<RoomInfo>().roomSprite;
+                roomUIClone.GetComponent<Image>().sprite = AllRoomsContainer.instance.roomsDictionary[id].GetComponent<RoomInfo>().roomSpriteDefault;
+
                 roomUIClone.GetComponent<Image>().SetNativeSize();
         }
     }

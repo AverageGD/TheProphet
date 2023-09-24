@@ -4695,7 +4695,7 @@ Transform:
   m_Children:
   - {fileID: 6379360317705050101}
   - {fileID: 4452819681358525614}
-  - {fileID: 8922381116430704203}
+  - {fileID: 4409000297621725548}
   m_Father: {fileID: 7914745927060425880}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12794,7 +12794,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCorpse: {fileID: 1959132560109540969, guid: 0a3041ebd6e71e94fbd79701217accf4, type: 3}
   id: 19
-  roomSprite: {fileID: 21300000, guid: 3e2693ba9941bfd4cb3e1ad8915cc55f, type: 3}
+  roomSpriteDefault: {fileID: 21300000, guid: 3e2693ba9941bfd4cb3e1ad8915cc55f, type: 3}
+  roomSpriteVisited: {fileID: 21300000, guid: ad45525e0caa10644819715c0ba5bd5e, type: 3}
   roomSpriteCoordinates: {x: -250, y: 20}
 --- !u!1001 &2145445698922637509
 PrefabInstance:
@@ -13391,7 +13392,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 493c518e7f7d97048abb835fc4bb6ec2, type: 3}
---- !u!4 &8922381116430704203 stripped
+--- !u!4 &4409000297621725548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5969469126527097585, guid: 493c518e7f7d97048abb835fc4bb6ec2, type: 3}
   m_PrefabInstance: {fileID: 8068263475477658525}

@@ -8501,7 +8501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCorpse: {fileID: 1959132560109540969, guid: 0a3041ebd6e71e94fbd79701217accf4, type: 3}
   id: 13
-  roomSprite: {fileID: 21300000, guid: 5b32dffffd609ae4d8f77df8d910c801, type: 3}
+  roomSpriteDefault: {fileID: 21300000, guid: 5b32dffffd609ae4d8f77df8d910c801, type: 3}
+  roomSpriteVisited: {fileID: 21300000, guid: d4fc74408f8fa36459b7ccfc21cfe324, type: 3}
   roomSpriteCoordinates: {x: -400, y: 500}
 --- !u!1 &7864571314061139207
 GameObject:
@@ -8995,6 +8996,30 @@ PrefabInstance:
     - target: {fileID: 2464590747394038520, guid: 9397672a49b849c469d383a10fdec80c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694856479012847595, guid: 9397672a49b849c469d383a10fdec80c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694856479012847595, guid: 9397672a49b849c469d383a10fdec80c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694856479012847595, guid: 9397672a49b849c469d383a10fdec80c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694856479012847595, guid: 9397672a49b849c469d383a10fdec80c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694856479012847595, guid: 9397672a49b849c469d383a10fdec80c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694856479012847595, guid: 9397672a49b849c469d383a10fdec80c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.5283019
       objectReference: {fileID: 0}
     - target: {fileID: 5006560060440609262, guid: 9397672a49b849c469d383a10fdec80c, type: 3}
       propertyPath: m_Volume
