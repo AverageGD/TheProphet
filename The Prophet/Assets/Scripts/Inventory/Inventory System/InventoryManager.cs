@@ -86,7 +86,7 @@ public class InventoryManager : MonoBehaviour
             {
                 obj = Instantiate(itemPrefab, ribbonSlotContainer);
 
-                obj.transform.localPosition = new Vector2(xRibbon * 100f, -yRibbon * 120f);
+                obj.transform.localPosition = new Vector2(xRibbon * 100f, -yRibbon * 96f);
                 obj.GetComponent<InventoryItemController>().ribbon = item.ribbonAbility;
 
                 xRibbon++;
@@ -101,7 +101,7 @@ public class InventoryManager : MonoBehaviour
             {
                 obj = Instantiate(itemPrefab, amuletSlotContainer);
 
-                obj.transform.localPosition = new Vector2(xAmulet * 100f, -yAmulet * 120f);
+                obj.transform.localPosition = new Vector2(xAmulet * 100f, -yAmulet * 96f);
                 obj.GetComponent<InventoryItemController>().amulet = item.amuletAbility;
 
                 xAmulet++;
@@ -115,7 +115,7 @@ public class InventoryManager : MonoBehaviour
             else if (item.itemType == Item.ItemType.keyItem)
             {
                 obj = Instantiate(itemPrefab, keyItemSlotContainer);
-                obj.transform.localPosition = new Vector2(xKeyItem * 100f, -yKeyItem * 120f);
+                obj.transform.localPosition = new Vector2(xKeyItem * 100f, -yKeyItem * 96f);
 
                 xKeyItem++;
                 if (xKeyItem >= 1)
