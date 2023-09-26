@@ -143,6 +143,7 @@ MonoBehaviour:
     - "What has brought thee here? \r\n"
     - "Please, I have to work on new mushroom species, so don't interfere! \r\n"
   _delayTime: 0.2
+  _needToAutomaticallyCallDialogueEnd: 0
   dialogueIndex: 0
   OnDialogueEnd:
     m_PersistentCalls:

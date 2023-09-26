@@ -14,11 +14,14 @@ public class EnemyHealthController : MonoBehaviour
 
     protected Animator animator;
     protected SpriteRenderer spriteRenderer;
+
+    private Rigidbody2D rigidbody;
   
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rigidbody = GetComponent<Rigidbody2D>();
         health = _maxHealth;
 
         animator.SetFloat("Health", _maxHealth);
@@ -39,6 +42,8 @@ public class EnemyHealthController : MonoBehaviour
     protected virtual IEnumerator Die()
     {
         OnDeath?.Invoke();
+
+        rigidbody.velocity = Vector2.zero;
 
         animator.SetTrigger("Death");
         gameObject.layer = LayerMask.NameToLayer("Invincible");

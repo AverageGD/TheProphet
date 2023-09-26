@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     private Text nameText;
     private Text dialogueText;
+    private AudioSource audioSource;
 
     public UnityEvent OnStart;
     public UnityEvent OnEnd;
@@ -29,6 +30,8 @@ public class DialogueManager : MonoBehaviour
         dialogueText = _dialogueBox.transform.Find("Dialogue").gameObject.GetComponent<Text>();
 
         _dialogueBox.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -55,12 +58,14 @@ public class DialogueManager : MonoBehaviour
         }
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
+        audioSource.Play();
         StartCoroutine(AddLetters(sentence));
     }
 
     public void EndDialogue()
     {
         OnEnd?.Invoke();
+        audioSource.Stop();
 
         if (_dialogueBox != null)
             _dialogueBox.SetActive(false);
@@ -72,8 +77,11 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in sentence.ToCharArray())
         {
             dialogueText.text += c;
+
             yield return new WaitForSeconds(0.01f);
         }
+
+        audioSource.Stop();
 
     }
 }

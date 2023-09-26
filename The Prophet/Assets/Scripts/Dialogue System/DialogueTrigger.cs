@@ -12,7 +12,7 @@ public class DialogueTrigger : Interactable
 
     private float lastClickTime = 0;
     private int indexOfCurrentSentence = 0;
-    
+
 
     public override void Interact()
     {
