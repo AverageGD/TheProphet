@@ -31,6 +31,7 @@ public class SaveManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
+
         LoadPlayerData();
         LoadPlayerInventory();
         LoadPlayerUpgrades();
@@ -159,13 +160,14 @@ public class SaveManager : MonoBehaviour
 
         int iteration = 0;
 
+        PlayerPrefs.SetInt("RoomsDataLength", roomsDataLength);
+
         foreach (int id in AllRoomsContainer.instance.visitedRooms)
         {
             PlayerPrefs.SetInt("Room" + iteration, id);
             iteration++;
         }
 
-        PlayerPrefs.SetInt("RoomsDataLength", roomsDataLength);
 
         PlayerPrefs.Save();
     }
@@ -176,7 +178,9 @@ public class SaveManager : MonoBehaviour
 
         for (int i = 0; i < roomsDataLength; i++)
         {
-            AllRoomsContainer.instance.visitedRooms.Add(PlayerPrefs.GetInt("Room" + i));
+            int? id = PlayerPrefs.GetInt("Room" + i);
+            if (id != null)
+                AllRoomsContainer.instance.visitedRooms.Add((int)id);
         }
     }
 

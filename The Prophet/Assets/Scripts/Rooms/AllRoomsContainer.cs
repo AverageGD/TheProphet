@@ -28,9 +28,11 @@ public class AllRoomsContainer : MonoBehaviour
 
     public void VisitRoom(short id)
     {
+        Debug.Log("check room");
         if (visitedRooms.Contains(id))
             return;
 
+        Debug.Log("added room");
         visitedRooms.Add(id);
         SaveManager.instance.SaveVisitedRooms();
     }

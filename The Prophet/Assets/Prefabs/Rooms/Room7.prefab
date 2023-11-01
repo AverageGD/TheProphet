@@ -5497,7 +5497,6 @@ MonoBehaviour:
   _playerCorpse: {fileID: 1959132560109540969, guid: 0a3041ebd6e71e94fbd79701217accf4, type: 3}
   id: 20
   roomSpriteDefault: {fileID: 21300000, guid: 071e6f286cf17b04d8e7e787f9c3d390, type: 3}
-  roomSpriteVisited: {fileID: 21300000, guid: 48dbe689e248f394eadc5f8fc643fc6e, type: 3}
   roomSpriteCoordinates: {x: -469, y: -56}
 --- !u!1 &7077370678898569651
 GameObject:

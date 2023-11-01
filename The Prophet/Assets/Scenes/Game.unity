@@ -1233,11 +1233,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6183279073207064657, guid: 712c5c9bdac6f2c48a89efba93338eae, type: 3}
   m_PrefabInstance: {fileID: 4607840052373598031}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &841567356 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9105158324099747150, guid: d3341dc401fe85f4095a666ed4dad3b7, type: 3}
-  m_PrefabInstance: {fileID: 1477303415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &857282687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3874,7 +3869,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2022286333}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 589434114159027254, guid: d3341dc401fe85f4095a666ed4dad3b7, type: 3}
       propertyPath: OnDialogueEnd.m_PersistentCalls.m_Calls.Array.size
@@ -4014,19 +4009,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9105158324099747150, guid: d3341dc401fe85f4095a666ed4dad3b7, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9105158324099747150, guid: d3341dc401fe85f4095a666ed4dad3b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3867035
+      value: -39.55
       objectReference: {fileID: 0}
     - target: {fileID: 9105158324099747150, guid: d3341dc401fe85f4095a666ed4dad3b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22531128
+      value: 10.95
       objectReference: {fileID: 0}
     - target: {fileID: 9105158324099747150, guid: d3341dc401fe85f4095a666ed4dad3b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5151979
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9105158324099747150, guid: d3341dc401fe85f4095a666ed4dad3b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4860,8 +4855,7 @@ Transform:
   m_LocalPosition: {x: -45.456703, y: -104.22531, z: -1.5151979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 841567356}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7538,6 +7532,10 @@ PrefabInstance:
     - target: {fileID: 5331885513191778915, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014293953722779349, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
+      propertyPath: _decceleration
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9167658657191060510, guid: 252c1ce68c8b7c142baa870302825c51, type: 3}
       propertyPath: _healthBarUI
