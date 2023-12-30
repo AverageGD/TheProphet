@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 public class CharacterController2D : MonoBehaviour
@@ -9,6 +10,7 @@ public class CharacterController2D : MonoBehaviour
 
     [Header("Movement")]
 
+    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private float _speed;
     [SerializeField] private float _decceleration;
     [SerializeField] private float _acceleration;
@@ -79,7 +81,7 @@ public class CharacterController2D : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         rigidBody = GetComponent<Rigidbody2D>();
-    
+
         direction = 1;
         _spriteRenderer.flipX = false;
 
@@ -123,8 +125,15 @@ public class CharacterController2D : MonoBehaviour
             rigidBody.gravityScale = 4f;
 
         //getting values from axises
-        verticalAxis = Input.GetAxisRaw("Vertical");
-        horizontalAxis = Input.GetAxisRaw("Horizontal");
+        if (playerInput.actions["Movement"].ReadValue<Vector2>() != Vector2.zero)
+        {
+            verticalAxis = playerInput.actions["Movement"].ReadValue<Vector2>().y;
+            horizontalAxis = playerInput.actions["Movement"].ReadValue<Vector2>().x;
+        } else
+        {
+            verticalAxis = Input.GetAxisRaw("Vertical");
+            horizontalAxis = Input.GetAxisRaw("Horizontal");
+        }
 
 
         if (Mathf.Abs(verticalAxis) > Mathf.Abs(horizontalAxis) && isLadder && !isDashing) //if the player is near to the ladder and vertical axis isn't equal to 0, then he starts to climb
