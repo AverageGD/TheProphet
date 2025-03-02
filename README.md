@@ -30,11 +30,6 @@
 2. Open the project in Unity (recommended version 2022+).
 3. Build and run the game.
 
-## 📌 TODO
-- [ ] Expand the game world
-- [ ] Add more enemies and bosses
-- [ ] Implement deeper narrative elements
-- [ ] Improve animations and effects
 
 ## 🏆 Recognition
 🏅 **Winner of the USAID & EIF Fundamentals of Gaming Technologies competition**
