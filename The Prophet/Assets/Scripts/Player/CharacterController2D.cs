@@ -271,7 +271,7 @@ public class CharacterController2D : MonoBehaviour
             {
                 VibrationController.instance.StartVibration(0.2f, 0.2f, 0.3f);
 
-                CinemachineShake.instance.Shake(1, 0.3f);
+                CinemachineShake.instance.Shake(3, 0.3f);
                 if (currentNumberOfAttacks == 4)
                 {
                         enemy.gameObject.GetComponent<EnemyHealthController>().TakeDamage(2 * damage);
@@ -346,7 +346,7 @@ public class CharacterController2D : MonoBehaviour
 
         isDashing = false;
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         canDash = true;
     }
 
