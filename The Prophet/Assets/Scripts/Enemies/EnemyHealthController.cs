@@ -43,7 +43,7 @@ public class EnemyHealthController : MonoBehaviour
     {
         OnDeath?.Invoke();
 
-        rigidbody.velocity = Vector2.zero;
+        rigidbody.linearVelocity = Vector2.zero;
 
         animator.SetTrigger("Death");
         gameObject.layer = LayerMask.NameToLayer("Invincible");

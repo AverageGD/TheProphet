@@ -120,7 +120,7 @@ public class PlayerHealthController : MonoBehaviour
 
     private IEnumerator Heal()
     {
-        rigidBody.velocity = Vector3.zero;
+        rigidBody.linearVelocity = Vector3.zero;
         animator.SetBool("IsHealing", true);
 
         canHeal = false;

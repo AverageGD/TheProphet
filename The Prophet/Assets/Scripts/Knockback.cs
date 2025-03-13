@@ -51,7 +51,7 @@ public class Knockback : MonoBehaviour
                 _combinedForce = _knockbackForce;
             }
 
-            rigidbody.velocity = _combinedForce;
+            rigidbody.linearVelocity = _combinedForce;
 
             yield return new WaitForFixedUpdate();
 

@@ -168,12 +168,12 @@ public class CharacterController2D : MonoBehaviour
         _safePositionChecker.localPosition = new Vector2(direction * 2f, _safePositionChecker.localPosition.y); //determines the local position of safePositionChecker point by depending on direction
 
 
-        if (rigidBody.velocity.y < fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        if (rigidBody.linearVelocity.y < fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
         {
             CameraManager.instance.LerpYDamping(true);
         }
 
-        if (rigidBody.velocity.y >= 0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        if (rigidBody.linearVelocity.y >= 0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
         {
             CameraManager.instance.LerpedFromPlayerFalling = false;
 
@@ -197,7 +197,7 @@ public class CharacterController2D : MonoBehaviour
 
             rigidBody.gravityScale = 0f; //turning gravity scale on 0 for climbing
 
-            rigidBody.velocity = new Vector2(0, verticalAxis * _ladderClimbingSpeed);
+            rigidBody.linearVelocity = new Vector2(0, verticalAxis * _ladderClimbingSpeed);
 
             return;
         }
@@ -216,7 +216,7 @@ public class CharacterController2D : MonoBehaviour
 
         float targetSpeed = horizontalAxis * _speed; // The speed we need to reach
 
-        float speedDif = targetSpeed - rigidBody.velocity.x; // The difference between targetSpeed and current speed 
+        float speedDif = targetSpeed - rigidBody.linearVelocity.x; // The difference between targetSpeed and current speed 
 
         float accelRate = (Mathf.Abs(speedDif) > 0.01f) ? _acceleration : _decceleration; // if player stops/starts movement
 
@@ -335,8 +335,8 @@ public class CharacterController2D : MonoBehaviour
         float origGravity = rigidBody.gravityScale; // keeps default gravity scale
 
         rigidBody.gravityScale = 0;
-        rigidBody.velocity = Vector2.zero;
-        rigidBody.velocity = new Vector2(direction * _dashPower, 0f); // adds speed with player's current direction
+        rigidBody.linearVelocity = Vector2.zero;
+        rigidBody.linearVelocity = new Vector2(direction * _dashPower, 0f); // adds speed with player's current direction
         yield return new WaitForSeconds(0.2f);
 
         rigidBody.gravityScale = origGravity; //returns default gravity scale
@@ -375,7 +375,7 @@ public class CharacterController2D : MonoBehaviour
 
     public void ResetVelocity()
     {
-        rigidBody.velocity = Vector3.zero;
+        rigidBody.linearVelocity = Vector3.zero;
 
     }
 
@@ -395,7 +395,7 @@ public class CharacterController2D : MonoBehaviour
 
             _animator.SetTrigger("Jump");
             isClimbingLadder = false;
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 18);
+            rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, 18);
             lastJumpTime = Time.time;
         }
     }
@@ -403,14 +403,14 @@ public class CharacterController2D : MonoBehaviour
     //Checks if player is near to the wall
     private bool IsWallNear()
     {
-        if (!Input.GetButtonDown("Jump") && rigidBody.velocity.y > 0f) return false;
+        if (!Input.GetButtonDown("Jump") && rigidBody.linearVelocity.y > 0f) return false;
         else return Physics2D.OverlapCircle(_wallChecker.position, _wallCheckDistance, _groundLayer);
     }
 
     //Checks if the player's current position is safe to keep in the lastSafePosition
     private void LastSafePositionDeterminer()
     {
-        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) && Physics2D.OverlapCircle(_safePositionChecker.position, _safePositionCheckDistance, _groundLayer) && rigidBody.velocity.y == 0)
+        if (GameManager.instance.IsGrounded(_groundChecker, _groundCheckDistance) && Physics2D.OverlapCircle(_safePositionChecker.position, _safePositionCheckDistance, _groundLayer) && rigidBody.linearVelocity.y == 0)
         {
             lastSafePosition = transform.position;
         }
@@ -430,7 +430,7 @@ public class CharacterController2D : MonoBehaviour
     {
         if (collision.CompareTag("Ladder"))
         {
-            if (rigidBody.velocity.y > 0)
+            if (rigidBody.linearVelocity.y > 0)
                 Jump();
 
             currentLadder = null;

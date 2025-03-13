@@ -11,7 +11,7 @@ public class PlayerTrapInteraction : MonoBehaviour
 
             //also here will be taking damage for the player
 
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
             GetComponent<Animator>().Play("Idle");
             PlayerHealthController.instance.TakeDamage(1, Vector2.up, false);
 

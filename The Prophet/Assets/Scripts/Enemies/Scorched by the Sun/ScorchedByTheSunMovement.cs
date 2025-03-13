@@ -41,7 +41,7 @@ public class ScorchedByTheSunMovement : MonoBehaviour
             }
 
             if (IsSafeGround()) //if there is safe ground he moves
-                rigidBody.velocity = Vector2.right * _speed * direction;
+                rigidBody.linearVelocity = Vector2.right * _speed * direction;
         }
     }
 
