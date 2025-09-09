@@ -52,7 +52,7 @@ public class SaveManager : MonoBehaviour
         };
 
         string json = JsonUtility.ToJson(playerData);
-        File.WriteAllText(Application.dataPath + "/playerData.txt", json);
+        File.WriteAllText(Application.persistentDataPath + "/playerData.txt", json);
 
         SavePlayerCurrency();
     }
@@ -60,7 +60,7 @@ public class SaveManager : MonoBehaviour
     {
         LoadPlayerCurrency();
 
-        if (!File.Exists(Application.dataPath + "/playerData.txt"))
+        if (!File.Exists(Application.persistentDataPath + "/playerData.txt"))
         {
             roomID = 13;
 
@@ -69,7 +69,7 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
-        string json = File.ReadAllText(Application.dataPath + "/playerData.txt");
+        string json = File.ReadAllText(Application.persistentDataPath + "/playerData.txt");
 
         PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
 
