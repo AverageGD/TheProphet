@@ -1,9 +1,13 @@
+using System;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RoomsUIController : MonoBehaviour
 {
     public static RoomsUIController instance;
+
+    [SerializeField] private GameObject _gui;
 
     [SerializeField] private GameObject _roomUI;
     [SerializeField] private Transform _map;
@@ -16,11 +20,13 @@ public class RoomsUIController : MonoBehaviour
             instance = this;
     }
 
-    public void TryToTurnOnOffMap()
+    public void TurnOnOffMap()
     {
         IsMapOpen = !IsMapOpen;
 
         gameObject.SetActive(IsMapOpen);
+
+        _gui.SetActive(!IsMapOpen);
 
         ListRooms();
     }

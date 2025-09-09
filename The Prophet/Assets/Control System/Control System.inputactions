@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "Control System",
     "maps": [
         {
@@ -9,7 +10,7 @@
                     "name": "Dash",
                     "type": "Button",
                     "id": "750e0a55-5f3a-4b0f-a28f-1f107b5d5acb",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -81,7 +82,7 @@
                     "name": "Close UI",
                     "type": "Button",
                     "id": "63565b02-1c20-4936-9bb0-85e1d3e39216",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -90,7 +91,7 @@
                     "name": "Restart Game",
                     "type": "Button",
                     "id": "d9046a8d-78e7-4e98-97b7-9a3047c0dfb7",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -99,7 +100,7 @@
                     "name": "Rewind Action",
                     "type": "Button",
                     "id": "5cb0cdd3-8d7c-4ebe-b01e-4533ef52b831",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -186,7 +187,7 @@
                 {
                     "name": "",
                     "id": "1bf1a2f0-aac9-4936-a24f-b50c8da475e9",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -197,7 +198,7 @@
                 {
                     "name": "",
                     "id": "b9990166-4159-4302-9f55-903b06ace4a7",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -296,7 +297,7 @@
                 {
                     "name": "",
                     "id": "92fe4efb-ee75-4c86-9d87-2f778af36e63",
-                    "path": "<Keyboard>/backquote",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

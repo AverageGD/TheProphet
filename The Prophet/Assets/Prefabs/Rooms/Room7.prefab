@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6218526548511335096
 Transform:
@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8795218615720137207
 Transform:
@@ -132,7 +132,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3193628054519041282
 Transform:
@@ -201,7 +201,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5414476225474376523
 Transform:
@@ -3109,7 +3109,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &349997512743471519
 Transform:
@@ -5523,7 +5523,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5157972717900372363
 Transform:
@@ -5609,6 +5609,10 @@ PrefabInstance:
     - target: {fileID: 7451291549903309330, guid: fd0758c8f847bbe4baf0e4d9f9d38520, type: 3}
       propertyPath: m_Name
       value: Candle Light (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451291549903309330, guid: fd0758c8f847bbe4baf0e4d9f9d38520, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5714,6 +5718,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6218526548511335096}
     m_Modifications:
+    - target: {fileID: 1227686938726282351, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _roomID
       value: 19
@@ -5798,6 +5806,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5886656737630727633, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6585664564603306172, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Size.x
       value: 0.19677734
@@ -5818,6 +5830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 6694631689372527195, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5836,6 +5852,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6218526548511335096}
     m_Modifications:
+    - target: {fileID: 1227686938726282351, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _roomID
       value: 26
@@ -5920,6 +5940,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5886656737630727633, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6585664564603306172, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Size.x
       value: 2.9232101
@@ -5939,6 +5963,10 @@ PrefabInstance:
     - target: {fileID: 6694631689372527195, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Name
       value: RoomChanger (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694631689372527195, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6006,6 +6034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle Light (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7451291549903309330, guid: fd0758c8f847bbe4baf0e4d9f9d38520, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6024,6 +6056,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6218526548511335096}
     m_Modifications:
+    - target: {fileID: 1227686938726282351, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1966285347581687082, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: _roomID
       value: 25
@@ -6108,6 +6144,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5886656737630727633, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6585664564603306172, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Size.x
       value: 0.22953796
@@ -6127,6 +6167,10 @@ PrefabInstance:
     - target: {fileID: 6694631689372527195, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
       propertyPath: m_Name
       value: RoomChanger (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694631689372527195, guid: d1c2e74269f45ff459ea8f7ead46be50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6193,6 +6237,10 @@ PrefabInstance:
     - target: {fileID: 7451291549903309330, guid: fd0758c8f847bbe4baf0e4d9f9d38520, type: 3}
       propertyPath: m_Name
       value: Candle Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451291549903309330, guid: fd0758c8f847bbe4baf0e4d9f9d38520, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -119,6 +119,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &40495646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40495648}
+  - component: {fileID: 40495647}
+  m_Layer: 0
+  m_Name: ShowTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &40495647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40495646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38d7f0289207e24e91533325bbc28e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &40495648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40495646}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 489078087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &207533470
 GameObject:
   m_ObjectHideFlags: 3
@@ -460,6 +504,7 @@ Transform:
   - {fileID: 1910443503}
   - {fileID: 1669349615}
   - {fileID: 1072505255}
+  - {fileID: 40495648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &489078088
@@ -651,7 +696,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1653216833}
         m_TargetAssemblyTypeName: RoomsUIController, Assembly-CSharp
-        m_MethodName: TryToTurnOnOffMap
+        m_MethodName: TurnOnOffMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4418,6 +4463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2014c75b60038274e9d151514a3f755b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gui: {fileID: 2172352677262341407}
   _roomUI: {fileID: 6669773720454311185, guid: 4cc63d5248ddf9f44a858fa5bce78860, type: 3}
   _map: {fileID: 1653216830}
 --- !u!1 &1669349614
@@ -4604,7 +4650,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1984748631}
-  m_Father: {fileID: 2042639076857449238}
+  m_Father: {fileID: 6398634994091713538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5563,7 +5609,6 @@ RectTransform:
   - {fileID: 488075018024034573}
   - {fileID: 2884731824224319019}
   - {fileID: 1306825057624920376}
-  - {fileID: 1847632297}
   - {fileID: 1653216830}
   - {fileID: 1277274790037586712}
   - {fileID: 7227728675464150751}
@@ -6799,6 +6844,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1847632297}
   - {fileID: 3900514476846922144}
   - {fileID: 959715882394903238}
   - {fileID: 8339222457768810142}
