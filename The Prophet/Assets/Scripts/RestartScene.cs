@@ -12,8 +12,8 @@ public class RestartScene : MonoBehaviour
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
 
-            System.IO.File.Delete(Application.dataPath + "/playerData.txt");
-            
+            System.IO.File.Delete(Application.persistentDataPath + "/playerData.txt");
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             
         }

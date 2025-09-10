@@ -57,6 +57,7 @@ public class InventoryItemController : MonoBehaviour //This script is made for c
 
     public void WearItem(ItemSlot.Slots slots) //if player wants to wear any item he needs only drag it to the corresponding slot
     {
+        
 
         switch (slots) //checks which slot player put an item to give value to the corresonding field
         {

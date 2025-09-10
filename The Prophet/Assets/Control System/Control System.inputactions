@@ -308,7 +308,7 @@
                 {
                     "name": "",
                     "id": "a07541ae-cfc6-478d-b18a-49a4065f0184",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/anyButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -319,7 +319,7 @@
                 {
                     "name": "",
                     "id": "1b23454a-5e2a-4d6f-942c-d6c73aaaa6c5",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/anyKey",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
