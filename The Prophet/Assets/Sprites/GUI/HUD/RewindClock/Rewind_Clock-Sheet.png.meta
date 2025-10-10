@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 705d4aaaad1875745ac046f44edf3b96
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7540307206108068091
+    second: Rewind_Clock-Sheet_0
+  - first:
+      213: 5303240843393477816
+    second: Rewind_Clock-Sheet_1
+  - first:
+      213: 2527361336528086907
+    second: Rewind_Clock-Sheet_2
+  - first:
+      213: -6755055512277429726
+    second: Rewind_Clock-Sheet_3
+  - first:
+      213: 719178409765744826
+    second: Rewind_Clock-Sheet_4
+  - first:
+      213: -5691250726447256340
+    second: Rewind_Clock-Sheet_5
+  - first:
+      213: -8954487120718853602
+    second: Rewind_Clock-Sheet_6
+  - first:
+      213: 1291250107382555117
+    second: Rewind_Clock-Sheet_7
+  - first:
+      213: 6282075828010577770
+    second: Rewind_Clock-Sheet_8
+  - first:
+      213: 8798630428317992436
+    second: Rewind_Clock-Sheet_9
+  - first:
+      213: -3687464750360357338
+    second: Rewind_Clock-Sheet_10
+  - first:
+      213: 3845540221461107205
+    second: Rewind_Clock-Sheet_11
+  - first:
+      213: -7181093438945242347
+    second: Rewind_Clock-Sheet_12
+  - first:
+      213: -4082655938514158276
+    second: Rewind_Clock-Sheet_13
+  - first:
+      213: -6630575727817500239
+    second: Rewind_Clock-Sheet_14
+  - first:
+      213: -8896531241151106351
+    second: Rewind_Clock-Sheet_15
+  - first:
+      213: -4369819996692201050
+    second: Rewind_Clock-Sheet_16
+  - first:
+      213: -1764358669150979227
+    second: Rewind_Clock-Sheet_17
+  - first:
+      213: -6682108749003443525
+    second: Rewind_Clock-Sheet_18
+  - first:
+      213: -3962979998089389130
+    second: Rewind_Clock-Sheet_19
+  - first:
+      213: 4943801897172939763
+    second: Rewind_Clock-Sheet_20
+  - first:
+      213: 3574033986259214084
+    second: Rewind_Clock-Sheet_21
+  - first:
+      213: 6059021602040641193
+    second: Rewind_Clock-Sheet_22
+  - first:
+      213: 4556491567857390685
+    second: Rewind_Clock-Sheet_23
+  - first:
+      213: -1601288040529190051
+    second: Rewind_Clock-Sheet_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5074c9adb827b5790800000000000000
+      internalID: -7540307206108068091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bcafc40375e89940800000000000000
+      internalID: 5303240843393477816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7720dabebdf21320800000000000000
+      internalID: 2527361336528086907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 222d8a82dc83142a0800000000000000
+      internalID: -6755055512277429726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab0b73c04f80bf900800000000000000
+      internalID: 719178409765744826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3359
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec6d6a2e9d9401b0800000000000000
+      internalID: -5691250726447256340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3999
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a0eb718654bb380800000000000000
+      internalID: -8954487120718853602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 4639
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de1e8be91217be110800000000000000
+      internalID: 1291250107382555117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 5279
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f63a48eaa6e2750800000000000000
+      internalID: 6282075828010577770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 5919
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f546d5e1c30b1a70800000000000000
+      internalID: 8798630428317992436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 6559
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6261ff8b85e73dcc0800000000000000
+      internalID: -3687464750360357338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 7199
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5029aa5f47a1e5530800000000000000
+      internalID: 3845540221461107205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 7839
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 513d7c87091a75c90800000000000000
+      internalID: -7181093438945242347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 8479
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d79b40e0e7757c0800000000000000
+      internalID: -4082655938514158276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 9119
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b95c1f71867bf3a0800000000000000
+      internalID: -6630575727817500239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 9759
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2f506d8fb298480800000000000000
+      internalID: -8896531241151106351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 10399
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a143c48dd74b53c0800000000000000
+      internalID: -4369819996692201050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 11039
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56bffdc632db387e0800000000000000
+      internalID: -1764358669150979227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 11679
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2be110f716443a0800000000000000
+      internalID: -6682108749003443525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 12319
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb57e140baa009c0800000000000000
+      internalID: -3962979998089389130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 12959
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f335e0d1a9eb9440800000000000000
+      internalID: 4943801897172939763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 13599
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40f572679f4899130800000000000000
+      internalID: 3574033986259214084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 14239
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a6fc048b08f51450800000000000000
+      internalID: 6059021602040641193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 14879
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54d33c80f8eb3f30800000000000000
+      internalID: 4556491567857390685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rewind_Clock-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 15519
+        y: 159
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d532d29d20517c9e0800000000000000
+      internalID: -1601288040529190051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Rewind_Clock-Sheet_0: -7540307206108068091
+      Rewind_Clock-Sheet_1: 5303240843393477816
+      Rewind_Clock-Sheet_10: -3687464750360357338
+      Rewind_Clock-Sheet_11: 3845540221461107205
+      Rewind_Clock-Sheet_12: -7181093438945242347
+      Rewind_Clock-Sheet_13: -4082655938514158276
+      Rewind_Clock-Sheet_14: -6630575727817500239
+      Rewind_Clock-Sheet_15: -8896531241151106351
+      Rewind_Clock-Sheet_16: -4369819996692201050
+      Rewind_Clock-Sheet_17: -1764358669150979227
+      Rewind_Clock-Sheet_18: -6682108749003443525
+      Rewind_Clock-Sheet_19: -3962979998089389130
+      Rewind_Clock-Sheet_2: 2527361336528086907
+      Rewind_Clock-Sheet_20: 4943801897172939763
+      Rewind_Clock-Sheet_21: 3574033986259214084
+      Rewind_Clock-Sheet_22: 6059021602040641193
+      Rewind_Clock-Sheet_23: 4556491567857390685
+      Rewind_Clock-Sheet_24: -1601288040529190051
+      Rewind_Clock-Sheet_3: -6755055512277429726
+      Rewind_Clock-Sheet_4: 719178409765744826
+      Rewind_Clock-Sheet_5: -5691250726447256340
+      Rewind_Clock-Sheet_6: -8954487120718853602
+      Rewind_Clock-Sheet_7: 1291250107382555117
+      Rewind_Clock-Sheet_8: 6282075828010577770
+      Rewind_Clock-Sheet_9: 8798630428317992436
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

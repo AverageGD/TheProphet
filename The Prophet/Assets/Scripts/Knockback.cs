@@ -75,7 +75,7 @@ public class Knockback : MonoBehaviour
 
             PlayerHealthController.instance.TakeDamage(0.5f, Vector2.right, false);
 
-            KnockbackInvoker(-2 * hitDirection, Vector2.down, Input.GetAxisRaw("Horizontal"));
+            KnockbackInvoker(-2 * hitDirection, new Vector2(-Input.GetAxisRaw("Horizontal"), 1), Input.GetAxisRaw("Horizontal"));
         }
     }
 }

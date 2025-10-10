@@ -249,7 +249,7 @@ public class CharacterController2D : MonoBehaviour
         isAttacking = true;
         lastAttackTime = Time.time;
 
-        GameManager.instance.FreezeRigidbodyInvoker(0.2f, rigidBody);
+        GameManager.instance.FreezeRigidbodyInvoker(0.2f, rigidBody);  
 
 
         short maxNumberOfAttacks = (short)(UpgradeSystemManager.instance.CanUseAbility("The Fool") ? 4 : 3);

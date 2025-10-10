@@ -91,7 +91,7 @@ public class PlayerHealthController : MonoBehaviour
         VibrationController.instance.StartVibration(0.3f, 0.3f, 0.5f);
 
         if (gameObject != null)
-            GameManager.instance.InvincibilityInvoker(gameObject, 0.5f, true);
+            GameManager.instance.InvincibilityInvoker(gameObject, 1.5f, true);
 
         Flash.instance.FlashSpriteInvoker(spriteRenderer);
         health -= damage;
@@ -107,7 +107,7 @@ public class PlayerHealthController : MonoBehaviour
         }
 
         if (needKnockback)
-            Knockback.instance.KnockbackInvoker(hitDirection, Vector2.up, Input.GetAxisRaw("Horizontal"));
+            Knockback.instance.KnockbackInvoker(hitDirection, new Vector2(-Input.GetAxisRaw("Horizontal"), 1), Input.GetAxisRaw("Horizontal"));
     }
 
     public void TryToHealInvoker()
