@@ -65,17 +65,5 @@ public class Knockback : MonoBehaviour
         knockbackCoroutine = StartCoroutine(KnockbackAction(hitDirection, constantForceDirection, inputDirection));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Enemy"))
-        {
-            Vector2 hitDirection = collision.transform.position - transform.position;
-            hitDirection = new Vector2(hitDirection.x, 0);
-            hitDirection.Normalize();
-
-            PlayerHealthController.instance.TakeDamage(0.5f, Vector2.right, false);
-
-            KnockbackInvoker(-2 * hitDirection, new Vector2(-Input.GetAxisRaw("Horizontal"), 1), Input.GetAxisRaw("Horizontal"));
-        }
-    }
+    
 }

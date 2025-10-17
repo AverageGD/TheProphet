@@ -1192,9 +1192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 519420037}
-  distortionSpeed: 0.68
+  distortionSpeed: 0.83
   grayscaleSpeed: 0.47
-  distortionIntensity: -0.64
+  distortionIntensity: -0.76
   duration: 4
 --- !u!1 &535348431
 GameObject:
